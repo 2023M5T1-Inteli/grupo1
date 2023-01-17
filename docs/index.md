@@ -1,4 +1,10 @@
+<font size="+12"><center>
+Planejador de trajetórias para voos de baixa altitude
+</center></font>
+
 *(Observação: Este documento contém informações fictícias e foi elaborado para que os alunos entendam melhor como deve ser preenchido o documento do seu projeto.)*
+
+**Conteúdo**
 
 - [Autores](#autores)
 - [Visão Geral do Projeto](#visão-geral-do-projeto)
@@ -14,14 +20,12 @@
   - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
   - [Matriz de Risco](#matriz-de-risco)
 - [Requisitos do Sistema](#requisitos-do-sistema)
-  - [Persona](#persona)
+  - [Personas](#personas)
   - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
 - [Arquitetura do Sistema](#arquitetura-do-sistema)
   - [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
   - [Descrição dos Subsistemas](#descrição-dos-subsistemas)
-    - [Users Stories dos subsistemas](#users-stories-dos-subsistemas)
     - [Requisitos de software](#requisitos-de-software)
-    - [Documentação via PostMan](#documentação-via-postman)
   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [UX e UI Design](#ux-e-ui-design)
   - [Wireframe + Storyboard](#wireframe--storyboard)
@@ -41,21 +45,21 @@
 
 # Autores
 
-* Ana
-* Benedito
-* Carlos
-* Daniela
-* Eduardo
-* Fabiana
-* Gabriela
-* Humberto
+* Aluno 1
+* Aluno 2
+* Aluno 3
+* Aluno 4
+* Aluno 5
+* Aluno 6
+* Aluno 7
+* Aluno 8
 
 
 # Visão Geral do Projeto
 
 ## Empresa
 
-A empresa Game Trek foi fundada em 2222 e desenvolve soluções para que pessoas que estão geograficamente distantes possam participar dos jogos com a sensação de que estão no mesmo ambiente físico. O fundador da empresa se inspirou no [Holodeck](https://en.wikipedia.org/wiki/Holodeck) da série [*Star Trek: The Next Generation*](https://en.wikipedia.org/wiki/Star_Trek:_The_Next_Generation).
+*(Descrição da empresa.)*
 
 ## O Problema
 
@@ -78,21 +82,39 @@ A empresa Game Trek foi fundada em 2222 e desenvolve soluções para que pessoas
 
 # Análise do Problema
 
+*(Descrição da análise do problema.)*
+
 ## Análise da área de atuação
+
+*(Descrição da análise da área de atuação.)*
 
 ## Análise do cenário: Matriz SWOT
 
+*(Descrição da análise do cenário através da Matriz SWOT.)*
+
+
 ## Proposta de Valor: Value Proposition Canvas
 
+*(Descrição da proposta de valor.)*
+
+
 ## Matriz de Risco
+
+*(Descrição da matriz de risco.)*
 
 
 # Requisitos do Sistema
 
-## Persona
+*(Descrição dos requisitos.)*
+
+## Personas
+
+*(Descrição das personas.)*
+
 
 ## Histórias dos usuários (user stories)
 
+*(Descrição das histórias dos usuários.)*
 
 
 # Arquitetura do Sistema
@@ -101,11 +123,8 @@ A empresa Game Trek foi fundada em 2222 e desenvolve soluções para que pessoas
 
 ## Descrição dos Subsistemas
 
-### Users Stories dos subsistemas
-
 ### Requisitos de software
 
-### Documentação via PostMan
 
 ## Tecnologias Utilizadas
 
