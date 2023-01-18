@@ -34,10 +34,11 @@ Planejador de trajetórias para voos de baixa altitude
   - [Modelo Conceitual](#modelo-conceitual)
   - [Modelo Lógico](#modelo-lógico)
 - [Teste de Software](#teste-de-software)
-  - [Teste Unitário](#teste-unitário)
+  - [Testes Unitários](#testes-unitários)
   - [Teste de Usabilidade](#teste-de-usabilidade)
 - [Análise de Dados](#análise-de-dados)
 - [Manuais](#manuais)
+  - [Manual de Implantação](#manual-de-implantação)
   - [Manual do Usuário](#manual-do-usuário)
   - [Manual do Administrador](#manual-do-administrador)
 - [Referências](#referências)
@@ -59,62 +60,61 @@ Planejador de trajetórias para voos de baixa altitude
 
 ## Empresa
 
-*(Descrição da empresa.)*
+*Descrição_da_empresa*
 
 ## O Problema
 
-*(Descrição do problema.)*
+*Descrição_do_problema*
 
 ## Objetivos
 
 ### Objetivos gerais
 
-*(Descrição dos objetivos gerais.)*
+*Lista_de_objetivos_gerais*
 
 ### Objetivos específicos
 
-*(Descrição dos objetivos específicos.)*
+*Lista_de_objetivos específicos*
 
 ## Partes interessadas
 
-*(Descrição das partes interessadas.)*
-
+*Lista_e_apresentação_das_partes_interessadas*
 
 # Análise do Problema
 
-*(Descrição da análise do problema.)*
+*Descrição_da_análise_do_problema*
 
 ## Análise da área de atuação
 
-*(Descrição da análise da área de atuação.)*
+*Descrição_da_análise_da_área_de_atuação*
 
 ## Análise do cenário: Matriz SWOT
 
-*(Descrição da análise do cenário através da Matriz SWOT.)*
+*Matriz_SWOT*
 
 
 ## Proposta de Valor: Value Proposition Canvas
 
-*(Descrição da proposta de valor.)*
+*Value_Proposition_Canvas*
 
 
 ## Matriz de Risco
 
-*(Descrição da matriz de risco.)*
+*Matriz_de_risco*
 
 
 # Requisitos do Sistema
 
-*(Descrição dos requisitos.)*
+*Descrição_dos_requisitos*
 
 ## Personas
 
-*(Descrição das personas.)*
+*Descrição_das_personas*
 
 
 ## Histórias dos usuários (user stories)
 
-*(Descrição das histórias dos usuários.)*
+*Descrição_das_histórias_dos_usuários*
 
 
 # Arquitetura do Sistema
@@ -145,7 +145,7 @@ Planejador de trajetórias para voos de baixa altitude
 
 # Teste de Software
 
-## Teste Unitário
+## Testes Unitários
 
 ## Teste de Usabilidade
 
@@ -154,6 +154,8 @@ Planejador de trajetórias para voos de baixa altitude
 
 
 # Manuais
+
+## Manual de Implantação
 
 ## Manual do Usuário
 
