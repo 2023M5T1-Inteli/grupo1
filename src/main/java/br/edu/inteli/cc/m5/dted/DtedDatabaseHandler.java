@@ -1,20 +1,72 @@
 package br.edu.inteli.cc.m5.dted;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.gdal.gdal.gdal;
 import org.gdal.gdal.Dataset;
 import org.gdal.gdalconst.gdalconst;
 
+/**
+ * Implementa operações básicas de acesso a dados geográficos armazenados em arquivos
+ * no formato DTED utilizando a biblioteca GDAL.
+ */
+
 public class DtedDatabaseHandler {
 
-    public boolean Initialize(String database_path)
-    {
+    public boolean InitializeFromResources(String pathInResources) {
+        boolean retCode = false;
+
+        // Get version (for debug purposes only)
+        String s = gdal.VersionInfo();
+
+        // Register GDAL
+        gdal.AllRegister();
+
+        try {
+            ClassLoader classLoader = getClass().getClassLoader();
+
+            URL resource = classLoader.getResource(pathInResources);
+
+            // dun walk the root path, we will walk all the classes
+            List<File> dtedFiles = Files.walk(Paths.get(resource.toURI()))
+                    .filter(Files::isRegularFile)
+                    .map(x -> x.toFile())
+                    .collect(Collectors.toList());
+
+            m_DatabaseDtedDatasets = new ArrayList<>();
+
+            // Loop over all ".dt2" files to get their datasets
+            for (File f: dtedFiles)
+            {
+                Dataset d = gdal.Open(f.getAbsolutePath());
+                if(d != null)
+                    m_DatabaseDtedDatasets.add(d);
+            }
+
+            retCode = true;
+        } catch(URISyntaxException ex) {
+            retCode = false;
+        } catch(IOException ex) {
+            retCode = false;
+        } catch(NullPointerException ex) {
+            retCode = false;
+        }
+
+        return retCode;
+    }
+
+    public boolean Initialize(String database_path) {
         boolean retCode = false;
 
         // Get version (for debug purposes only)

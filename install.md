@@ -72,9 +72,41 @@ Procedimento:
 
 A documentação do projeto utiliza o formato Markdown. Para tornar mais conveniente a edição de arquivos neste formato, vamos instalar no Visual Studio Code algumas extensões específicas para Markdown.
 
+Procedimento:
+
+1. Execute o Visual Studio Code.
+2. Acesse a área das extensões e instale o *Markdown All in One*.
+
+![Instalação da extensão "Markdown All in One".](docs/img/vscode-markdown-extension.png)
 
 
 ## Instalação das extensões do Visual Studio Code e das ferramentas para a elaboração do artigo
 
+Neste módulo cada grupo deverá redigir um texto descrevendo os resultados do projeto no formato de um artigo científico. O conteúdo deste artigo será editado no formato Markdown, mas a geração do artigo em um formato próximo ao solicitado pelas publicações científicas será realizado utilizando as ferramentas LaTeX e pandoc.
+
+Procedimento:
+
+1. Acesse https://pandoc.org/installing.html e, a seguir, baixe e instale a ferramenta **pandoc**.
+3. Acesse https://miktex.org/download e, a seguir, baixe e instale o sistema básico TeX/LaTeX.
+5. Execute o Visual Studio code e, a seguir, acesse a área das extensões e instale o *vscode-pandoc* (instale a que tem como autor o DougFinke).
+
+
 ## Instalação das bibliotecas GDAL (para acessar formatos padronizados de dados geoespaciais)
+
+1. Acesse https://build2.gisinternals.com/sdk/downloads/release-1916-x64-gdal-3-5-0-mapserver-7-6-4/gdal-305-1916-x64-core.msi. Após o término do download, execute a instalação (selecione a instalação completa).
+2. Acesse https://build2.gisinternals.com/sdk/downloads/release-1916-x64-gdal-3-5-0-mapserver-7-6-4/gdal-305-1916-x64-filegdb.msi. Após o término do download, execute a instalação (selecione a instalação completa).
+3. Crie variáveis de ambiente com os seguintes valores:
+
+
+| Variável | Valor |
+|----------|-------|
+| GDAL_DATA | C:\Program Files\GDAL\gdal-data |
+| GDAL_DRIVER_PATH | C:\Program Files\GDAL\gdalplugins |
+| PROJ_LIB | C:\Program Files\GDAL\projlib |
+
+4. Adicione o seguinte caminho ao `PATH`:
+
+```
+    C:\Program Files\GDAL
+```
 

@@ -12,7 +12,7 @@ Seguem os passos sugeridos para a preparação do seu grupo no início do módul
 
 * **Passo 2**: Deverá ser criado um *fork* deste repositório para cada grupo.
 
-* **Passo 3**: Cada membro do grupo deverá clonar o repositório do grupo no seu computador e [validar a preparação do seu computador](validate.md).
+* **Passo 3**: Cada membro do grupo deverá clonar o repositório do grupo no seu computador e [validar a preparação do seu computador para o projeto](validate.md).
 
 * **Passo 4**: Cada grupo deverá editar este arquivo, removendo estas instruções e preenchendo o restante da página com os dados do projeto do seu grupo.
 
