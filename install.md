@@ -1,4 +1,8 @@
-# Preparação e verificação do ambiente no seu computador
+<p align="center">
+<a href= "https://www.inteli.edu.br/"><img src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a>
+</p>
+
+# Preparação do ambiente de trabalho no seu computador
 
 Como no Inteli o Windows é o sistema operacional mais comumente utilizado, as instruções deste documente são específicas para computadores com este sistema. A instalação destas ferramentas em computadores com Linux ou MacOS é possível, mas provavelmente será necessário buscar procedimentos específicos para estes sistemas operacionais.
 
@@ -16,6 +20,7 @@ Procedimento:
 
 Este ambiente de desenvolvimento já vem configurado para facilitar o desenvolvimento os programas solicitados nas tarefas de programação dos nossos autoestudos.
 
+![Tela da IDE Java para as tarefas de programação.](./docs/img/ide-java.png)
 
 ## Instalação do Visual Studio Code
 
@@ -26,11 +31,48 @@ Procedimento:
 1. Acesse https://code.visualstudio.com/
 2. Baixe o instalador indicado.
 3. Faça a instalação do programa.
+4. Execute o Visual studio Code.
    
+![Visual Studio Code.](./docs/img/vscode.png)
    
+
 ## Instalação das extensões do Visual Studio Code para o desenvolvimento Java
 
+Faça a instalação das extensões do Visual Studio Code para o desenvolvimento de aplicações na plataforma Java.
+
+Procedimento:
+
+1. Execute o Visual Studio Code.
+2. Acesse a área das extensões e instale o *Extension Pack for Java*.
+
+![Instalação do Extension Pack for Java.](docs/img/vscode-extensions-java.png)
+
+3. Para testar o ambiente de desenvolvimento, crie um novo projeto Java.
+
+![Criação de novo projeto Java.](docs/img/vscode-create-java-project.png)
+
+4. Para este primeiro teste, seleciona a opção *No build tools*.
+
+![Criação do projeto com a opção no build tools.](docs/img/vscode-create-java-project-no-build-tools.png)
+
+5. Crie e selecione a pasta para o projeto.
+
+![Criação e seleção da pasta para o projeto.](docs/img/vscode-create-java-project-select-folder.png)
+
+6. Defina o nome do projeto.
+
+![Definição do nome do projeto.](docs/img/vscode-create-java-project-define-name.png)
+
+7. Execute o programa-exemplo e verifique se a execução é bem-sucedida.
+
+![Execução do primeiro programa.](docs/img/vscode-create-java-project-execution.png)
+
+
 ## Instalação das extensões do Visual Studio Code para a elaboração da documentação
+
+A documentação do projeto utiliza o formato Markdown. Para tornar mais conveniente a edição de arquivos neste formato, vamos instalar no Visual Studio Code algumas extensões específicas para Markdown.
+
+
 
 ## Instalação das extensões do Visual Studio Code e das ferramentas para a elaboração do artigo
 
