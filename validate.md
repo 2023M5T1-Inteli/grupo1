@@ -66,6 +66,22 @@ No decorrer deste módulo, cada grupo redigirá a documentação do seu projeto 
 
 ![Network do repositório com diversos branches.](docs/img/github-network-several.png)
 
+11. Faça a criação de um *Pull Request*. É possível fazer isto pelo Visual Studio Code ou pelo próprio site do GitHub. Os passos a seguir mostram o procedimento utilizando o Visual Studio Code.
+
+![Início da criação de um pull request pelo Visual Studio Code.](docs/img/vscode-create-pull-request.png)
+
+12. Preencha os campos, prestando atenção se os repositórios e branches correspondem aos que você deseja, e faça a criação do *Pull Request*.
+
+![Criação do pull request pelo Visual Studio Code.](docs/img/vscode-create-pull-request-2.png)
+
+13. Se acessar o site do seu repositório no GitHub, você deve poder ver o *Pull Request* que foi criado.
+
+![Pull request criado no repositório.](docs/img/github-pull-request-created.png)
+
+14. Depois que todos do grupo tiverem criado seus *pull requests*, é possível visualizar todos eles no próprio Visual Studio Code.
+
+![Visualização dos pull requests no Visual Studio Code.](docs/img/vscode-refresh-pull-requests.png)
+
 
 ## Validação da execução dos programas
 
