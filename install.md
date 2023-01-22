@@ -36,6 +36,27 @@ Procedimento:
 ![Visual Studio Code.](./docs/img/vscode.png)
    
 
+## Configuração do Git
+
+Se esta é a primeira vez que você utiliza o Git no seu computador, execute o procedimento a seguir para configurar o usuário e o email.
+
+Procedimento:
+
+1. No Visual Studio Code, abra um terminal.
+
+![Novo terminal no Visual Studio Code.](docs/img/vscode-new-terminal.png)
+
+2. Execute os comandos para configurar o seu nome e o seu email.
+
+![Configuração do nome do email no Git.](docs/img/vscode-git-config.png)
+
+## Instalação da extensão *GitHub Pull Requests and Issues*
+
+1. Execute o Visual Studio Code.
+2. Acesse a área das extensões e instale a extensão *GitHub Pull Requests and Issues*.
+
+![Instalação da extensão GitHub Pull Requests and Issues.](docs/img/vscode-ext-github.png)
+
 ## Instalação das extensões do Visual Studio Code para o desenvolvimento Java
 
 Faça a instalação das extensões do Visual Studio Code para o desenvolvimento de aplicações na plataforma Java.
@@ -110,3 +131,6 @@ Procedimento:
     C:\Program Files\GDAL
 ```
 
+## Próximos passos
+
+Após a instalação de todos os itens deste documento, vá para a página com os [procedimentos de validação do ambiente](validate.md).

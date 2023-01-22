@@ -6,7 +6,7 @@
 
 Este repositório define um modelo (*template*) que deve ser seguido por cada grupo para o projeto do módulo 5.
 
-Seguem os passos sugeridos para a preparação do seu grupo no início do módulo:
+A seguir estão os passos sugeridos para a preparação do seu grupo no início do módulo:
 
 * **Passo 1**: Cada membro do grupo deverá [preparar o seu computador](install.md), instalando e configurando as ferramentas necessárias para redigir a documentação, desenvolver a aplicação e elaborar o artigo.
 
