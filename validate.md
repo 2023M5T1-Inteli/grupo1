@@ -26,7 +26,7 @@ Procedimentos iniciais:
 
 ## Validação da edição da documentação
 
-No decorrer deste módulo, cada grupo redigirá a documentação do seu projeto no arquivo [docs/index.md](docs/index.md). Para fazer esta validação o seu usuário já deve constar como um dos colaboradores do repositório.
+No decorrer deste módulo, cada grupo redigirá a documentação do seu projeto no arquivo [docs/index.md](docs/index.md). Vamos verificar se você consegue fazer modificações na documentação do projeto a partir do seu computador. Para fazer esta validação o seu usuário já deve constar como um dos colaboradores do repositório.
 
 1. Abra a sua cópia de trabalho do arquivo `docs/index.md`.
 
@@ -82,6 +82,39 @@ No decorrer deste módulo, cada grupo redigirá a documentação do seu projeto 
 
 ![Visualização dos pull requests no Visual Studio Code.](docs/img/vscode-refresh-pull-requests.png)
 
+15.  Escolha um integrante do grupo para ser o **gerente do repositório**. Ele será responsável por fazer os *merges*. Este integrante deverá acessar a lista de *pull requests* e realizar o checkout do *default branch*.
+
+![Checkout do default branch.](docs/img/vscode-merge1.png)
+
+16. O **gerente do repositório** deverá fazer o *checkout* do *pull request* a ser processado.
+
+![Checkout do pull request.](docs/img/vscode-merge2.png)
+
+17. O **gerente do repositório** deverá verificar o que foi modificado e, se estiver de acordo, realizar a operação de *merge*.
+
+![Criação do commit do merge.](docs/img/vscode-merge3.png)
+
+18. O **gerente do repositório** deverá confirmar a execução da operação.
+
+![Confirmação da operação de merge.](docs/img/vscode-merge4.png)
+
+19. O **gerente do repositório** deverá repetir os passos 16 a 18 até que todos os *pull requests* tenham sido processados.
+
+20. O **gerente do repositório** deverá chavear para o *branch* **master**.
+
+![Checkout do branch master.](docs/img/vscode-merge5.png)
+
+21. O **gerente do repositório** deverá executar uma operação de *pull* para trazer para seu repositório local as últimas modificações realizadas.
+
+![Execução da operação de pull.](docs/img/vscode-merge6.png)
+
+22. O **gerente do repositório** poderá verificar se todas as modificações dos branches foram incorporadas na sua cópia de trabalho do *branch* **master**.
+
+![Verificação da cópia de trabalho do master.](docs/img/vscode-merge7.png)
+
+23. O conteúdo da pasta **docs** é publicado em um site GitHub Pages. O endereço é montado a partir do usuário/organização e do nome do repositório.
+
+![Página inicial do GitHub Pages.](docs/img/github-pages.png)
 
 ## Validação da execução dos programas
 
