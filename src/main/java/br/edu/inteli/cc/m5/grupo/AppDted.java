@@ -57,7 +57,8 @@ public class AppDted {
             System.out.println("Não foi possível abrir a base com dados do Rio!");
         }
 
-        /** Yosemite sample **/
+        /** 
+         * Yosemite sample
         DtedDatabaseHandler dbYosemite = new DtedDatabaseHandler();
         boolean dbYoseOk = dbYosemite.Initialize("C:/Users/Inteli/Documents/Databases/Yosemite");
 
@@ -72,6 +73,7 @@ public class AppDted {
         else {
             System.out.println("Não foi possível abrir a base com dados de Yosemite!");
         }
-
+        **/
+        
     }
 }
