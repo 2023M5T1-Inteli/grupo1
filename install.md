@@ -96,6 +96,7 @@ A documentação do projeto utiliza o formato Markdown. Para tornar mais conveni
 Procedimento:
 
 1. Execute o Visual Studio Code.
+
 2. Acesse a área das extensões e instale o *Markdown All in One*.
 
 ![Instalação da extensão "Markdown All in One".](docs/img/vscode-markdown-extension.png)
@@ -108,14 +109,19 @@ Neste módulo cada grupo deverá redigir um texto descrevendo os resultados do p
 Procedimento:
 
 1. Acesse https://pandoc.org/installing.html e, a seguir, baixe e instale a ferramenta **pandoc**.
-3. Acesse https://miktex.org/download e, a seguir, baixe e instale o sistema básico TeX/LaTeX.
-5. Execute o Visual Studio code e, a seguir, acesse a área das extensões e instale o *vscode-pandoc* (instale a que tem como autor o DougFinke).
 
+2. Acesse https://miktex.org/download e, a seguir, baixe e instale o sistema básico TeX/LaTeX.
+
+3. Execute o Visual Studio code e, a seguir, acesse a área das extensões e instale o *vscode-pandoc* (instale a que tem como autor o *DougFinke*).
+
+4. Ainda no Visual Studio Code, instale a extensão *vscode-pdf* (instale a que tem como autor o *tomoki1207*).
 
 ## Instalação das bibliotecas GDAL (para acessar formatos padronizados de dados geoespaciais)
 
 1. Acesse https://build2.gisinternals.com/sdk/downloads/release-1916-x64-gdal-3-5-0-mapserver-7-6-4/gdal-305-1916-x64-core.msi. Após o término do download, execute a instalação (selecione a instalação completa).
+
 2. Acesse https://build2.gisinternals.com/sdk/downloads/release-1916-x64-gdal-3-5-0-mapserver-7-6-4/gdal-305-1916-x64-filegdb.msi. Após o término do download, execute a instalação (selecione a instalação completa).
+
 3. Crie variáveis de ambiente com os seguintes valores:
 
 
@@ -130,6 +136,8 @@ Procedimento:
 ```
     C:\Program Files\GDAL
 ```
+
+1. Vá até a pasta `C:\Program Files\GDAL\gdalplugins\` e mova para outra pasta (por exemplo, para `C:\Temp`) o arquivo `ogr_MSSQLSpatial.dll`.
 
 ## Próximos passos
 

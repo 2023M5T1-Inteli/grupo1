@@ -118,4 +118,37 @@ No decorrer deste módulo, cada grupo redigirá a documentação do seu projeto 
 
 ## Validação da execução dos programas
 
+Este repositório fornece um programa-exemplo que demonstra o uso da biblioteca GDAL.
+
+Procedimento para executar o programa-exemplo:
+
+1. No Visual Studio Code, navegue até a classe **AppDted** que está no pacote **br.edu.inteli.cc.m5.grupo**.
+
+![Navegação até a classe AppDted.](docs/img/vscode-java-app.png)
+
+2. Execute a classe e verifique o resultado da execução.
+
+![Execução e verificação do resultado.](docs/img/vscode-exec-result.png)
+
+
 ## Validação da geração do artigo
+
+O artigo é editado no formato *Markdown*, mas é possível gerar um arquivo PDF com uma formatação próxima à utilizada em publicações científicas.
+
+Procedimento para gerar o artigo em PDF:
+
+1. No Visual Studio Code, vá até a pasta `/artigo` e abra o arquivo `artigo-grupoN.md`.
+
+![Abertura do arquivo com o artigo.](docs/img/vscode-abrir-artigo.png)
+
+2. Edite o artigo (por exemplo, alterando os nomes dos autores) e salve o arquivo.
+
+![Edição dos nomes dos autores.](docs/img/vscode-artigo-autores.png)
+
+3. Pressione o atalho **Ctrl+K P** (pressione simultaneamente **Control** e **K**, solte, e a seguir pressione **P**). Escolha a opção **pdf renderer**.
+
+![Geração do artigo no formato PDF.](docs/img/vscode-artigo-pdf.png)
+
+4. Abra o arquivo **artigo-grupoN.pdf** e verifique o resultado após a sua edição.
+
+![Resultado da geração do PDF.](docs/img/vscode-artigo-resultado.png)

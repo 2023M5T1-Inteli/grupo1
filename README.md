@@ -25,3 +25,15 @@ A seguir estão os passos sugeridos para a preparação do seu grupo no início 
 
 *Descrição_resumida_do_projeto*
 
+# Documentação
+
+Os arquivos da documentação deste projeto ficam na pasta /docs, e o seu conteúdo é publicado em https://tmsasaki.github.io/TEMPLATE_CC_M5.
+
+
+# Artigo
+
+Os arquivos do artigo ficam na pasta /docs. O arquivo do artigo no formato PDF será anexado nos releases do projeto.
+
+# Releases
+
+Deverá ser publicado um release ao término de cada *sprint* do projeto.
