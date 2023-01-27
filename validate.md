@@ -4,11 +4,11 @@ Após realizar a [instalação do ambiente no seu computador](install.md), faça
 
 Procedimentos iniciais:
 
-1. Verifique se foi criado o *fork* deste repositório para o seu grupo. Embora seja possível realizar estes procedimentos de validação clonando este modelo (template) de repositório, é preferível já trabalhar no repositório do seu próprio grupo. Para a elaboração destas instruções vamos usar o repositório que está em https://github.com/tmsski/DemonstracaoM5 como o *forked repo*, mas ao executar no seu computador você deverá substituir a URL por aquela do repositório do seu grupo.
+1. Verifique se foi criado o *fork* deste repositório para o seu grupo. Embora seja possível realizar estes procedimentos de validação clonando este modelo (template) de repositório, é preferível já trabalhar no repositório do seu próprio grupo. Para a elaboração destas instruções vamos usar o repositório que está em https://github.com/tmsski/DemonstracaoM5 como o *forked repo*, mas ao executar no seu computador você deverá **substituir a URL por aquela do repositório do seu grupo**.
 
 ![Exemplo de *forked repo*.](./docs/img/fork-repositorio.png)
 
-2. Copie a URL do seu repositório para poder realizar a clonagem.
+2. Copie a **URL do seu repositório** (não a URL que está na figura) para poder realizar a clonagem.
 
 ![Clonagem do repositório.](./docs/img/clone-repo.png)
    
