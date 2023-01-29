@@ -3,10 +3,12 @@
 </p>
 
 <font size="+12"><center>
-Planejador de trajetórias para voos de baixa altitude
+Planejador de trajetórias para voos em baixa altitude
 </center></font>
 
-*(Observação: Este documento contém informações fictícias e foi elaborado para que os alunos entendam melhor como deve ser preenchido o documento do seu projeto.)*
+>*Observação 1: A estrutura inicial deste documento é só um exemplo. O seu grupo deverá alterar esta estrutura de acordo com o que está sendo solicitado nos artefatos.*
+
+>*Observação 2: O índice abaixo não precisa ser editado se você utilizar o Visual Studio Code com a extensão **Markdown All in One**. Essa extensão atualiza o índice automaticamente quando o arquivo é salvo.*
 
 **Conteúdo**
 

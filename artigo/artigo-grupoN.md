@@ -27,6 +27,8 @@ Ainda em outro trecho de DASGUPTA et. al. (2011), temos:
 
 > $f = \Omega(g)$ significa $g = O(f)$
 
+# Análise da corretude da solução proposta
+
 # Resultados obtidos
 
 # Conclusão
