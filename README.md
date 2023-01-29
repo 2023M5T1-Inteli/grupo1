@@ -10,11 +10,9 @@ A seguir estão os passos sugeridos para a preparação do seu grupo no início 
 
 * **Passo 1**: Cada membro do grupo deverá [preparar o seu computador](install.md), instalando e configurando as ferramentas necessárias para redigir a documentação, desenvolver a aplicação e elaborar o artigo.
 
-* **Passo 2**: Deverá ser criado um *fork* deste repositório para cada grupo.
+* **Passo 2**: Cada membro do grupo deverá clonar o repositório do grupo no seu computador e [validar a preparação do seu computador para o projeto](validate.md).
 
-* **Passo 3**: Cada membro do grupo deverá clonar o repositório do grupo no seu computador e [validar a preparação do seu computador para o projeto](validate.md).
-
-* **Passo 4**: Cada grupo deverá editar este arquivo, removendo estas instruções e preenchendo o restante da página com os dados do projeto do seu grupo.
+* **Passo 3**: Cada grupo deverá editar este arquivo, removendo estas instruções iniciais e preenchendo o restante da página com os dados do projeto do seu grupo.
 
 
 # Projeto: *Nome_do_seu_Projeto*
@@ -27,12 +25,12 @@ A seguir estão os passos sugeridos para a preparação do seu grupo no início 
 
 # Documentação
 
-Os arquivos da documentação deste projeto ficam na pasta [/docs](/docs), e o seu conteúdo é publicado em https://tmsasaki.github.io/TEMPLATE_CC_M5.
+Os arquivos da documentação deste projeto estão na pasta [/docs](/docs), e o seu conteúdo é publicado em https://tmsasaki.github.io/TEMPLATE_CC_M5.
 
 
 # Artigo
 
-Os arquivos do artigo ficam na pasta [/artigo](/artigo). O arquivo do artigo no formato PDF deverá ser anexado nos releases do projeto.
+Os arquivos do artigo estão na pasta [/artigo](/artigo). Um arquivo gerado no formato PDF deverá ser anexado a cada *release* do projeto.
 
 # Releases
 

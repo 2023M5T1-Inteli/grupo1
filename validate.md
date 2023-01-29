@@ -2,13 +2,17 @@
 
 Após realizar a [instalação do ambiente no seu computador](install.md), faça os procedimentos de validação que estão nesta página.
 
+>*Observação 1: Para a elaboração destas instruções vamos usar o repositório que está em https://github.com/tmsski/DemonstracaoM5, mas ao executar no seu computador você deverá sempre **usar a URL do repositório do seu grupo**.*
+
+>*Observação 2: Nestas instruções estamos utilizando o [**Git Featured Branch Workflow**](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow). Esta é uma das opções de [**Git Workflows**](https://www.atlassian.com/git/tutorials/comparing-workflows).*
+
 Procedimentos iniciais:
 
-1. Verifique se foi criado o *fork* deste repositório para o seu grupo. Embora seja possível realizar estes procedimentos de validação clonando este modelo (template) de repositório, é preferível já trabalhar no repositório do seu próprio grupo. Para a elaboração destas instruções vamos usar o repositório que está em https://github.com/tmsski/DemonstracaoM5 como o *forked repo*, mas ao executar no seu computador você deverá **substituir a URL por aquela do repositório do seu grupo**.
+1. Acesse o repositório do seu grupo. 
 
 ![Exemplo de *forked repo*.](./docs/img/fork-repositorio.png)
 
-2. Copie a **URL do seu repositório** (não a URL que está na figura) para poder realizar a clonagem.
+1. Copie a **URL do repositório** para poder realizar a clonagem.
 
 ![Clonagem do repositório.](./docs/img/clone-repo.png)
    
