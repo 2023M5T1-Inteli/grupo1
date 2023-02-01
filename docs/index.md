@@ -58,7 +58,7 @@ Planejador de trajetórias para voos em baixa altitude
 
 # Autores
 
-* Aluno 1
+* Allan Casado
 * Aluno 2
 * Aluno 3
 * Aluno 4
