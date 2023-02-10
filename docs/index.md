@@ -27,7 +27,6 @@ Planejador de trajetórias para voos em baixa altitude
     - [Objetivos específicos](#objetivos-específicos)
   - [Partes interessadas](#partes-interessadas)
 - [Análise do Problema](#análise-do-problema)
-  - [Análise da área de atuação](#análise-da-área-de-atuação)
   - [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
   - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
   - [Matriz de Risco](#matriz-de-risco)
@@ -96,26 +95,23 @@ Planejador de trajetórias para voos em baixa altitude
 
 *Descrição_da_análise_do_problema*
 
-## Análise da área de atuação
-
-*Descrição_da_análise_da_área_de_atuação*
-
 ## Análise do cenário: Matriz SWOT
 
 A Análise SWOT é um framework utilizado para ajudar a avaliar a situação atual de uma empresa, identificando seus pontos fortes (Strengths), fraquezas (Weaknesses), oportunidades (Opportunities) e ameaças (Threats). É uma ferramenta de avaliação de ambiente interno e externo da companhia que permite visualizar as forças e fraquezas internas da empresa, bem como as oportunidades e ameaças externas. O objetivo principal é ajudar a identificar oportunidades de melhoria e a desenvolver estratégias para maximizar as vantagens e minimizar as desvantagens. Além disso, como consequência do uso dessa técnica, acaba-se adquirindo um grande conhecimento da empresa e do mercado que ela atua.
 
-![Análise SWOT](https://drive.google.com/file/d/1-hrtFOi6HH6nWFc8Mo9l4srmGxZaCsIi/view?usp=sharing)
-
+[IMAGEM]
 
 ## Proposta de Valor: Value Proposition Canvas
 
-*Value_Proposition_Canvas*
+O Value Proposition Canvas é uma ferramenta que ajuda as empresas a entender e criar propostas de valor para seus clientes. Esse framework é composto por dois elementos principais: a seção dos clientes,  que descreve as necessidades, desejos, preocupações e contextos dos clientes-alvo, e a seção do produto, que descreve as soluções oferecidas para atender às necessidades dos clientes, exibindo como, então, a solução gera valor. O objetivo principal do Value Proposition Canvas é ajudar as empresas a compreender melhor os clientes e a criar propostas de valor que sejam mais eficazes.
 
-
+[IMAGEM]
+ 
 ## Matriz de Risco
 
-*Matriz_de_risco*
+A Matriz de Risco é uma ferramenta utilizada para avaliar e gerenciar os riscos em um projeto. A ideia dessa técnica é representar graficamente os riscos mapeados para determinado projeto e classificá-los de acordo com a sua probabilidade de ocorrência e impacto ao desenvolvimento. É uma ferramenta importante para ajudar as empresas a identificar e gerenciar os riscos de forma eficaz, o que é fundamental para o sucesso dos produtos e da realização de projetos de maneira segura e bem-sucedida, trazendo a possibilidade de identificar e priorizar os riscos mais críticos e, por consequência, desenvolver estratégias para minimizar seu impacto..
 
+[IMAGEM]
 
 # Requisitos do Sistema
 
@@ -123,13 +119,37 @@ A Análise SWOT é um framework utilizado para ajudar a avaliar a situação atu
 
 ## Personas
 
-*Descrição_das_personas*
+A Persona é uma representação fictícia do cliente-alvo de uma empresa ou produto. Essa representação descreve as características demográficas, comportamentais, sociais desse grupo específico clientes. Ela permite que as empresas tenham uma visão mais clara e detalhada das necessidades, desejos, preocupações e contextos dos clientes-alvo, o que é fundamental para  a criação de produtos, serviços e soluções que sejam mais atraentes e eficazes, especificamente para esse grupo.
+
+[IMAGEM]
 
 
 ## Histórias dos usuários (user stories)
 
-*Descrição_das_histórias_dos_usuários*
-
+| User Story | Prioridade | Status |
+|--- |--- |--- |
+| 1. Eu como piloto quero que o sistema evite rotas cruzadas, para garantir a segurança da
+viagem e evitar possíveis colisões. | Alta | A fazer |
+| 2. Como piloto, quero que o programa mantenha a altitude o mais baixo possível e dê o
+melhor trecho a ser percorrido, para minimizar o tempo de viagem. | Alta | A fazer |
+| 3. Como piloto, quero que o programa contribua para minimizar o consumo de
+combustível, para reduzir custos e ao mesmo tempo proteger o meio ambiente. | Alta | A fazer |
+| 4. Como piloto, quero que a trajetória de voo evite sistemas de monitoramento (SAMs) e
+áreas conhecidas de patrulha, para garantir a segurança da operação. | Alta | A fazer |
+| 5. Como piloto, quero que a trajetória de voo evite regiões muito povoadas, para minimizar
+riscos de segurança pública. | Alta | A fazer |
+| 6. Como piloto, quero que a trajetória aproveite também feições geográficas elevadas para
+evitar restrições, arrastos e condições adversas. | Alta | A fazer |
+| 7. Como piloto, quero ter uma interface intuitiva e objetiva, para que possa me concentrar
+na missão sem me preocupar com dificuldades técnicas. | Alta | A fazer |
+| 8. Como piloto quero um sistema que reduza a carga horária de trabalho para torná-la
+menos desgastante e ter maior foco na missão. | Alta | A fazer |
+| 9. Como operador, quero que o sistema ajude a diminuir o risco de exposição do piloto
+para garantir sua segurança. | Alta | A fazer |
+| 10. Como operador, quero definir zonas de exclusão, restrições e outras informações em
+parâmetros de entrada para manter um sistema de planejamento eficiente. | Alta | A fazer |
+| 11. Como piloto quero capturar dados e informações com facilidade para gerar valor à
+missão. | Alta | A fazer |
 
 # Arquitetura do Sistema
 
