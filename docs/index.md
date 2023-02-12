@@ -96,9 +96,21 @@ Planejador de trajetórias para voos em baixa altitude
 
 *Ao planejar uma rota para um piloto de avião, é importante levar em consideração a altitude, a distância e as zonas de riscos ao longo do caminho. O sobrevoo em altitudes elevadas aumenta a exposição do piloto e corrobora em possíveis detecções por áreas de monitoramento e a demanda de alto nível de foco.  A falta de obtenção de uma análise topográfica em um percurso, além do cálculo do raio de curva, sendo mínimo ou máximo durante a execução do voo, resulta em condições desfavoráveis, as quais dificultam concluir a missão com segurança e eficiência.*
 
+## Dados disponíveis
+
+*Os dados trazidos pelo banco proporcionado pelo cliente, que determina cada ponto do espaço, são: longitude, latitude e altitude.*
+
 ## Objetivo do problema
 
 *Objetiva-se certificar uma rota planejada que seja livre de zonas de monitoramento, altitudes elevadas e possibilidades de colisão quando o voo estiver em baixa altitude, tal como distâncias longas por meio da análise topográfica da região e com base na projeção do caminho mais viável e seguro a partir de um grafo.*
+
+## Variáveis de decisão consideradas
+
+* Mapeamento de pontos do espaço que possuem altitude que se adequam aos valores do intervalo estabelecido pela AEL.
+
+* Formar uma ligação de pontos mapeados anteriormente que possuem menor distância do ponto inicial dado pelo usuário até o ponto final.
+
+* Caso durante a rota escolhida entre os nós haja uma curva será necessário diminuir as arestas de modo que demonstre a curva na visualização.
 
 ## Limitações do problema
 
