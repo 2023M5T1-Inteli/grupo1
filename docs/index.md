@@ -59,42 +59,53 @@ Planejador de trajetórias para voos em baixa altitude
 # Autores
 
 * Allan Casado
+* Leandro Custódio
+* Mateus Almeida
+* Melyssa Rojas
 * Moises Cazé
-* Aluno 3
-* Aluno 4
-* Aluno 5
-* Aluno 6
-* Aluno 7
-* Aluno 8
+* Pedro Silva
+* Yasmin Rocha
 
 
 # Visão Geral do Projeto
 
 ## Empresa
 
-*Descrição_da_empresa*
+*Localizada em Porto Alegre, a AEL Sistemas é uma empresa gaúcha que desde 1982 atua no desenvolvimento, fabricação e manutenção de sistemas eletrônicos espaciais e de defesa militar. É uma das poucas empresas do Brasil que atuam no setor de defesa e os seus produtos são tecnologias únicas e customizadas. A empresa faz parte do grupo Elbit Systems, líder mundial no mercado aviônico de defesa.*
 
 ## O Problema
 
-*Descrição_do_problema*
+*Existe uma gama de operações, sejam elas civis ou militares, que engloba voos a baixa altitude. Este tipo de operação, no entanto, é afetado por fatores externos como regiões muito povoadas, regiões conhecidas de busca, além de oferecer grande risco de colisão com o solo (CFIT). O piloto, por sua vez, no decorrer da missão, por ter muitos pontos em paralelo para controlar e observar, possui uma carga de trabalho muitas vezes maior do que o ideal.*
 
 ## Objetivos
 
 ### Objetivos gerais
 
-*Lista_de_objetivos_gerais*
+*O objetivo do projeto é o desenvolvimento de um sistema capaz de gerar um trajeto otimizado — ponderando principalmente a altitude e a distância do ponto de partida ao ponto de chegada — para voos em baixa altitude utilizando grafos, com o intuito de facilitar a vida do piloto durante o trajeto, assim gerando missões mais eficientes e seguras para a AEL Sistemas.*
 
 ### Objetivos específicos
 
-*Lista_de_objetivos específicos*
+* Determinar o caminho mais otimizado — que contenha a menor altitude e distância do ponto de partida ao ponto de chegada.
+* Promover segurança e previsão para o piloto realizando o trajeto.
+* Criação de uma tecnologia que permita realizar trajetos para explorar o máximo do relevo a fim de obter maior cobertura da região com segurança.
 
 ## Partes interessadas
 
-*Lista_e_apresentação_das_partes_interessadas*
+*Os principais stakeholders do projeto planejador de trajetórias para voos em baixa altitude realizado pelo Inteli - Instituto de Tecnologia e Liderança em parceria com a empresa AEL Sistemas são: Inteli — que deseja proporcionar uma educação de excelência na área de tecnologia através de projetos reais — e seus alunos — interessados em se tornar profissionais competentes na área enquanto causam impacto positivo utilizando a tecnologia, e a empresa AEL Sistemas — interessada em uma tecnologia capaz de gerar missões mais seguras e eficientes.*
 
 # Análise do Problema
 
-*Descrição_da_análise_do_problema*
+*Ao planejar uma rota para um piloto de avião, é importante levar em consideração a altitude, a distância e as zonas de riscos ao longo do caminho. O sobrevoo em altitudes elevadas aumenta a exposição do piloto e corrobora em possíveis detecções por áreas de monitoramento e a demanda de alto nível de foco.  A falta de obtenção de uma análise topográfica em um percurso, além do cálculo do raio de curva, sendo mínimo ou máximo durante a execução do voo, resulta em condições desfavoráveis, as quais dificultam concluir a missão com segurança e eficiência.*
+
+## Objetivo do problema
+
+*Objetiva-se certificar uma rota planejada que seja livre de zonas de monitoramento, altitudes elevadas e possibilidades de colisão quando o voo estiver em baixa altitude, tal como distâncias longas por meio da análise topográfica da região e com base na projeção do caminho mais viável e seguro a partir de um grafo.*
+
+## Limitações do problema
+
+* Limitação 1 - Envelope de voo e a relação com variáveis de altitude e curva da aeronave: Determinado por combinação de fatores, sendo um deles a altitude, está sendo uma dimensão crítica do envelope de voo, também serve como uma medida de segurança. O envelope de voo define as capacidades operacionais de um avião e representações que, além da altitude, demonstra a curva máxima que indica a velocidade máxima permitida, e a curva mínima necessária para manter a estabilidade do voo em uma determinada altitude. Sendo assim, a altitude e a capacidade de curva são variáveis que não assumem quaisquer valores, pois requerem respeito aos cumprimentos quando estabelecidas pelo sistema e, o envelope de voo avalia diferentes fases durante o percurso, tendo limites de operação envolvendo as variáveis para garantir a segurança e eficiência para a missão.
+
+* Limitação 2 - A altitude relacionada a áreas povoadas e segurança pública: Quando um avião voa a uma altitude baixa sobre regiões habitadas, existem inúmeras preocupações com relação à segurança pública, incluindo potenciais interrupções na comunicação, barulho exagerado e riscos de acidentes. Além disso, requer uma atenção constante do piloto, tornando-se mais desafiador por causa de obstáculos como construções. Desse modo, o trajeto de voo deve ser construído de forma que evada regiões com alto índice de povoamento.
 
 ## Análise da área de atuação
 
@@ -103,7 +114,6 @@ Planejador de trajetórias para voos em baixa altitude
 ## Análise do cenário: Matriz SWOT
 
 *Matriz_SWOT*
-
 
 ## Proposta de Valor: Value Proposition Canvas
 
@@ -119,10 +129,9 @@ Planejador de trajetórias para voos em baixa altitude
 
 *Descrição_dos_requisitos*
 
-## Personas
+## Persona
 
-*Descrição_das_personas*
-
+![Alt text](img/Persona.png)
 
 ## Histórias dos usuários (user stories)
 
