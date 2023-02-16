@@ -26,7 +26,7 @@ public class Connection {
 
     // ---------- NODES -----------
 
-    public void createNode() {
+    public void createNode(double latitude) {
 
     }
 
