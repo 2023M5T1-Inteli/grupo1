@@ -27,6 +27,10 @@ Planejador de trajetórias para voos em baixa altitude
     - [Objetivos específicos](#objetivos-específicos)
   - [Partes interessadas](#partes-interessadas)
 - [Análise do Problema](#análise-do-problema)
+  - [Dados disponíveis](#dados-disponíveis)
+  - [Objetivo do problema](#objetivo-do-problema)
+  - [Variáveis de decisão consideradas](#variáveis-de-decisão-consideradas)
+  - [Limitações do problema](#limitações-do-problema)
   - [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
   - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
   - [Matriz de Risco](#matriz-de-risco)
@@ -141,7 +145,7 @@ A Matriz de Risco é uma ferramenta utilizada para avaliar e gerenciar os riscos
 
 *Descrição_dos_requisitos*
 
-## Persona
+## Personas
 
 A Persona é uma representação fictícia do cliente-alvo de uma empresa ou produto. Essa representação descreve as características demográficas, comportamentais, sociais desse grupo específico clientes. Ela permite que as empresas tenham uma visão mais clara e detalhada das necessidades, desejos, preocupações e contextos dos clientes-alvo, o que é fundamental para  a criação de produtos, serviços e soluções que sejam mais atraentes e eficazes, especificamente para esse grupo.
 
