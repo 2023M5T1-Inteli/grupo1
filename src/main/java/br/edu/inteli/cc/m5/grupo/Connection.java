@@ -176,7 +176,19 @@ public class Connection {
     }
 
     public void deleteRelationship() {
-        
+        Session session = driver.session();
+
+        String query = "MATCH (n:Node {id: $id})-[r:GO_TO]->() DELETE r";
+
+        Map<String, Object> parameters = new HashMap<>();
+
+        parameters.put("id", id);
+
+        session.run(query, parameters);
+
+        session.close();
+
+        driver.close();
     }
 
     public static void main(String[] args) {
