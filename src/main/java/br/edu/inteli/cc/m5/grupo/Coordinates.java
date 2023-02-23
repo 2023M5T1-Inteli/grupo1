@@ -18,7 +18,7 @@ public class Coordinates {
     Optional<Integer> altitude = dbDTED.QueryLatLonElevation(longitude, latitude);
     System.out.println("lon: " + longitude + ", lat: " + latitude + ", altitude: " + altitude.get());
 
-    double[] coordData = { longitude, latitude, altitude.get() };
+    double[] coordData = { longitude, latitude, (double) altitude.get() };
 
     return coordData;
   }
@@ -33,7 +33,7 @@ public class Coordinates {
       lon = longZero;
       for (int j = 0; j < col; j++) {
         coordData[count] = getAltitude(dbDTED, lon, lat);
-        lon = +0.12; // rever constante
+        lon += 0.12; // rever constante
         count++;
       }
       lat -= 0.12; // rever constante
@@ -58,6 +58,8 @@ public class Coordinates {
         System.out.println(coordData[i][j]);
       }
     }
+
+    System.out.println(coordData.toString());
 
   }
 }
