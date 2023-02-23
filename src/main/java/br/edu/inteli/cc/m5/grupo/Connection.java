@@ -5,8 +5,11 @@ import org.neo4j.driver.Config;
 import org.neo4j.driver.Driver;
 import org.neo4j.driver.GraphDatabase;
 import org.neo4j.driver.Query;
+import org.neo4j.driver.Session;
 import org.neo4j.driver.SessionConfig;
 import org.neo4j.driver.exceptions.Neo4jException;
+
+import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,22 +43,9 @@ public class Connection {
         
     }
 
-    public void deleteNode(final String personName) {
-        var query = new Query(
-            """
-                MATCH (n:Person {name: $person_name})
-                ETACH DELETE n
-            """,
+    public void deleteNode() {
+        
 
-            Map.of("person_name", personName));
-        try (var session = driver.session(SessionConfig.forDatabase("neo4j"))) {
-            // Write transactions allow the driver to handle retries and transient errors
-            var record = session.executeWrite(tx -> tx.run(query).single());
-            // You should capture any errors along with the query and data for traceability
-        } catch (Neo4jException ex) {
-            LOGGER.log(Level.SEVERE, query + " raised an exception", ex);
-            throw ex;
-        }
     }
 
     // ---------- RELATIONSHIPS -----------
@@ -72,26 +62,24 @@ public class Connection {
         
     }
 
-    public void deleteRelationship(final String personName, final String relationship) {
-        var query = new Query(
-            """
-                MATCH (n:Person {name: $personName})-[r:$relationship]->()
-                DELETE r
-            """,
+    public void deleteRelationship(int id) {
+        Session session = driver.session();
 
-            Map.of("person_name", personName));
-        try (var session = driver.session(SessionConfig.forDatabase("neo4j"))) {
-            // Write transactions allow the driver to handle retries and transient errors
-            var record = session.executeWrite(tx -> tx.run(query).single());
-            // You should capture any errors along with the query and data for traceability
-        } catch (Neo4jException ex) {
-            LOGGER.log(Level.SEVERE, query + " raised an exception", ex);
-            throw ex;
-        }
+        String query = "MATCH (n:Node {id: $id})-[r:GO_TO]->() DELETE r";
+
+        Map<String, Object> parameters = new HashMap<>();
+
+        parameters.put("id", id);
+
+        session.run(query, parameters);
+
+        session.close();
+
+        driver.close();
     }
 
     public static void main(String[] args) {
         var app = new Connection();
-        
+        app.deleteRelationship(0);
     }
 }
