@@ -134,8 +134,11 @@ public class Connection {
 
                 double lat_diff = lat2 - lat1;
                 double lon_diff = lon2 - lon1;
-                double dist = Math.sqrt(Math.pow(lat_diff, 2) + Math.pow(lon_diff, 2)) * 111.139;
-                createRelationshipTwoNodes(i, id2, dist, alt2-alt1);
+                double dist = Math.sqrt(Math.pow(lat_diff, 2) + Math.pow(lon_diff, 2)) * 111.1;
+
+                if (dist <= 120*1.41) {
+                    createRelationshipTwoNodes(i, id2, dist, alt2-alt1);
+                }
             }
             }
         }
