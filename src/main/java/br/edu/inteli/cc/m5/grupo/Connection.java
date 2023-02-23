@@ -7,10 +7,13 @@ import org.neo4j.driver.GraphDatabase;
 import org.neo4j.driver.Query;
 import org.neo4j.driver.SessionConfig;
 import org.neo4j.driver.exceptions.Neo4jException;
+
+import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.neo4j.driver.Record;
+import org.neo4j.driver.Session;
 
 
 public class Connection {
@@ -49,6 +52,7 @@ public class Connection {
             // You should capture any errors along with the query and data for traceability
         } catch (Neo4jException ex) {
             throw ex;
+
         }
     }
 
@@ -70,7 +74,8 @@ public class Connection {
                     record.get("n").get("lat").asDouble(),
                     record.get("n").get("long").asDouble(),
                     record.get("n").get("alt").asDouble());
-
+            System.out.println(" ");
+            System.out.println(" ");
             return record;
         } catch (Neo4jException ex) {
             throw ex;
@@ -86,10 +91,78 @@ public class Connection {
     }
 
     // ---------- RELATIONSHIPS -----------
+    public void createRelationshipTwoNodes(int id1, int id2, double dist, double altVar) {
+        Session session = driver.session();
 
-    public void createRelationship(int id) {
-        //create relationship
+        String cypherQuery = "MATCH (a:Node {id: $nodeAId}), (b:Node {id: $nodeBId}) CREATE (a)-[:GO_TO {dist: $distance, alt_var: $altVar}]->(b)";
+
+        // Define the parameters for the query
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("nodeAId", id1);
+        parameters.put("nodeBId", id2);
+        parameters.put("distance", dist);
+        parameters.put("altVar", altVar);
+
+
+        session.run(cypherQuery, parameters);
+
+        session.close();
     }
+
+
+    public void createRelationship(int n) {
+
+
+        for (int i = 0; i < n*n; i++) {
+
+            Record record = readNode(i);
+
+            double lat1 = record.get("n").get("lat").asDouble();
+            double lon1 = record.get("n").get("long").asDouble();
+            double alt1 = record.get("n").get("alt").asDouble();
+            
+            int[] idsToConnect = {i + 1, i + n, i + n + 1, i + n + - 1};
+
+            for (int j = 0; j < idsToConnect.length; j++) {
+                int id2 = idsToConnect[j];
+
+                Record record2 = readNode(id2);
+
+                double lat2 = record2.get("n").get("lat").asDouble();
+                double lon2 = record2.get("n").get("long").asDouble();
+                double alt2 = record2.get("n").get("alt").asDouble();
+
+                double lat_diff = lat2 - lat1;
+                double lon_diff = lon2 - lon1;
+                double dist = Math.sqrt(Math.pow(lat_diff, 2) + Math.pow(lon_diff, 2)) * 111.139;
+                createRelationshipTwoNodes(i, id2, dist, alt2-alt1);
+            }
+            }
+        }
+
+        /*
+            . . . .
+            . . . .
+            . . . .
+            . . . .
+
+            i + 1 -> direita
+            i + n -> baixo
+            i + n + 1 -> direita inferior
+            i + n - 1 -> esquerda inferior
+
+            para os nós [5, 9] --> ligar apenas ao da direita, ao de baixo e ao direita inferior
+            para os nós [2, 3] --> ligar apenas ao da direita, baixo, direita inferior e esquerda inferior
+            para os nós [8, 12] --> ligar ao de baixo, esquerda inferior
+            para o nó 1 --> ligar direita, baixo, direita inferior
+            para o nó 4 --> ligar baixo, esquerda inferior
+            para o nó 13 --> ligar direita
+            para o nó 16 --> não ligar nada
+         
+         */
+        
+        
+    
 
     public void readRelationship() {
         
@@ -105,6 +178,18 @@ public class Connection {
 
     public static void main(String[] args) {
         var app = new Connection();
-        app.createRelationship(0);
+        
+
+        // for (int i = 0; i < 4; i++) {
+        //     for (int j = 0; j < 4; j++) {
+        //         int id = i * 4 + j;
+        //         int latitude = i;
+        //         int longitude = j;
+        //         int altitude = 0;
+        //         app.createNode(id, latitude, longitude, altitude);
+        //     }
+        // }
+
+        app.createRelationship(4);
     }
 }
