@@ -10,6 +10,8 @@ import org.neo4j.driver.exceptions.Neo4jException;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.neo4j.driver.Record;
+
 
 public class Connection {
     private final Driver driver;
@@ -50,7 +52,7 @@ public class Connection {
         }
     }
 
-    public void readNode(int id) {
+    public Record readNode(int id) {
         var query = new Query(
             """  
             MATCH (n:Node)
@@ -61,13 +63,15 @@ public class Connection {
 
         try (var session = driver.session(SessionConfig.forDatabase("neo4j"))) {
             // Write transactions allow the driver to handle retries and transient errors
-            var record = session.executeWrite(tx -> tx.run(query).single());
+            Record record = session.executeWrite(tx -> tx.run(query).single());
             System.out.printf(
                     "Read node id:%d, lat:%.2f , long:%.2f , alt:%.2f",
                     record.get("n").get("id").asInt(),
                     record.get("n").get("lat").asDouble(),
                     record.get("n").get("long").asDouble(),
                     record.get("n").get("alt").asDouble());
+
+            return record;
         } catch (Neo4jException ex) {
             throw ex;
         }
@@ -84,7 +88,6 @@ public class Connection {
     // ---------- RELATIONSHIPS -----------
 
     public void createRelationship(int id) {
-        
         
     }
 
