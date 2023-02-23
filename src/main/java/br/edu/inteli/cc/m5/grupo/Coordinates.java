@@ -59,7 +59,7 @@ public class Coordinates {
       }
     }
 
-    System.out.println(coordData.toString());
+    System.out.println(coordData);
 
   }
 }
