@@ -71,7 +71,7 @@ public class DriverIntroductionExample implements AutoCloseable {
         var password = "Gk54tBkc3WXygiR9X9U6GMWoaB9GbvbogYFyq7YpsqA";
 
         try (var app = new DriverIntroductionExample(uri, user, password, Config.defaultConfig())) {
-            app.findPerson("Pedrao");
+            app.createFriendship("alexandre", "junior");
         }
     }
 }

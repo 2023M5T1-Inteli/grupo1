@@ -26,12 +26,51 @@ public class Connection {
 
     // ---------- NODES -----------
 
-    public void createNode(double latitude) {
+    public void createNode(int id, double latitude, double longitude, double altitude) {
+        var query = new Query(
+            """
+                CREATE (n:Node { id: $id, lat: $latitude, long: $longitude, alt: $altitude })
+                RETURN n
+            """,
+                Map.of("latitude", latitude, "longitude", longitude, "altitude", altitude, "id", id));
 
+
+        try (var session = driver.session(SessionConfig.forDatabase("neo4j"))) {
+            // Write transactions allow the driver to handle retries and transient errors
+            var record = session.executeWrite(tx -> tx.run(query).single());
+            System.out.printf(
+                    "Created node id:%d, lat:%.2f , long:%.2f , alt:%.2f",
+                    record.get("n").get("id").asInt(),
+                    record.get("n").get("lat").asDouble(),
+                    record.get("n").get("long").asDouble(),
+                    record.get("n").get("alt").asDouble());
+            // You should capture any errors along with the query and data for traceability
+        } catch (Neo4jException ex) {
+            throw ex;
+        }
     }
 
-    public void readNode() {
-        
+    public void readNode(int id) {
+        var query = new Query(
+            """  
+            MATCH (n:Node)
+            WHERE n.id = $id
+            RETURN n
+            """,
+            Map.of("id", id));
+
+        try (var session = driver.session(SessionConfig.forDatabase("neo4j"))) {
+            // Write transactions allow the driver to handle retries and transient errors
+            var record = session.executeWrite(tx -> tx.run(query).single());
+            System.out.printf(
+                    "Read node id:%d, lat:%.2f , long:%.2f , alt:%.2f",
+                    record.get("n").get("id").asInt(),
+                    record.get("n").get("lat").asDouble(),
+                    record.get("n").get("long").asDouble(),
+                    record.get("n").get("alt").asDouble());
+        } catch (Neo4jException ex) {
+            throw ex;
+        }
     }
 
     public void updateNode() {
@@ -44,7 +83,8 @@ public class Connection {
 
     // ---------- RELATIONSHIPS -----------
 
-    public void createRelationship() {
+    public void createRelationship(int id) {
+        
         
     }
 
@@ -62,6 +102,6 @@ public class Connection {
 
     public static void main(String[] args) {
         var app = new Connection();
-        
+        app.createRelationship(0);
     }
 }
