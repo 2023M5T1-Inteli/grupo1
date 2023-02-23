@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 
 
 public class Connection {
+    private static final Logger LOGGER = Logger.getLogger(DriverIntroductionExample.class.getName());
     private final Driver driver;
     
     private final String uri = "neo4j+s://6c96b965.databases.neo4j.io:7687";
@@ -39,8 +40,22 @@ public class Connection {
         
     }
 
-    public void deleteNode() {
-        
+    public void deleteNode(final String personName) {
+        var query = new Query(
+            """
+                MATCH (n:Person {name: $person_name})
+                ETACH DELETE n
+            """,
+
+            Map.of("person_name", personName));
+        try (var session = driver.session(SessionConfig.forDatabase("neo4j"))) {
+            // Write transactions allow the driver to handle retries and transient errors
+            var record = session.executeWrite(tx -> tx.run(query).single());
+            // You should capture any errors along with the query and data for traceability
+        } catch (Neo4jException ex) {
+            LOGGER.log(Level.SEVERE, query + " raised an exception", ex);
+            throw ex;
+        }
     }
 
     // ---------- RELATIONSHIPS -----------
@@ -57,8 +72,22 @@ public class Connection {
         
     }
 
-    public void deleteRelationship() {
-        
+    public void deleteRelationship(final String personName, final String relationship) {
+        var query = new Query(
+            """
+                MATCH (n:Person {name: $personName})-[r:$relationship]->()
+                DELETE r
+            """,
+
+            Map.of("person_name", personName));
+        try (var session = driver.session(SessionConfig.forDatabase("neo4j"))) {
+            // Write transactions allow the driver to handle retries and transient errors
+            var record = session.executeWrite(tx -> tx.run(query).single());
+            // You should capture any errors along with the query and data for traceability
+        } catch (Neo4jException ex) {
+            LOGGER.log(Level.SEVERE, query + " raised an exception", ex);
+            throw ex;
+        }
     }
 
     public static void main(String[] args) {
