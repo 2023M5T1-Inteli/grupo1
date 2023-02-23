@@ -29,6 +29,10 @@ Planejador de trajetórias para voos em baixa altitude
 - [Análise do Problema](#análise-do-problema)
   - [Dados disponíveis](#dados-disponíveis)
   - [Objetivo do problema](#objetivo-do-problema)
+  - [Descrição da solução](#descrição-da-solução)
+      - [Qual a solução proposta:](#qual-a-solução-proposta)
+      - [Como a solução proposta deverá ser utilizada:](#como-a-solução-proposta-deverá-ser-utilizada)
+      - [Quais os benefícios trazidos pela solução proposta:](#quais-os-benefícios-trazidos-pela-solução-proposta)
   - [Variáveis de decisão consideradas](#variáveis-de-decisão-consideradas)
   - [Limitações do problema](#limitações-do-problema)
   - [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
@@ -115,6 +119,20 @@ Planejador de trajetórias para voos em baixa altitude
 ## Objetivo do problema
 
 *Objetiva-se certificar uma rota planejada que seja livre de zonas de monitoramento, altitudes elevadas e possibilidades de colisão quando o voo estiver em baixa altitude, tal como distâncias longas por meio da análise topográfica da região e com base na projeção do caminho mais viável e seguro a partir de um grafo.*
+
+## Descrição da solução
+
+#### Qual a solução proposta: 
+
+Sistema de mapeamento de terreno e projeção de trajetórias visando voos em baixa altitude tomando em consideração dados de elevação, manobrabilidade da aeronave, evitando possíveis fatores de risco como áreas conhecidas de busca ou manobras acentuadas. A solução fornecerá um caminho otimizado, ponderando principalmente a altitude e a distância do ponto de partida ao ponto de chegada, se favorecendo de feições geográficas e minimizando a possibilidade de detecção.
+
+#### Como a solução proposta deverá ser utilizada:
+
+Na fase de planejamento da operação, com o time de inteligência e outros possíveis participantes, serão inseridos, além dos pontos de início e fim do percurso, valores de entrada como zonas de exclusão e a saída será um mapa com as coordenadas do trajeto.
+
+#### Quais os benefícios trazidos pela solução proposta:
+
+Um auxílio no planejamento da missão por meio da obtenção de uma rota calculada com base nas variáveis que permita ao piloto viajar com segurança em baixa altitude, evitando zonas de risco e reduzindo sua carga de trabalho, dado que se atentará a menos pontos paralelos à operação enquanto realiza a mesma.
 
 ## Variáveis de decisão consideradas
 
