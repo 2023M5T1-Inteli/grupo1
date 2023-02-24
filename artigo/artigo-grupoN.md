@@ -7,6 +7,8 @@ abstract: Como parte das atividades do módulo 5, cada grupo deverá redigir um 
 
 # Introdução
 
+fiat lux
+
 # Descrição do problema
 
 # Trabalhos relacionados
