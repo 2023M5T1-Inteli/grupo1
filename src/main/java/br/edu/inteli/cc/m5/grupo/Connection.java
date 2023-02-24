@@ -86,8 +86,21 @@ public class Connection {
         
     }
 
-    public void deleteNode() {
-        
+    // Deleta um nó e suas respectivas relações
+    public void deleteNode(int id) {
+        Session session = driver.session();
+
+        String query = "MATCH (n:Person {name: 'Carrie-Anne Moss'}) DETACH DELETE n";
+
+        Map<String, Object> parameters = new HashMap<>();
+
+        parameters.put("id", id);
+
+        session.run(query, parameters);
+
+        session.close();
+
+        driver.close();
     }
 
     // ---------- RELATIONSHIPS -----------
@@ -175,7 +188,8 @@ public class Connection {
         
     }
 
-    public void deleteRelationship() {
+    // Deleta todas as relações de um nó em especifico
+    public void deleteRelationship(int id) {
         Session session = driver.session();
 
         String query = "MATCH (n:Node {id: $id})-[r:GO_TO]->() DELETE r";
