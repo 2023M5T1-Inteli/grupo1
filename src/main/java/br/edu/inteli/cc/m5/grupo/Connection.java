@@ -38,7 +38,7 @@ public class Connection {
 
 
         try (var session = driver.session(SessionConfig.forDatabase("neo4j"))) {
-            // Write transactions allow the driver to handle retries and transient errors
+             // Write transactions allow the driver to handle retries and transient errors
             var record = session.executeWrite(tx -> tx.run(query).single());
             System.out.printf(
                     "Created node id:%d, lat:%.2f , long:%.2f , alt:%.2f",
@@ -77,10 +77,18 @@ public class Connection {
         }
     }
 
-    public void updateNode() {
-        
-    }
+    public void updateNode(int id, Double alt, Double lat, Double longParams) {
+        try(var session = driver.session()) {
+            try(var tx = session.beginTransaction()) {
+                tx.run("MATCH (n: Node {id: " + id + " }) SET n.alt = " + alt + ", n.lat = " + lat + ", n.long = " + longParams);
 
+                tx.commit();
+            }
+        } catch (Neo4jException ex) {
+            throw ex;
+        }
+    }
+    
     public void deleteNode() {
         
     }
@@ -105,6 +113,7 @@ public class Connection {
 
     public static void main(String[] args) {
         var app = new Connection();
-        app.createRelationship(0);
+        //app.createRelationship(0);
+        app.updateNode(2, 92.0, 92.0, 92.0);
     }
 }
