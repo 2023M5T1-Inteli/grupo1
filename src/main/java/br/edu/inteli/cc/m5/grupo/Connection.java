@@ -82,8 +82,16 @@ public class Connection {
         }
     }
 
-    public void updateNode() {
-        
+    public void updateNode(int id, Double alt, Double lat, Double longParams) {
+        try(var session = driver.session()) {
+            try(var tx = session.beginTransaction()) {
+                tx.run("MATCH (n: Node {id: " + id + " }) SET n.alt = " + alt + ", n.lat = " + lat + ", n.long = " + longParams);
+
+                tx.commit();
+            }
+        } catch (Neo4jException ex) {
+            throw ex;
+        }
     }
 
     // Deleta um nó e suas respectivas relações
