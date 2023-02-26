@@ -195,7 +195,17 @@ Um auxílio no planejamento da missão por meio da obtenção de uma rota calcul
 
 A Análise SWOT é um framework utilizado para ajudar a avaliar a situação atual de uma empresa, identificando seus pontos fortes (Strengths), fraquezas (Weaknesses), oportunidades (Opportunities) e ameaças (Threats). É uma ferramenta de avaliação de ambiente interno e externo da companhia que permite visualizar as forças e fraquezas internas da empresa, bem como as oportunidades e ameaças externas. O objetivo principal é ajudar a identificar oportunidades de melhoria e a desenvolver estratégias para maximizar as vantagens e minimizar as desvantagens. Além disso, como consequência do uso dessa técnica, acaba-se adquirindo um grande conhecimento da empresa e do mercado que ela atua.
 
-![Análise SWOT](img/analise_swot.png)
+![Análise SWOT](img/swot%20v2.png)
+
+#### Referências:
+
+* AEL Sistemas: https://ael.com.br/ael-sistemas.html
+
+* Importâcia da tecnologia e ciência no meio militar:
+https://www.gov.br/defesa/pt-br/assuntos/seprod/ciencia-e-tecnologia
+
+* Sobram vagas no setor de tecnologia no Brasil por falta de profissionais qualificados:
+https://g1.globo.com/jornal-nacional/noticia/2022/09/29/sobram-vagas-no-setor-de-tecnologia-no-brasil-por-falta-de-profissionais-qualificados.ghtml
 
 ## Análise da indústria: 5 forças de Porter
 
