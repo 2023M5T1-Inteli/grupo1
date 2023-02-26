@@ -1,3 +1,4 @@
+// Módulos e pacotes utilizados na aplicação
 package br.edu.inteli.cc.m5.grupo;
 
 import org.neo4j.driver.AuthTokens;
@@ -6,6 +7,7 @@ import org.neo4j.driver.Driver;
 import org.neo4j.driver.GraphDatabase;
 import org.neo4j.driver.Query;
 import org.neo4j.driver.SessionConfig;
+import org.neo4j.driver.Values;
 import org.neo4j.driver.exceptions.Neo4jException;
 
 import java.util.HashMap;
@@ -19,11 +21,11 @@ import br.edu.inteli.cc.m5.dted.DtedDatabaseHandler;
 
 public class Connection {
     private final Driver driver;
-    
-    private final String uri = "neo4j+s://6c96b965.databases.neo4j.io:7687";
-    private final String user = "neo4j";
-    private final String password = "Gk54tBkc3WXygiR9X9U6GMWoaB9GbvbogYFyq7YpsqA";
-    private final Config config = Config.defaultConfig();
+
+    private final String uri = "NEO4J_URI"; // endereço do banco de dados Neo4j
+    private final String user = "NEO4J_USER"; // usuário de acesso do DB
+    private final String password = "NEO4J_PSW"; // senha de acesso do DB
+    private final Config config = Config.defaultConfig(); // configura a conexão com o DB
 
     public Connection() {
         driver = GraphDatabase.driver(uri, AuthTokens.basic(user, password), config);
@@ -31,17 +33,26 @@ public class Connection {
 
     // ---------- NODES -----------
 
+    /**
+     * Função que cria (CREATE) um Vértice novo no Neo4j
+     * 
+     * @param id        id do nó
+     * @param latitude  latitude do Nó
+     * @param longitude logitude do Nó
+     * @param altitude  altitude do Nó
+     */
     public void createNode(int id, double latitude, double longitude, double altitude) {
         var query = new Query(
-            """
-                CREATE (n:Node { id: $id, lat: $latitude, long: $longitude, alt: $altitude })
-                RETURN n
-            """,
-                Map.of("latitude", latitude, "longitude", longitude, "altitude", altitude, "id", id));
-
+                """
+                            CREATE (n:Node { id: $id, lat: $latitude, long: $longitude, alt: $altitude })
+                            RETURN n
+                        """,
+                Map.of("latitude", latitude, "longitude", longitude, "altitude", altitude, "id", id)); // query de
+                                                                                                       // criação de Nó
+                                                                                                       // no
+                                                                                                       // banco de dados
 
         try (var session = driver.session(SessionConfig.forDatabase("neo4j"))) {
-            // Write transactions allow the driver to handle retries and transient errors
             var record = session.executeWrite(tx -> tx.run(query).single());
             System.out.printf(
                     "Created node id:%d, lat:%.2f , long:%.2f , alt:%.2f",
@@ -49,24 +60,29 @@ public class Connection {
                     record.get("n").get("lat").asDouble(),
                     record.get("n").get("long").asDouble(),
                     record.get("n").get("alt").asDouble());
-            // You should capture any errors along with the query and data for traceability
         } catch (Neo4jException ex) {
             throw ex;
 
         }
     }
 
+    /**
+     * Função que lê (READ) as informações de um Vértice existente no Neo4j com base
+     * n o id
+     * 
+     * @param id id do Nó
+     * @return
+     */
     public Record readNode(int id) {
         var query = new Query(
-            """  
-            MATCH (n:Node)
-            WHERE n.id = $id
-            RETURN n
-            """,
-            Map.of("id", id));
+                """
+                        MATCH (n:Node)
+                        WHERE n.id = $id
+                        RETURN n
+                        """,
+                Map.of("id", id)); // query de busca no banco de dados
 
         try (var session = driver.session(SessionConfig.forDatabase("neo4j"))) {
-            // Write transactions allow the driver to handle retries and transient errors
             Record record = session.executeWrite(tx -> tx.run(query).single());
             System.out.printf(
                     "Read node id:%d, lat:%.2f , long:%.2f , alt:%.2f",
@@ -82,10 +98,20 @@ public class Connection {
         }
     }
 
+    /**
+     * Função que atualiza (UPDATE) as informações de um Vértice no banco de dados
+     * 
+     * @param id         id do Nó cujos dados serão modificados
+     * @param alt        nova altitude do Nó
+     * @param lat        nova latitude do Nó
+     * @param longParams nova logitude do Nó
+     */
     public void updateNode(int id, Double alt, Double lat, Double longParams) {
-        try(var session = driver.session()) {
-            try(var tx = session.beginTransaction()) {
-                tx.run("MATCH (n: Node {id: " + id + " }) SET n.alt = " + alt + ", n.lat = " + lat + ", n.long = " + longParams);
+        try (var session = driver.session()) {
+            try (var tx = session.beginTransaction()) {
+                tx.run("MATCH (n: Node {id: " + id + " }) SET n.alt = " + alt + ", n.lat = " + lat + ", n.long = "
+                        + longParams); // query que busca um Nó com base no id no banco de dados e muda suas
+                                       // informações
 
                 tx.commit();
             }
@@ -94,11 +120,16 @@ public class Connection {
         }
     }
 
-    // Deleta um nó e suas respectivas relações
+    /**
+     * Função que apaga (DELETE) um Vértice no banco de dados com base no id
+     * 
+     * @param id id do Nó a ser deletado
+     */
     public void deleteNode(int id) {
         Session session = driver.session();
 
-        String query = "MATCH (n:Person {name: 'Carrie-Anne Moss'}) DETACH DELETE n";
+        String query = "MATCH (n:Person {name: 'Carrie-Anne Moss'}) DETACH DELETE n"; // query que apaga um nó com base
+                                                                                      // no id
 
         Map<String, Object> parameters = new HashMap<>();
 
@@ -112,12 +143,21 @@ public class Connection {
     }
 
     // ---------- RELATIONSHIPS -----------
+
+    /**
+     * Função que cria (CREATE) uma Aresta nova entre dois Vértices existentes no
+     * Neo4j
+     * 
+     * @param id1    id do Nó de origem
+     * @param id2    id do Nó de destino
+     * @param dist   distância entre os Nós
+     * @param altVar variação da altitude entre os Nós
+     */
     public void createRelationshipTwoNodes(int id1, int id2, double dist, double altVar) {
         Session session = driver.session();
 
         String cypherQuery = "MATCH (a:Node {id: $nodeAId}), (b:Node {id: $nodeBId}) CREATE (a)-[:GO_TO {dist: $distance, alt_var: $altVar}]->(b)";
 
-        // Define the parameters for the query
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("nodeAId", id1);
         parameters.put("nodeBId", id2);
@@ -129,18 +169,18 @@ public class Connection {
         session.close();
     }
 
-
+    // Método que cria as relações entre os nós no banco de dados
     public void createRelationship(int n) {
 
-        for (int i = 0; i < n*n; i++) {
+        for (int i = 0; i < n * n; i++) {
 
             Record record = readNode(i);
 
             double lat1 = record.get("n").get("lat").asDouble();
             double lon1 = record.get("n").get("long").asDouble();
             double alt1 = record.get("n").get("alt").asDouble();
-            
-            int[] idsToConnect = {i + 1, i + n, i + n + 1, i + n + - 1};
+
+            int[] idsToConnect = { i + 1, i + n, i + n + 1, i + n + -1 };
 
             for (int j = 0; j < idsToConnect.length; j++) {
                 int id2 = idsToConnect[j];
@@ -155,44 +195,42 @@ public class Connection {
                 double lon_diff = lon2 - lon1;
                 double dist = Math.sqrt(Math.pow(lat_diff, 2) + Math.pow(lon_diff, 2)) * 111.1;
 
-                if (dist <= 120*1.41) {
-                    createRelationshipTwoNodes(i, id2, dist, alt2-alt1);
+                if (dist <= 120 * 1.41) {
+                    createRelationshipTwoNodes(i, id2, dist, alt2 - alt1);
                 }
             }
+        }
+    }
+
+    // Método que lê a relação entre dois nós existentes
+    public void readRelationship(int sourceNodeId, int targetNodeId, String relationshipType) {
+        try(Session session = driver.session()) {
+            String query = "MATCH (a)-[node:" + relationshipType + "]->(b) WHERE id(a) = $sourceNodeId AND id(b) = $targetNodeId RETURN properties(node) AS props";
+            var result = session.run(query, Values.parameters("sourceNodeId", sourceNodeId, "targetNodeId", targetNodeId));
+            if(result.hasNext()) {
+                Record record = result.next();
+                System.out.println(record.get("props").asMap());
+            } else {
+                System.out.println("Something went wrong!");
             }
         }
-
-        /*
-            . . . .
-            . . . .
-            . . . .
-            . . . .
-
-            i + 1 -> direita
-            i + n -> baixo
-            i + n + 1 -> direita inferior
-            i + n - 1 -> esquerda inferior
-
-            para os nós [5, 9] --> ligar apenas ao da direita, ao de baixo e ao direita inferior
-            para os nós [2, 3] --> ligar apenas ao da direita, baixo, direita inferior e esquerda inferior
-            para os nós [8, 12] --> ligar ao de baixo, esquerda inferior
-            para o nó 1 --> ligar direita, baixo, direita inferior
-            para o nó 4 --> ligar baixo, esquerda inferior
-            para o nó 13 --> ligar direita
-            para o nó 16 --> não ligar nada
-         
-        */
-        
-        
-    public void readRelationship() {
-        
     }
 
-    public void updateRelationship() {
-        
+    // Método que atualiza a propriedade de determinada aresta(relação entre dois nós)
+    public void updateRelationship(int sourceNodeId, int targetNodeId, String relationshipType, String propertyKey, Object propertyValue) {
+        try(Session session = driver.session()) {
+            String query = "MATCH (a)-[node:" + relationshipType + "]->(b) WHERE id(a) = " + sourceNodeId + " AND id(b) = " + targetNodeId + " SET node." + propertyKey + " = " + propertyValue + " RETURN properties(node) AS props";
+            var result = session.run(query);
+            Record record = result.next();
+            System.out.println(record.get("props").asMap());
+        }
     }
 
-    // Deleta todas as relações de um nó em especifico
+    /**
+     * Função que apaga (DELETE) todas as Arestas de um determinado Vétice
+     * 
+     * @param id // id do Nó cujas Relações serão excluídas
+     */
     public void deleteRelationship(int id) {
         Session session = driver.session();
 
@@ -208,26 +246,34 @@ public class Connection {
 
         driver.close();
     }
-    
+
     public static void main(String[] args) {
         var app = new Connection();
 
+        // TESTES
+
         // for (int i = 0; i < 4; i++) {
-        //     for (int j = 0; j < 4; j++) {
-        //         int id = i * 4 + j;
-        //         int latitude = i;
-        //         int longitude = j;
-        //         int altitude = 0;
-        //         app.createNode(id, latitude, longitude, altitude);
-        //     }
+        // for (int j = 0; j < 4; j++) {
+        // int id = i * 4 + j;
+        // int latitude = i;
+        // int longitude = j;
+        // int altitude = 0;
+        // app.createNode(id, latitude, longitude, altitude);
+        // }
         // }
 
-        //app.createRelationship(4);
+        // app.createRelationship(4);
         // DtedDatabaseHandler dbRio = Coordinates.openDtedDB("dted/rio");
-        // double[][] coordData = Coordinates.getCoordData(dbRio, -43.4076, -22.1510, 5, 5);
+        // double[][] coordData = Coordinates.getCoordData(dbRio, -43.4076, -22.1510, 5,
+        // 5);
         // for(int i = 0; i < coordData.length; i++) {
-        //     app.createNode(i, coordData[i][0], coordData[i][1], coordData[i][2]);
+        // app.createNode(i, coordData[i][0], coordData[i][1], coordData[i][2]);
         // }
-        app.createRelationship(5);
+
+        //app.createRelationship(5);
+
+        //app.readRelationship(3, 9, "GO_TO");
+
+        //app.updateRelationship(3, 9, "GO_TO", "alt_var", 6889.0);
     }
 }
