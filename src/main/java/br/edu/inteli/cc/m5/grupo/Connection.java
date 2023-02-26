@@ -128,9 +128,8 @@ public class Connection {
     public void deleteNode(int id) {
         Session session = driver.session();
 
-        String query = "MATCH (n:Person {name: 'Carrie-Anne Moss'}) DETACH DELETE n"; // query que apaga um nó com base
+        String query = "MATCH (n:Node {id: $id}) DETACH DELETE n"; // query que apaga um nó com base
                                                                                       // no id
-
         Map<String, Object> parameters = new HashMap<>();
 
         parameters.put("id", id);
