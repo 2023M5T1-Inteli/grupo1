@@ -236,8 +236,28 @@ na missão sem me preocupar com dificuldades técnicas. | 3 | A fazer |
 menos desgastante e ter maior foco na missão. | 8 | A fazer |
 | 9. Como operador, quero definir zonas de exclusão, restrições e outras informações em
 parâmetros de entrada para manter um sistema de planejamento eficiente. | 5 | A fazer |
-| 10. Como piloto quero capturar dados e informações com facilidade para gerar valor à
+| 10. Como piloto, quero uma ferramenta de roteamento que me dê informações precisas sobre a distância do percurso de forma otimizada para operar em baixa altitude do ponto de início até o ponto de retorno como destino. | 6 | A fazer |
+| 11. Como piloto quero capturar dados e informações com facilidade para gerar valor à
 missão. | 9 | A fazer |
+
+
+| User Story | Solução |
+|--- |--- |
+| 1 | A ferramenta deve evitar rotas cruzadas para garantir a segurança da viagem e evitar possíveis colisões por meio de um sistema de detecção de rota que evite previamente áreas com riscos de cruzamentos.
+ |
+| 2 | Uma ferramenta de otimização de rota que leva em consideração a altitude mais baixa e propícia que contribui para a diminuição do tempo de viagem.|
+| 3 | Com a recomendação do melhor caminho a ser percorrido, com o uso da ferramenta pode haver economia de combustível, principalmente ao evitar altitudes muito altas e com barreiras. |
+| 4 | A ferramenta deve incluir dados sobre áreas de monitoramento(SAMs) para evitar o risco de exposição do piloto e que alertam o piloto sobre possíveis áreas de risco. |
+| 5 | A ferramenta deve ajudar a evitar regiões muito povoadas para minimizar riscos de segurança pública. Isso pode ser feito por meio de um sistema de análise de dados que use informações de densidade populacional e dados de segurança pública para definir zonas de exclusão. |
+| 6 | Uma ferramenta que inclui dados de feições geográficas, bem como outras informações úteis que ajudam a evitar zonas de restrições ao percorrer a trajetória. |
+| 7 | A ferramenta deve disponibilizar uma interface simples e objetiva, com recursos intuitivos e objetivos que permitam o piloto ter foco total na missão sem se preocupar excessivamente com dificuldades técnicas.
+ |
+| 8 | A ferramenta deve incluir recursos para reduzir a carga horária de trabalho do piloto através de um planejamento e informações úteis que facilitam e encurtam os percursos das missões, permitindo que o piloto se concentre em tarefas mais críticas e conclua a missão com sucesso. |
+| 9 | A ferramenta deve permitir que os operadores definam zonas de exclusão e outras restrições como parâmetros de entrada através de um sistema de interface de usuário que permita ao operador definir essas entradas. |
+| 10 | A ferramenta deve incluir um sistema de roteamento que leve em consideração a distância do percurso otimizado para operar em baixa altitude que pode ser feito através de um sistema de planejamento de voo que use informações de dados sobre a performance da aeronave e roteamento otimizado para determinar a melhor rota. |
+| 11 | A ferramenta deve recomendar o melhor trajeto levando em consideração características topográficas e também de tempo para aproveitar ao máximo a exploração do terreno com segurança.
+ |
+
 
 # Arquitetura do Sistema
 
