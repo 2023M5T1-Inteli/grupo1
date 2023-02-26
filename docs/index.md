@@ -208,11 +208,15 @@ A Matriz de Risco é uma ferramenta utilizada para avaliar e gerenciar os riscos
 
 *Descrição_dos_requisitos*
 
-## Persona
+## Personas
 
 A Persona é uma representação fictícia do cliente-alvo de uma empresa ou produto. Essa representação descreve as características demográficas, comportamentais, sociais desse grupo específico clientes. Ela permite que as empresas tenham uma visão mais clara e detalhada das necessidades, desejos, preocupações e contextos dos clientes-alvo, o que é fundamental para  a criação de produtos, serviços e soluções que sejam mais atraentes e eficazes, especificamente para esse grupo.
 
+### Persona Piloto
 ![Alt text](img/Persona.png)
+
+### Persona Planejador
+![Alt text](img/Carlos%20Silva.png)
 
 ## Histórias dos usuários (user stories)
 
