@@ -35,6 +35,7 @@ Planejador de trajetórias para voos em baixa altitude
       - [Quais os benefícios trazidos pela solução proposta:](#quais-os-benefícios-trazidos-pela-solução-proposta)
   - [Variáveis de decisão consideradas](#variáveis-de-decisão-consideradas)
   - [Limitações do problema](#limitações-do-problema)
+  - [Representação do Grafo](#representação-do-grafo)
   - [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
   - [Análise da indústria: 5 forças de Porter](#análise-da-indústria-5-forças-de-porter)
       - [Modelo de negócio:](#modelo-de-negócio)
@@ -148,6 +149,10 @@ Um auxílio no planejamento da missão por meio da obtenção de uma rota calcul
 
 * Limitação 2 - A altitude relacionada a áreas povoadas e segurança pública: Quando um avião voa a uma altitude baixa sobre regiões habitadas, existem inúmeras preocupações com relação à segurança pública, incluindo potenciais interrupções na comunicação, barulho exagerado e riscos de acidentes. Além disso, requer uma atenção constante do piloto, tornando-se mais desafiador por causa de obstáculos como construções. Desse modo, o trajeto de voo deve ser construído de forma que evada regiões com alto índice de povoamento.
 
+## Representação do Grafo
+
+![Representação Visual](img/representacao-visual.png)
+
 ## Análise do cenário: Matriz SWOT
 
 A Análise SWOT é um framework utilizado para ajudar a avaliar a situação atual de uma empresa, identificando seus pontos fortes (Strengths), fraquezas (Weaknesses), oportunidades (Opportunities) e ameaças (Threats). É uma ferramenta de avaliação de ambiente interno e externo da companhia que permite visualizar as forças e fraquezas internas da empresa, bem como as oportunidades e ameaças externas. O objetivo principal é ajudar a identificar oportunidades de melhoria e a desenvolver estratégias para maximizar as vantagens e minimizar as desvantagens. Além disso, como consequência do uso dessa técnica, acaba-se adquirindo um grande conhecimento da empresa e do mercado que ela atua.
@@ -195,7 +200,7 @@ https://www.gov.br/defesa/pt-br/assuntos/industria-de-defesa/base-industrial-de-
 
 O Value Proposition Canvas é uma ferramenta que ajuda as empresas a entender e criar propostas de valor para seus clientes. Esse framework é composto por dois elementos principais: a seção dos clientes,  que descreve as necessidades, desejos, preocupações e contextos dos clientes-alvo, e a seção do produto, que descreve as soluções oferecidas para atender às necessidades dos clientes, exibindo como, então, a solução gera valor. O objetivo principal do Value Proposition Canvas é ajudar as empresas a compreender melhor os clientes e a criar propostas de valor que sejam mais eficazes.
 
-![Value Proposition Canvas](img/canvas.png)
+![Value Proposition Canvas](img/canvas-value-proposition.png)
 
 ## Matriz de Risco
 
