@@ -29,9 +29,21 @@ Planejador de trajetórias para voos em baixa altitude
 - [Análise do Problema](#análise-do-problema)
   - [Dados disponíveis](#dados-disponíveis)
   - [Objetivo do problema](#objetivo-do-problema)
+  - [Descrição da solução](#descrição-da-solução)
+      - [Qual a solução proposta:](#qual-a-solução-proposta)
+      - [Como a solução proposta deverá ser utilizada:](#como-a-solução-proposta-deverá-ser-utilizada)
+      - [Quais os benefícios trazidos pela solução proposta:](#quais-os-benefícios-trazidos-pela-solução-proposta)
   - [Variáveis de decisão consideradas](#variáveis-de-decisão-consideradas)
   - [Limitações do problema](#limitações-do-problema)
   - [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
+  - [Análise da indústria: 5 forças de Porter](#análise-da-indústria-5-forças-de-porter)
+      - [Modelo de negócio:](#modelo-de-negócio)
+      - [Ameaça de novos concorrentes:](#ameaça-de-novos-concorrentes)
+      - [Ameaça de produtos substitutos:](#ameaça-de-produtos-substitutos)
+      - [Poder de negociação dos clientes:](#poder-de-negociação-dos-clientes)
+      - [Poder de negociação dos fornecedores:](#poder-de-negociação-dos-fornecedores)
+      - [Rivalidade entre os concorrentes:](#rivalidade-entre-os-concorrentes)
+      - [Referências:](#referências)
   - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
   - [Matriz de Risco](#matriz-de-risco)
 - [Requisitos do Sistema](#requisitos-do-sistema)
@@ -56,7 +68,7 @@ Planejador de trajetórias para voos em baixa altitude
   - [Manual de Implantação](#manual-de-implantação)
   - [Manual do Usuário](#manual-do-usuário)
   - [Manual do Administrador](#manual-do-administrador)
-- [Referências](#referências)
+- [Referências](#referências-1)
 
 
 # Autores
@@ -108,6 +120,20 @@ Planejador de trajetórias para voos em baixa altitude
 
 *Objetiva-se certificar uma rota planejada que seja livre de zonas de monitoramento, altitudes elevadas e possibilidades de colisão quando o voo estiver em baixa altitude, tal como distâncias longas por meio da análise topográfica da região e com base na projeção do caminho mais viável e seguro a partir de um grafo.*
 
+## Descrição da solução
+
+#### Qual a solução proposta: 
+
+Sistema de mapeamento de terreno e projeção de trajetórias visando voos em baixa altitude tomando em consideração dados de elevação, manobrabilidade da aeronave, evitando possíveis fatores de risco como áreas conhecidas de busca ou manobras acentuadas. A solução fornecerá um caminho otimizado, ponderando principalmente a altitude e a distância do ponto de partida ao ponto de chegada, se favorecendo de feições geográficas e minimizando a possibilidade de detecção.
+
+#### Como a solução proposta deverá ser utilizada:
+
+Na fase de planejamento da operação, com o time de inteligência e outros possíveis participantes, serão inseridos, além dos pontos de início e fim do percurso, valores de entrada como zonas de exclusão e a saída será um mapa com as coordenadas do trajeto.
+
+#### Quais os benefícios trazidos pela solução proposta:
+
+Um auxílio no planejamento da missão por meio da obtenção de uma rota calculada com base nas variáveis que permita ao piloto viajar com segurança em baixa altitude, evitando zonas de risco e reduzindo sua carga de trabalho, dado que se atentará a menos pontos paralelos à operação enquanto realiza a mesma.
+
 ## Variáveis de decisão consideradas
 
 * Mapeamento de pontos do espaço que possuem altitude que se adequam aos valores do intervalo estabelecido pela AEL.
@@ -127,6 +153,43 @@ Planejador de trajetórias para voos em baixa altitude
 A Análise SWOT é um framework utilizado para ajudar a avaliar a situação atual de uma empresa, identificando seus pontos fortes (Strengths), fraquezas (Weaknesses), oportunidades (Opportunities) e ameaças (Threats). É uma ferramenta de avaliação de ambiente interno e externo da companhia que permite visualizar as forças e fraquezas internas da empresa, bem como as oportunidades e ameaças externas. O objetivo principal é ajudar a identificar oportunidades de melhoria e a desenvolver estratégias para maximizar as vantagens e minimizar as desvantagens. Além disso, como consequência do uso dessa técnica, acaba-se adquirindo um grande conhecimento da empresa e do mercado que ela atua.
 
 ![Análise SWOT](img/analise_swot.png)
+
+## Análise da indústria: 5 forças de Porter
+
+As Cinco Forças de Porter é um modelo estratégico desenvolvido por Michael Porter que ajuda a analisar a competição dentro de um setor da indústria. O modelo identifica cinco forças que podem afetar a lucratividade e a competitividade de uma empresa. Ao avaliar essas cinco forças, as empresas podem entender melhor o ambiente competitivo em que operam e tomar decisões estratégicas mais eficientes.
+
+#### Modelo de negócio:
+
+A AEL Sistemas é uma empresa riograndense com sede em Porto Alegre, dedicada ao desenvolvimento de soluções voltadas para as indústrias de defesa e aeroespacial. Por meio do uso de tecnologia de ponta, a AEL conquistou reconhecimento no mercado militar internacional, o que levou a parcerias com o Governo brasileiro em importantes projetos voltados a assegurar a segurança pública e a soberania nacional. Desde 2001, a organização faz parte do grupo israelense Elbit Systems, um dos mais relevantes mundialmente no segmento de defesa.
+
+#### Ameaça de novos concorrentes:
+
+A indústria de desenvolvimento de tecnologias de defesa e segurança possui uma barreira de entrada relativamente alta, visto que é preciso de uma grande quantidade de capital para financiar a pesquisa e o desenvolvimento dessas soluções. Nesse sentido, vale destacar que muitos dos projetos da AEL são financiados através de parcerias governamentais. Além disso, a credibilidade das organizações é fundamental, já que os segmentos Defesa, Segurança Pública e Aeroespacial exigem soluções desenvolvidas com o objetivo de minimizar riscos.  Assim, novas empresas que vierem a tentar entrar nesse ramo enfrentarão esses obstáculos.
+
+#### Ameaça de produtos substitutos:
+
+Como a AEL tem a tecnologia de ponta como centro do modelo de negócio, o surgimento de produtos substitutos deve ser um ponto de atenção para a empresa, por conta do crescimento extremamente acelerado da pesquisa e do desenvolvimento de novas soluções nesse ramo, com destaque ao segmento de inteligência artificial. Nesse sentido, a organização precisa estar alerta para o entendimento e a incorporação de novas tecnologias em projetos, antes que outra empresa faça isso e tome parte do domínio de mercado da AEL.
+
+#### Poder de negociação dos clientes:
+
+Esse fator é de extrema importância para a empresa, visto que a produção de tecnologias para fins militares e aeroespaciais depende, em grande parte, do financiamento por parte dos clientes. Isso ocorre porque esse mercado tem um ticket médio alto e muitas das soluções só existem graças a parcerias com órgãos governamentais.
+
+#### Poder de negociação dos fornecedores:
+
+No que tange ao poder de barganha dos fornecedores, a AEL encontra-se em uma posição relativamente desconfortável no mercado. Primeiramente, como muitos dos projetos são financiados pelo Governo, a mudança de políticas públicas relacionadas à priorização e à quantidade de verba destinadas a parcerias público-privadas e iniciativas militares pode variar drasticamente. Ademais, o cenário internacional de turbulência no fornecimento de material para a construção de eletrônicos no mundo também é um ponto de estresse para a companhia.
+
+#### Rivalidade entre os concorrentes:
+
+As indústrias de Defesa, Segurança Pública e Aeroespacial são, em suma, mercados do tipo “business-to-business” (empresa e empresa) e “business-to-government” (empresa e governo). Tendo isso em mente, as organizações desses setores não destinam muitos recursos para o marketing de seus produtos e serviços, mas sim para a manutenção das relações já estabelecidas. Nesse contexto, a AEL já possui uma longa história de projetos bem-sucedidos, o que firma sua posição no mercado. Além disso, a companhia ainda possui estreitas relações com possíveis competidores tanto nacionalmente, a exemplo da Embraer, a qual possui parte das ações da AEL, quanto mundialmente, como o renomado grupo Elbit Systems. Portanto, a organização está muito bem situada na indústria.
+
+#### Referências:
+
+* AEL Sistemas: https://ael.com.br/ael-sistemas.html
+
+* Embraer adquire parte da AEL: https://www.defesanet.com.br/defesa/noticia/2696/embraer-formaliza-a-harpia-e-adquire-capital-da-ael-sistemas/ 
+
+* Políticas de incentivo à indústria de defesa:
+https://www.gov.br/defesa/pt-br/assuntos/industria-de-defesa/base-industrial-de-defesa
 
 ## Proposta de Valor: Value Proposition Canvas
 
