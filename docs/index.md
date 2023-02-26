@@ -29,6 +29,10 @@ Planejador de trajetórias para voos em baixa altitude
 - [Análise do Problema](#análise-do-problema)
   - [Dados disponíveis](#dados-disponíveis)
   - [Objetivo do problema](#objetivo-do-problema)
+  - [Modelagem Matemática do Problema](#modelagem-matemática-do-problema)
+    - [Variáveis de Decisão](#variáveis-de-decisão)
+    - [Função Objetivo](#função-objetivo)
+    - [Restrições](#restrições)
   - [Descrição da solução](#descrição-da-solução)
       - [Qual a solução proposta:](#qual-a-solução-proposta)
       - [Como a solução proposta deverá ser utilizada:](#como-a-solução-proposta-deverá-ser-utilizada)
@@ -48,7 +52,9 @@ Planejador de trajetórias para voos em baixa altitude
   - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
   - [Matriz de Risco](#matriz-de-risco)
 - [Requisitos do Sistema](#requisitos-do-sistema)
-  - [Persona](#persona)
+  - [Personas](#personas)
+    - [Persona Piloto](#persona-piloto)
+    - [Persona Planejador](#persona-planejador)
   - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
 - [Arquitetura do Sistema](#arquitetura-do-sistema)
   - [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
@@ -120,6 +126,38 @@ Planejador de trajetórias para voos em baixa altitude
 ## Objetivo do problema
 
 *Objetiva-se certificar uma rota planejada que seja livre de zonas de monitoramento, altitudes elevadas e possibilidades de colisão quando o voo estiver em baixa altitude, tal como distâncias longas por meio da análise topográfica da região e com base na projeção do caminho mais viável e seguro a partir de um grafo.*
+
+## Modelagem Matemática do Problema
+*Para representar a modelagem matemática do problema, o grafo abaixo foi criado como exemplo. Nesse cenário, o nó 5 representa o ponto de partida da trajetória, enquanto o vértice 4 representa o ponto final.*
+![grafo-modelagem-matematica](img/modelagem-matematica.png)
+### Variáveis de Decisão
+*Considerando Xi-j uma aresta que conecta, no sentido "i" para "j", esses vértices,*
+```
+Xi-j = {
+        1, caso o caminho seja escolhido
+        ou
+        0, caso contrário
+}
+```
+*Dessa forma, as variáveis de decisão são binárias e representam se a aresta faz parte da trajetória final ou não.*
+### Função Objetivo
+*Como a solução busca encontrar o caminho que passe pelas arestas de pesos mais baixos, a função objetivo é descrita da seguinte maneira:*
+```
+Min F = 11X0-1 + 6X0-6 + 5X1-0 + 20X1-2 + 16X1-6 + 5X1-7 + 30X2-1 + 16X2-3 + 2X2-6 + 8X2-7 + 25X2-8 + 5X3-2 + 24X3-4 + 14X3-7 + 7X3-7 + 4X3-9 + 9X5-0 + 15X5-1 + 13X5-6 + 8X6-0 + 19X6-1 + 18X6-2 + 13X6-7 + 22X7-1 + 4X7-2 + 12X7-3 + 9X7-6 + 20X7-8 + 20X8-2 + 20X8-3 + 22X8-4 + 1X8-7 + 26X8-9 + 9X9-3 + 1X9-4 + 8X9-8
+```
+### Restrições
+```
+Nó 0: X1-0 + X5-0 + X6-0 = X0-1 + X0-6
+Nó 1: X0-1 + X2-1 + X5-1 + X6-1 + X7-2 = X1-0 + X1-2 + X1-6 + X1-7
+Nó 2: X1-2 + X3-2 + X6-2 + X7-2 + X8-2 = X2-1 + X2-3 + X2-6 + X2-7 + X2-8
+Nó 3: X2-3 + X7-3 + X8-3 + X9-3 = X3-2 + X3-4 + X3-7 + X3-8 + X3-9
+Nó 4: X3-4 + X8-4 + X9-4 = 1
+Nó 5: 1 = X5-0 + X5-1 + X5-6
+Nó 6: X0-6 + X1-6 + X2-6 + X5-6 + X7-6 =  X6-0 + X6-1 + X6-2 + X6-7
+Nó 7: X1-7 + X2-7 + X3-7 + X6-7 + X8-7 = X7-1 + X7-2 + X7-3 + X7-6 + X7-8
+Nó 8: X2-8 + X3-8 + X7-8 + X9-8 = X8-2 + X8-3 + X8-4 + X8-7 + X8-9
+Nó 9: X3-9 + X8-9 = X9-3 + X9-4 + X9-8
+```
 
 ## Descrição da solução
 
