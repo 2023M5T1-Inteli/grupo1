@@ -7,6 +7,12 @@ abstract: Como parte das atividades do módulo 5, cada grupo deverá redigir um 
 
 # Introdução
 
+O processo de realização de voos em baixa altitude de modo a aumentar a cobertura oferece variados tipos de riscos, os quais englobam: colisão com o solo (CFIT); exposição ao inimigo; áreas propensas a interceptação de radares, além de regiões densamente povoadas. Para Dorsett e Wyskida (1985), "a capacidade dos modernos sistemas de defesa aérea forçou as aeronaves militares a utilizar voos de baixa altitude para evitar a detecção e aumentar a capacidade de sobrevivência". Conforme o avanço tecnológico, novas táticas e estratégias são cada vez mais demandadas por parte da aviação militar. Desse modo, "a forma da trajetória deve conseguir garantir um voo seguro em condições mínimas de tempo e consumo de energia considerando as limitações de colisão do terreno" (KOSARI et al., 2018).
+
+A construção de uma trajetória de voo de referência é a etapa mais importante e, "à medida que as missões requerem voos em baixa altitude, sobrevoar principalmente em terrenos acidentados é consideravelmente mais desafiador e requer conhecimento prévio de elevação do terreno" (CAMPOS et al., 2016). Esses aspectos aumentam a necessidade da implementação de ferramentas de controle que assegurem a segurança e eficiência para esse tipo de voo, englobando o planejamento de condução da aeronave em devidas localidades a serem percorridas e o seu potencial de voo.
+
+Tendo em vista essa necessidade, enquanto houver a implementação de tecnologias auxiliares que contornam trajetos que evadam restrições, o levantamento próximo ao solo coleta detalhes que não são visíveis ao sobrevoar em altitudes mais elevadas (MELITA et al., 2020). No entanto, a sua ausência reforça as ameaças presentes em voos de baixa altitude, de modo que represente resultados abaixo do desejado e não aproveite feições geográficas vantajosas para a otimização do percurso. A seleção de uma rota de voo baixo que uma aeronave adere pode ser usada a favor da penetração na cobertura de defesa aérea, enquanto, ao mesmo tempo minimiza a exposição e abate (DORSETT; WYSKIDA, 1985). Visto que essa seleção, com o auxílio de uma ferramenta específica de controle de voo, possibilita uma missão finalizada com segurança.
+
 Os bancos de dados orientados a grafos se configuram como uma solução promissora para lidar com os desafios de planejamento e controle de voos em baixa altitude. Tais bancos de dados possuem grande potencial para lidar com informações espaciais, como a elevação do terreno e outras características geográficas que são relevantes para o planejamento de rotas de voo. A utilização desses bancos de dados é capaz de representar, de maneira eficiente e intuitiva, dados geoespaciais complexos, permitindo que informações críticas sejam integradas e utilizadas para apoiar a tomada de decisões no processo de planejamento de rotas de voo (MELITA et al. 2020).
 
 Além disso, os bancos de dados orientados a grafos podem ser utilizados para modelar as redes de defesa aérea, permitindo que informações sobre as áreas que são propensas a interceptação de radares e outros riscos sejam integradas ao processo de planejamento de rotas. A utilização de bancos de dados orientados a grafos é capaz de permitir o fácil acesso e integração das informações relativas à rede de defesa aérea com as informações geoespaciais pertinentes ao planejamento de rotas de voo (KOSARI et al. 2018).
@@ -48,5 +54,17 @@ Ainda em outro trecho de DASGUPTA et. al. (2011), temos:
 # Conclusão
 
 # Referências Bibliográficas
+
+KIRBY, C. E. et al. Sample Records Low-Altitude Helicopter Fligh. Disponível em: https://www.science.gov/topicpages/l/low-altitude+helicopter+fligh. Acesso em: 16 fev. 2023.
+
+MARCHETTI, M. et al. An Integrated GIS and Remote Sensing Approach for Coastal Zone Management Using Low-Altitude Helicopter Imagery. ISPRS International Journal of Geo-Information, v. 8, n. 6, p. 289, 2019. Disponível em: https://www.mdpi.com/2220-9964/8/6/289. Acesso em: 16 fev. 2023.
+
+NORSWORTHY, G. D. Low altitude helicopter electromagnetic surveying. Journal of Geochemical Exploration, v. 25, n. 1-3, p. 543-553, 1986. Disponível em: https://www.sciencedirect.com/science/article/pii/0307904X85901258. Acesso em: 16 fev. 2023.
+
+CARRERA, P. M. et al. Comparative Study of Forest Attributes Estimation from Low-Altitude Aerial Photography and Unmanned Aerial Vehicle Data. Revista Brasileira de Cartografia, v. 73, n. 1, p. 329-339, 2021. Disponível em: http://old.scielo.br/scielo.php?pid=S2175-91462021000100329&script=sci_arttext. Acesso em: 16 fev. 2023.
+
+MCLEOD, R. et al. Low-Altitude Helicopter Flights Over the Kilauea Volcano During the 2008–2018 Eruptions: A Decade of Observations. Frontiers in Earth Science, v. 5, p. 117, 2017. Disponível em: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5191052/. Acesso em: 16 fev. 2023.
+
+QIAN, Y. et al. Low-Altitude Helicopter-Based Mobile Mapping System. In: 2018 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS). 2018. p. 3291-3296. Disponível em: https://ieeexplore.ieee.org/document/8581149. Acesso em: 16 fev. 2023.
 
 DASGUPTA, S.; Papadimitriou, C.; Vazirani, U. **Algoritmos.** Porto Alegre: AMGH, 2011. 1 recurso online. ISBN 9788563308535. Disponível em: https://integrada.minhabiblioteca.com.br/books/9788563308535. Acesso em: 17 jan. 2023.
