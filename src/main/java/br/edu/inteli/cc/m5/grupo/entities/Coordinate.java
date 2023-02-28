@@ -5,17 +5,18 @@ import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 
 @Node
-public class GraphNode {
+public class Coordinate {
 
+    // Atributos para a entidade Nó
     @Id @GeneratedValue
     private Long id;
     private Double lat;
     private Double longi;
     private Double alt;
 
-    public GraphNode() {}
+    public Coordinate() {}
 
-    public GraphNode(Double lat, Double longi, Double alt) {
+    public Coordinate(Double lat, Double longi, Double alt) {
         this.lat = lat;
         this.longi = longi;
         this.alt = alt;
