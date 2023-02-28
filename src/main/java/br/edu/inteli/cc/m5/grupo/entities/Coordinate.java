@@ -14,8 +14,6 @@ public class Coordinate {
     private Double longi;
     private Double alt;
 
-    public Coordinate() {}
-
     public Coordinate(Double lat, Double longi, Double alt) {
         this.lat = lat;
         this.longi = longi;
@@ -26,7 +24,7 @@ public class Coordinate {
 
     public Long getId() {
         return id;
-    }
+    }   
 
     public void setLat(Double lat) {
         this.lat = lat;
@@ -50,6 +48,10 @@ public class Coordinate {
 
     public Double getAlt() {
         return alt;
+    }
+
+    public String toString() {
+        return ("(" + lat + ", " + longi + ", " + alt + ")");
     }
 
 }

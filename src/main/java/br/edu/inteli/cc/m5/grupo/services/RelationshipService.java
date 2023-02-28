@@ -12,7 +12,7 @@ public class RelationshipService {
     @Autowired
     private CoordinateRepository CoordinateRepository;
     
-    public void LinkTwoNodes(Coordinate node1, Coordinate node2) {
+        public void LinkTwoNodes(Coordinate node1, Coordinate node2) {
         
     }
     
