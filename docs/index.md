@@ -41,6 +41,7 @@ Planejador de trajetórias para voos em baixa altitude
   - [Limitações do problema](#limitações-do-problema)
   - [Representação do Grafo](#representação-do-grafo)
   - [Análise do cenário: Matriz SWOT](#análise-do-cenário-matriz-swot)
+      - [Referências:](#referências)
   - [Análise da indústria: 5 forças de Porter](#análise-da-indústria-5-forças-de-porter)
       - [Modelo de negócio:](#modelo-de-negócio)
       - [Ameaça de novos concorrentes:](#ameaça-de-novos-concorrentes)
@@ -48,7 +49,7 @@ Planejador de trajetórias para voos em baixa altitude
       - [Poder de negociação dos clientes:](#poder-de-negociação-dos-clientes)
       - [Poder de negociação dos fornecedores:](#poder-de-negociação-dos-fornecedores)
       - [Rivalidade entre os concorrentes:](#rivalidade-entre-os-concorrentes)
-      - [Referências:](#referências)
+      - [Referências:](#referências-1)
   - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
   - [Matriz de Risco](#matriz-de-risco)
 - [Requisitos do Sistema](#requisitos-do-sistema)
@@ -75,7 +76,7 @@ Planejador de trajetórias para voos em baixa altitude
   - [Manual de Implantação](#manual-de-implantação)
   - [Manual do Usuário](#manual-do-usuário)
   - [Manual do Administrador](#manual-do-administrador)
-- [Referências](#referências-1)
+- [Referências](#referências-2)
 
 
 # Autores
@@ -254,8 +255,8 @@ O Value Proposition Canvas é uma ferramenta que ajuda as empresas a entender e 
 
 A Matriz de Risco é uma ferramenta utilizada para avaliar e gerenciar os riscos em um projeto. A ideia dessa técnica é representar graficamente os riscos mapeados para determinado projeto e classificá-los de acordo com a sua probabilidade de ocorrência e impacto ao desenvolvimento. É uma ferramenta importante para ajudar as empresas a identificar e gerenciar os riscos de forma eficaz, o que é fundamental para o sucesso dos produtos e da realização de projetos de maneira segura e bem-sucedida, trazendo a possibilidade de identificar e priorizar os riscos mais críticos e, por consequência, desenvolver estratégias para minimizar seu impacto..
 
-![Matriz de Riscos](img/matriz_de_riscos1.png)
-![Matriz de Oportunidades](img/matriz_de_riscos2.png)
+![Matriz de Riscos](img/matriz_de_riscos.png)
+![Matriz de Oportunidades](img/matriz_de_oportunidades.png)
 
 # Requisitos do Sistema
 
