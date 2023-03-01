@@ -23,7 +23,6 @@ public class Path {
     }
 
     // Getters e Setters
-
     public Long getId() {
         return id;
     }
@@ -50,6 +49,19 @@ public class Path {
     
     public List<Coordinate> getNodes() {
         return this.nodes;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Path [");
+        for (Coordinate coord : nodes) {
+            sb.append(coord.toString());
+            sb.append(", ");
+        }
+        sb.append("weight=").append(weight);
+        sb.append(", distance=").append(distance);
+        sb.append("]");
+        return sb.toString();
     }
 
 }
