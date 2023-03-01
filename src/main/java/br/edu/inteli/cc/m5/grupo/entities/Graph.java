@@ -8,8 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import br.edu.inteli.cc.m5.grupo.resources.LinkedCoordinatesList;
-// import br.edu.inteli.cc.m5.grupo.entities.Coordinate;
-
+    
 @Node
 public class Graph {
 
