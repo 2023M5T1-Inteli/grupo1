@@ -4,6 +4,8 @@ import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 
+import java.util.List;
+
 @Node
 public class Coordinate {
 
@@ -13,6 +15,7 @@ public class Coordinate {
     private Double lat;
     private Double longi;
     private Double alt;
+    private List<Coordinate> adjacents;
 
     public Coordinate(Double lat, Double longi, Double alt) {
         this.lat = lat;
@@ -20,7 +23,7 @@ public class Coordinate {
         this.alt = alt;
     }
 
-    // getters e setters
+    // Getters e Setters
 
     public Long getId() {
         return id;
@@ -50,8 +53,19 @@ public class Coordinate {
         return alt;
     }
 
+    public void setAdjacents(List<Coordinate> nodes) {
+        adjacents = nodes;
+    }
+
+    public List<Coordinate> getAdjacents() {
+        return adjacents;
+    }
+
     public String toString() {
-        return ("(" + lat + ", " + longi + ", " + alt + ")");
+        String latStr = lat.toString();
+        String longiStr = longi.toString();
+        String altStr = alt.toString();
+        return String.format("(%1$-3s, %2$-3s, %3$-3s)", latStr, longiStr, altStr);
     }
 
 }

@@ -1,10 +1,11 @@
 package br.edu.inteli.cc.m5.grupo.entities;
 
-import java.util.List;
-
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
+
+import java.util.List;
+
 import br.edu.inteli.cc.m5.grupo.entities.Coordinate;
 
 @Node
