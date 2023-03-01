@@ -14,12 +14,14 @@ public class Edge {
     private Coordinate origin;
     private Coordinate destiny;
     private Double relativeAltitude;
+    private Boolean isDiagon;
 
     // Constructor of origin and destiny
     public Edge(Coordinate coordinate, Coordinate adjacentCoordinate) {
         this.origin = coordinate;
         this.destiny = adjacentCoordinate;
         this.relativeAltitude = destiny.getAlt() - origin.getAlt();
+        this.isDiagon = null;
     }
 
     // Setar a propriedade origem
@@ -37,6 +39,16 @@ public class Edge {
         this.destiny = destiny;
     }
 
+    // Mostra se a relaçao entre as duas coordenadas é diagonal 
+    public Boolean getIsDiagon() {
+        return this.isDiagon;
+    }
+
+    // Seta a relação entre as duas coordenadas
+    public void setIsDiagon(Boolean isDiagon) {
+        isDiagon = this.isDiagon;
+    }
+
     // Propriedades da coordenada de destino
     public Coordinate getDestiny() {
         return this.destiny;
@@ -49,6 +61,6 @@ public class Edge {
 
     // Retorno de String para debug
     public String toString() {
-        return this.origin + " -> " + destiny;
+        return this.origin + " - " + relativeAltitude + " > " + destiny;
     }
 }
