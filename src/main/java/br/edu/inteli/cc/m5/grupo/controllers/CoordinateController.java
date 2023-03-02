@@ -13,7 +13,7 @@ import java.util.List;
 public class CoordinateController { 
     
     @Autowired
-    private CoordinateRepository nodeRepository;
+    private CoordinateRepository coordinateRepository;
     
     /**
      * This method handles a GET request for retrieving all coordinates.
@@ -21,7 +21,7 @@ public class CoordinateController {
      */
     @GetMapping("/")
     public List<Coordinate> getAllNodes() {
-        return nodeRepository.findAll();
+        return coordinateRepository.findAll();
     }
     
     /**
@@ -31,36 +31,36 @@ public class CoordinateController {
      */
     @GetMapping("/{id}")
     public Coordinate getNodeById(@PathVariable Long id) {
-        return nodeRepository.findById(id).orElse(null);
+        return coordinateRepository.findById(id).orElse(null);
     }
     
-    /**
-     * This method handles a POST request for creating a new coordinate.
-     * @param Node the Coordinate object to create.
-     * @return the newly created Coordinate object.
-     */
-    @PostMapping("/")
-    public Coordinate createNode(@RequestBody Coordinate Node) {
-        return nodeRepository.save(Node);
-    }
+    // /**
+    //  * This method handles a POST request for creating a new coordinate.
+    //  * @param Node the Coordinate object to create.
+    //  * @return the newly created Coordinate object.
+    //  */
+    // @PostMapping("/")
+    // public Coordinate createNode(@RequestBody Coordinate Node) {
+    //     return coordinateRepository.save(Node);
+    // }
     
-    /**
-     * This method handles a PUT request for updating an existing coordinate.
-     * @param id the ID of the coordinate to update.
-     * @param node the updated Coordinate object.
-     * @return the updated Coordinate object, or null if the specified ID does not exist.
-     */
-    @PutMapping("/{id}")
-    public Coordinate updateNode(@PathVariable Long id, @RequestBody Coordinate node) {
-        Coordinate existingNode = nodeRepository.findById(id).orElse(null);
-        if (existingNode != null) {
-            existingNode.setAlt(node.getAlt());;
-            existingNode.setLat(node.getLat());
-            existingNode.setLongi(node.getLongi());
-            return nodeRepository.save(existingNode);
-        }
-        return null;    
-    }
+    // /**
+    //  * This method handles a PUT request for updating an existing coordinate.
+    //  * @param id the ID of the coordinate to update.
+    //  * @param node the updated Coordinate object.
+    //  * @return the updated Coordinate object, or null if the specified ID does not exist.
+    //  */
+    // @PutMapping("/{id}")
+    // public Coordinate updateNode(@PathVariable Long id, @RequestBody Coordinate node) {
+    //     Coordinate existingNode = coordinateRepository.findById(id).orElse(null);
+    //     if (existingNode != null) {
+    //         existingNode.setAlt(node.getAlt());;
+    //         existingNode.setLat(node.getLat());
+    //         existingNode.setLongi(node.getLongi());
+    //         return coordinateRepository.save(existingNode);
+    //     }
+    //     return null;    
+    // }
     
     /**
      * This method handles a DELETE request for deleting a coordinate.
@@ -68,7 +68,7 @@ public class CoordinateController {
      */
     @DeleteMapping("/{id}")
     public void deleteNode(@PathVariable Long id) {
-        nodeRepository.deleteById(id);
+        coordinateRepository.deleteById(id);
     }
 
 }
