@@ -4,64 +4,106 @@ import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 
-import java.util.List;
+/**
 
-import br.edu.inteli.cc.m5.grupo.entities.Coordinate;
+The Edge class represents a relationship between two coordinates in a graph.
 
+It has information about the origin, destiny, relative altitude and if
+
+the relationship between the two coordinates is diagonal or not.
+*/
 @Node
 public class Edge {
-    
+
+    // Node attributes
     @Id @GeneratedValue
     private Coordinate origin;
     private Coordinate destiny;
     private Double relativeAltitude;
-    private Boolean isDiagon;
+    private Boolean isDiagonal;
 
-    // Constructor of origin and destiny
-    public Edge(Coordinate coordinate, Coordinate adjacentCoordinate) {
-        this.origin = coordinate;
-        this.destiny = adjacentCoordinate;
-        this.relativeAltitude = destiny.getAlt() - origin.getAlt();
-        this.isDiagon = null;
-    }
+    /**
 
-    // Setar a propriedade origem
-    public void setOrigin(Coordinate origin) {
+    Constructs an edge with a given origin and destination coordinate.
+    @param origin The origin coordinate.
+    @param destiny The destination coordinate.
+    */
+    public Edge(Coordinate origin, Coordinate destiny) {
         this.origin = origin;
-    }
-
-    // Propriedades da coordenada de origem
-    public Coordinate getOrigin() {
-        return this.origin;
-    }
-
-    // Setar a propriedade destino
-    public void setDestiny(Coordinate destiny) {
         this.destiny = destiny;
+        this.relativeAltitude = destiny.getAlt() - origin.getAlt();
+        this.isDiagonal = null;
     }
 
-    // Mostra se a relaçao entre as duas coordenadas é diagonal 
-    public Boolean getIsDiagon() {
-        return this.isDiagon;
+    /**
+
+    Sets the origin coordinate of the edge.
+    @param origin The new origin coordinate.
+    */
+    public void setOrigin(Coordinate origin) {
+    this.origin = origin;
     }
 
-    // Seta a relação entre as duas coordenadas
-    public void setIsDiagon(Boolean isDiagon) {
-        isDiagon = this.isDiagon;
+    /**
+
+    Returns the origin coordinate of the edge.
+    @return The origin coordinate of the edge.
+    */
+    public Coordinate getOrigin() {
+    return this.origin;
     }
 
-    // Propriedades da coordenada de destino
+    /**
+
+    Sets the destination coordinate of the edge.
+    @param destiny The new destination coordinate.
+    */
+    public void setDestiny(Coordinate destiny) {
+    this.destiny = destiny;
+    }
+
+    /**
+
+    Returns the destination coordinate of the edge.
+    @return The destination coordinate of the edge.
+    */
     public Coordinate getDestiny() {
-        return this.destiny;
+    return this.destiny;
     }
 
-    // Pega a altitude relativa
+    /**
+
+    Returns the relative altitude between the origin and destination coordinates of the edge.
+    @return The relative altitude between the origin and destination coordinates of the edge.
+    */
     public Double getRelativeAltitude() {
-        return this.relativeAltitude;
+    return this.relativeAltitude;
     }
 
-    // Retorno de String para debug
-    public String toString() {
-        return this.origin + " - " + relativeAltitude + " > " + destiny;
+    /**
+
+    Returns whether the relationship between the origin and destination coordinates of the edge is diagonal or not.
+    @return True if the relationship is diagonal, false otherwise.
+    */
+    public Boolean getIsDiagonal() {
+    return this.isDiagonal;
     }
+
+    /**
+
+    Sets whether the relationship between the origin and destination coordinates of the edge is diagonal or not.
+    @param isDiagonal True if the relationship is diagonal, false otherwise.
+    */
+    public void setIsDiagonal(Boolean isDiagonal) {
+    this.isDiagonal = isDiagonal;
+    }
+
+    /**
+
+    @return A string representation of the edge.
+    */
+    public String toString() {
+    return this.origin + " - " + relativeAltitude + " > " + destiny;
+    }
+
 }

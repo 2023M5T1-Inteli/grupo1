@@ -6,51 +6,105 @@ import org.springframework.data.neo4j.core.schema.Node;
 
 import java.util.List;
 
+/**
+
+The Path class represents a group of Coordinates.
+
+It holds information about it's weight, distance and which
+
+Coordinates it owns
+*/
 @Node
 public class Path {
 
-    // Atributos para a entidade Nó
+    // Node attributes
     @Id @GeneratedValue
     private Long id;
     private Long weight;
     private Long distance; 
     private List<Coordinate> nodes;
 
+    /**
+     * Path class constructor, sets a new Path object with given Coordinates, weight and distance.
+     *
+     * @param nodes List of coordinates that make up the path.
+     * @param weight Path's weight.
+     * @param distance Path's total distance.
+     */
     public Path(List<Coordinate> nodes, Long weight, Long distance) {
         this.nodes = nodes;
         this.weight = weight;
         this.distance = distance;
     }
 
-    // Getters e Setters
+    /**
+     * Returns the ID of this node.
+     *
+     * @return the ID of this node.
+     */
     public Long getId() {
         return id;
     }
-    
+
+    /**
+     * Sets this Path's weight.
+     *
+     * @param weight the Path's weight.
+     */
     public void setWeight(Long weight) {
         this.weight = weight;
     }
 
+    /**
+     * Gets this Path's weight.
+     *
+     * @return this Path's weight.
+     */
     public Long getWeight() {
         return weight;
     }        
 
+    /**
+     * Sets the Path's total distance.
+     *
+     * @param distance the Path's total distance.
+     */
     public void setDistance(Long distance) {
         this.distance = distance;
     }
 
+    /**
+     * Get's the Path's total distance.
+     *
+     * @return the Path's total distance.
+     */
     public Long getDistance() {
         return distance;
     }
 
+    /**
+     * Sets the list of coordinates that make up the path.
+     *
+     * @param nodes The new list of coordinates that make up the path.
+     */
     public void setNodes(List<Coordinate> nodes) {
         this.nodes = nodes;
     }
-    
+
+    /**
+     * Gets the list of coordinates that make up the path.
+     *
+     * @return The list of coordinates that make up the path.
+     */
     public List<Coordinate> getNodes() {
         return this.nodes;
     }
 
+    /**
+     * Gets a string representation of path.
+     *
+     * @return A string representation of path.
+     */
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Path [");

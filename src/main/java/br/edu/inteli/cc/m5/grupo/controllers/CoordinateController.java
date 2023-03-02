@@ -9,27 +9,47 @@ import br.edu.inteli.cc.m5.grupo.repositories.CoordinateRepository;
 import java.util.List;
 
 @RestController
-@RequestMapping("/node")
+@RequestMapping("/coordinate")
 public class CoordinateController { 
-
+    
     @Autowired
     private CoordinateRepository nodeRepository;
     
+    /**
+     * This method handles a GET request for retrieving all coordinates.
+     * @return a List of all coordinates stored in the database.
+     */
     @GetMapping("/")
     public List<Coordinate> getAllNodes() {
         return nodeRepository.findAll();
     }
     
+    /**
+     * This method handles a GET request for retrieving a coordinate by its ID.
+     * @param id the ID of the coordinate to retrieve.
+     * @return the Coordinate object corresponding to the specified ID, or null if it does not exist.
+     */
     @GetMapping("/{id}")
     public Coordinate getNodeById(@PathVariable Long id) {
         return nodeRepository.findById(id).orElse(null);
     }
-
+    
+    /**
+     * This method handles a POST request for creating a new coordinate.
+     * @param Node the Coordinate object to create.
+     * @return the newly created Coordinate object.
+     */
     @PostMapping("/")
     public Coordinate createNode(@RequestBody Coordinate Node) {
         return nodeRepository.save(Node);
     }
-
+    
+    /**
+     * This method handles a PUT request for updating an existing coordinate.
+     * @param id the ID of the coordinate to update.
+     * @param node the updated Coordinate object.
+     * @return the updated Coordinate object, or null if the specified ID does not exist.
+     */
     @PutMapping("/{id}")
     public Coordinate updateNode(@PathVariable Long id, @RequestBody Coordinate node) {
         Coordinate existingNode = nodeRepository.findById(id).orElse(null);
@@ -41,7 +61,11 @@ public class CoordinateController {
         }
         return null;    
     }
-
+    
+    /**
+     * This method handles a DELETE request for deleting a coordinate.
+     * @param id the ID of the coordinate to delete.
+     */
     @DeleteMapping("/{id}")
     public void deleteNode(@PathVariable Long id) {
         nodeRepository.deleteById(id);
