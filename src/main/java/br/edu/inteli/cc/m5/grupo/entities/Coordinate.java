@@ -4,6 +4,7 @@ import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Node
@@ -15,7 +16,7 @@ public class Coordinate {
     private Double lat;
     private Double longi;
     private Double alt;
-    private List<Coordinate> adjacents;
+    private List<Coordinate> adjacents = new ArrayList<>();
 
     /**
      * Constructor for a Coordinate object.
@@ -29,6 +30,8 @@ public class Coordinate {
         this.longi = longi;
         this.alt = alt;
     }
+
+    public Coordinate() {}
 
     // Getters and setters
 
@@ -112,6 +115,43 @@ public class Coordinate {
     public List<Coordinate> getAdjacents() {
         return adjacents;
     }
+
+    public void addAdjacent(Coordinate adjacent) {
+        if (adjacents.isEmpty()) {
+            adjacents.add(adjacent);
+        } else if (adjacents.size() == 1) {
+            Coordinate existingAdjacent = adjacents.get(0);
+            if (existingAdjacent.equals(adjacent)) {
+                // Do nothing, the same coordinate is already adjacent
+            } else {
+                adjacents.add(adjacent);
+            }
+        } else {
+            throw new IllegalStateException("A relação de adjacência já existe entre as coordenadas.");
+        }
+    }
+    
+    public void removeAdjacent(Coordinate adjacent) {
+        if (!adjacents.remove(adjacent)) {
+            throw new IllegalArgumentException("A coordenada especificada não é adjacente a esta coordenada.");
+        }
+    }
+    
+    public void removeAllAdjacents() {
+        adjacents.clear();
+    }
+    
+    public boolean hasAdjacent(Coordinate adjacent) {
+        return adjacents.contains(adjacent);
+    }
+    
+    public boolean hasAdjacents() {
+        return !adjacents.isEmpty();
+    }
+     
+    public int countAdjacents() {
+        return adjacents.size();
+    }    
 
     /**
      * Returns a string representation of this node.

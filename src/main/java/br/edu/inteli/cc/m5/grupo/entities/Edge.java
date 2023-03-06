@@ -1,4 +1,4 @@
-package br.edu.inteli.cc.m5.grupo.entities;
+// package br.edu.inteli.cc.m5.grupo.entities;
 
 // import org.springframework.data.neo4j.core.schema.GeneratedValue;
 // import org.springframework.data.neo4j.core.schema.Id;
@@ -107,7 +107,3 @@ package br.edu.inteli.cc.m5.grupo.entities;
 //     }
 
 // }
-
-public class Edge {
-
-}
