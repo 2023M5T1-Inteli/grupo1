@@ -98,6 +98,10 @@ public class Coordinate {
         return alt;
     }
 
+    public void addAdjacents(Coordinate adjacentCoordinate) {
+        adjacents.add(adjacentCoordinate);
+    }
+
     /**
      * Sets the adjacent nodes of this node.
      * 

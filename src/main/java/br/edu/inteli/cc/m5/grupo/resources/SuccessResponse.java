@@ -3,23 +3,13 @@ package br.edu.inteli.cc.m5.grupo.resources;
 public class SuccessResponse {
     
     private int status;
+    private String title;
+    private String description;
     private SuccessData success;
 
     public SuccessResponse(int status, String title, String description, Object data) {
         this.status = status;
         this.success = new SuccessData(title, description, data);
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public SuccessData getSuccess() {
-        return success;
     }
 
     public void setSuccess(SuccessData success) {

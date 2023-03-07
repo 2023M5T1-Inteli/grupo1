@@ -57,6 +57,7 @@ public class Graph {
      * @param args The main function's arguments.
      */
     public static void main(String[] args) {
+
         LinkedCoordinatesList row1 = new LinkedCoordinatesList();
         LinkedCoordinatesList row2 = new LinkedCoordinatesList();
         LinkedCoordinatesList row3 = new LinkedCoordinatesList();
@@ -76,6 +77,7 @@ public class Graph {
         Graph graph = new Graph(Arrays.asList(row1, row2, row3));
     
         graph.displayGraph();
+        
     }
 
 }    

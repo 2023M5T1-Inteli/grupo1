@@ -1,18 +1,18 @@
 package br.edu.inteli.cc.m5.grupo.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import org.springframework.data.neo4j.core.Neo4jTemplate;
-
 import br.edu.inteli.cc.m5.grupo.entities.Coordinate;
 import br.edu.inteli.cc.m5.grupo.repositories.CoordinateRepository;
 
+import org.springframework.data.neo4j.core.Neo4jTemplate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/coordinate")
@@ -80,19 +80,27 @@ public class CoordinateController {
     // }    
 
     @PostMapping("adjacent/set/{id}")
-    public Coordinate setAllAdjacentCoordinates(@PathVariable Long id, @RequestBody Map<String, List<Coordinate>> adjacents) {
+    public Coordinate setAllAdjacentCoordinates(@PathVariable Long id, @RequestBody Map<String, List<Integer>> adjacents) {
         // Encontra a coordenada pelo ID
         Coordinate coordinate = listCoordinateById(id);
     
-        // Adiciona as coordenadas adjacentes à lista de adjacências
-        coordinate.setAdjacents(adjacents.get("adjacentCoordinates"));
-            
+        List<Integer> ids = adjacents.get("adjacentCoordinatesIds");
+    
+        List<Coordinate> adjacentCoordinates = new ArrayList<>();
+        
+        ids.forEach(adjacentId -> {
+            Coordinate adjacentCoordinate = listCoordinateById(adjacentId.longValue());
+            adjacentCoordinates.add(adjacentCoordinate);
+        });
+        
+        coordinate.setAdjacents(adjacentCoordinates);
+    
         // Salva a relação no Neo4j
         neo4jTemplate.save(coordinate);
             
         // Retorna a coordenada com os adjacentes atualizados
         return coordinate;
-    }    
+    }
 
     @PostMapping("/adjacent/{id}")
     public Coordinate storeAdjacentCoordinate(@PathVariable Long id, @RequestBody Map<String, Long> requestBody) {
@@ -137,7 +145,9 @@ public class CoordinateController {
      */
     @DeleteMapping("/{id}")
     public void deleteCoordinate(@PathVariable Long id) {
-        coordinateRepository.deleteById(id);
-    }
+        Coordinate coordinate = coordinateRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Coordenada com o id: " + id + " não encontrada "));
+        coordinateRepository.delete(coordinate);
+    }    
 
 }
