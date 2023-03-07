@@ -31,6 +31,14 @@ public class Graph {
     public Graph(List<LinkedCoordinatesList> rows) {
         this.rows = rows;
     }
+
+    public int getSize() {
+        return rows.size();
+    }
+
+    public List<LinkedCoordinatesList> getRows() {
+        return rows;
+    }
     
     /**
      * Sets the rows of the graph to the given list of connected coordinates.
