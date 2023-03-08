@@ -15,7 +15,7 @@ public class Calculator {
         Math.pow(Math.sin((lat1 - lat2) / 2), 2) + Math.cos(lat1) * Math.cos(lat2) *
             Math.pow(Math.sin((lon1 - lon2) / 2), 2)));
 
-    return distance;
+    return distance * 1000.0;
   }
 
   public static double altVar(Vertex start, Vertex end) {

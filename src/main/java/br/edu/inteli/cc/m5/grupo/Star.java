@@ -1,23 +1,57 @@
 package br.edu.inteli.cc.m5.grupo;
 
+import java.util.HashSet;
+import java.util.PriorityQueue;
+import java.util.Set;
+
 public class Star {
 
-    private final double alfa = 0.5;
-    private Vertex inicialVertex;
-    private Vertex finalVertex;
+    public static void findPath(Vertex inicialVertex, Vertex finalVertex) {
 
-    public double heuristic(Vertex currentVertex) {
+        PriorityQueue<Node> openList = new PriorityQueue<Node>();
 
-        double distToFinal = Calculator.calcDist(currentVertex, finalVertex);
-        double altVarToFinal = Calculator.altVar(currentVertex, finalVertex);
+        Set<Node> closedList = new HashSet<Node>();
 
-        double heuristic = alfa * altVarToFinal + (1.0 - alfa) * distToFinal;
+        Node initialNode = new Node(inicialVertex);
 
-        return heuristic;
+        openList.add(initialNode);
 
-    }
+        for (Node node : openList) {
 
-    public void findPath() {
+            System.out.println(node.getVertex().toString());
+
+            if (node.getVertex() == finalVertex) {
+                openList.remove(node);
+                closedList.add(node);
+
+            }
+
+            for (Edge edge : node.getVertex().getEdges()) {
+                Node nextNode = new Node(edge.getEnd(), node, edge, finalVertex);
+
+                if (!closedList.contains(nextNode)) {
+                    openList.add(nextNode);
+                }
+
+            }
+
+            openList.remove(node);
+
+            closedList.add(node);
+
+        }
+
+        System.out.println("Open List:");
+
+        for (Node node : openList) {
+            System.out.println(node.getVertex().toString());
+        }
+
+        System.out.println("Closed List:");
+
+        for (Node node : closedList) {
+            System.out.println(node.getVertex().toString());
+        }
 
     }
 

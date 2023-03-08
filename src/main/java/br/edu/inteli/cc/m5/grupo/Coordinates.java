@@ -1,7 +1,5 @@
 package br.edu.inteli.cc.m5.grupo;
 
-import java.util.Optional;
-
 import br.edu.inteli.cc.m5.dted.DtedDatabaseHandler;
 
 public class Coordinates {
@@ -19,32 +17,9 @@ public class Coordinates {
   }
 
   /**
-   * Função que retorna os dados necessários para montar um nó em forma de array
-   * 
-   * @param dbDTED    banco de dados DTED inicializado
-   * @param longitude longitude da coordenada
-   * @param latitude  latitude da coordenada
-   * @return array que contém longitude, latitude e altitude de um determinado
-   *         ponto
-   */
-  public static double[] getAltitude(DtedDatabaseHandler dbDTED, double longitude, double latitude) {
-
-    Optional<Integer> altitude = dbDTED.QueryLatLonElevation(longitude, latitude); // query que busca a altitude de um
-                                                                                   // ponto com base na longitude e na
-                                                                                   // latitude da coordenada
-    // System.out.println("lon: " + longitude + ", lat: " + latitude + ", altitude:
-    // " + altitude.get());
-
-    double[] coordData = { longitude, latitude, (double) altitude.get() }; // array contendo os dados de um Nó
-                                                                           // (longitude, latitude e altitude)
-
-    return coordData;
-  }
-
-  /**
-   * Função que retorna todas as informações para montar uma malha de nós com base
+   * Função que retorna os Vértices para montar uma malha (Grafo) com base
    * na coordenada de um ponto inicial e
-   * no número de vértices dentro da malha
+   * no número de Vértices dentro da malha
    * Todos os pontos dentro dessa estrutura precisam estar dentro do DB DTED
    * 
    * @param dbDTED   banco de dados DTED inicializado
@@ -52,12 +27,10 @@ public class Coordinates {
    * @param latZero  latitude do ponto inicial
    * @param row      número de linhas da malha de nós
    * @param col      número de colunas da malha de nós
-   * @return array que contém vários arrays com os dados necessários para a
-   *         construção de nós
+   * @return array de Vértices que compõem o Grafo
    */
-  public static double[][] getCoordData(DtedDatabaseHandler dbDTED, double longZero, double latZero, int row, int col) {
-    double[][] coordData = new double[row * col][3]; // array multidimensional que contém as informações de todos os Nós
-                                                     // da malha
+  public static Vertex[] getCoordData(DtedDatabaseHandler dbDTED, double longZero, double latZero, int row, int col) {
+    Vertex[] vertices = new Vertex[row * col]; // array que contém as informações de todos os Nós da malha
 
     int count = 0; // variável auxiliar que armazena a quantidade de nós criados
     double lon;
@@ -65,17 +38,36 @@ public class Coordinates {
     for (int i = 0; i < row; i++) { // loop que obtém os dados linha por linha
       lon = longZero;
       for (int j = 0; j < col; j++) { // loop que obtém os dados de todos os nós de uma determinada linha da malha
-        coordData[count] = getAltitude(dbDTED, lon, lat);
-        lon += 0.12; // constante (em graus) que viaja 120m no sentido Oeste - Leste em uma mesma
-                     // latitude com base na Fórmula de Harversine (WIP!!!)
+        double alt = (double) dbDTED.QueryLatLonElevation(lon, lat).get(); // altitude de uma coordenada
+
+        Vertex newVert = new Vertex(count, lon, lat, alt); // criação de um novo Vértice
+
+        vertices[count] = newVert; // armazena o vértice criado no array
+
+        lon += 0.0016; // constante (em graus) que viaja 120m no sentido Oeste - Leste em uma mesma
+        // latitude (próxima de 43°S) com base na Fórmula de Harversine (WIP!!!)
         count++;
       }
-      lat -= 0.0011; // constante (em graus) que viaja 120m no sentido Norte - Sul em uma mesma
-                     // logitude com base na Fórmula de Harversine (WIP!!!)
+      lat -= 0.00018; // constante (em graus) que viaja 120m no sentido Norte - Sul em uma mesma
+                      // logitude com base na Fórmula de Harversine (WIP!!!)
     }
 
-    return coordData;
+    for (Vertex vertex : vertices) {
+      int id = vertex.getId();
+      int[] toConnect = { id - col - 1, id - col, id - col + 1,
+          id - 1, id + 1,
+          id + col - 1, id + col, id + col + 1 };
 
+      for (int adj : toConnect) {
+        if (adj > 0 && adj < toConnect.length && (Calculator.calcDist(vertex, vertices[adj]) < 20000.0)) {
+          // ) {
+          vertex.addEgde(vertices[adj]);
+          System.out.println(Calculator.calcDist(vertex, vertices[adj]));
+        }
+      }
+    }
+
+    return vertices;
   }
 
   public static void main(String[] args) {
@@ -86,15 +78,17 @@ public class Coordinates {
 
     int rows = 5, cols = 4;
 
-    double[][] coordData = getCoordData(dbRio, -43.4076, -22.1510, rows, cols);
+    Vertex[] coordData = getCoordData(dbRio, -43.4076, -22.1510, rows, cols);
 
-    for (int i = 0; i < rows * cols; i++) {
-      for (int j = 0; j < 3; j++) {
-        System.out.println(coordData[i][j]);
-      }
+    for (int i = 0; i < coordData.length; i++) {
+      System.out.println(coordData[i].toString());
     }
 
-    // System.out.println(coordData);
+    for (int i = 0; i < coordData.length; i++) {
+      for (Edge edge : coordData[i].getAdj()) {
+        System.out.println(edge.toString());
+      }
+    }
 
   }
 }

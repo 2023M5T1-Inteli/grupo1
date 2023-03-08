@@ -31,4 +31,8 @@ public class Edge {
     return weight;
   }
 
+  public String toString() {
+    return "Edge (start: " + this.start.toString() + ", end: " + this.end.toString() + ", weight: " + this.weight + ")";
+  }
+
 }
