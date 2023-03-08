@@ -6,7 +6,7 @@ public class Vertex {
   private double latitude;
   private double altitude;
 
-  // private Vertex[] adj;
+  private Edge[] adj;
 
   public Vertex(double longitude, double latitude, double altitude) {
     this.longitude = longitude;
