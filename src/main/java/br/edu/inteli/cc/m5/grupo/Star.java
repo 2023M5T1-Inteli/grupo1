@@ -17,10 +17,6 @@ public class Star {
 
     }
 
-    public double setInicialCost() {
-
-    }
-
     public void findPath() {
 
     }
