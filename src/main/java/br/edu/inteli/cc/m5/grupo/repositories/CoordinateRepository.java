@@ -14,4 +14,4 @@ It extends the {@link Neo4jRepository} interface, which provides basic CRUD oper
 @see Neo4jRepository
 */
 
-public interface CoordinateRepository extends Neo4jRepository<Coordinate, Integer> {}
+public interface CoordinateRepository extends Neo4jRepository<Coordinate, Long> {}

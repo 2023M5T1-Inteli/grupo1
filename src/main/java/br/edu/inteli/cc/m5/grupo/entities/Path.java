@@ -19,7 +19,7 @@ public class Path {
 
     // Node attributes
     @Id @GeneratedValue
-    private Integer id;
+    private Long id;
     private Integer weight;
     private Integer distance; 
     private List<Coordinate> nodes;
@@ -42,7 +42,7 @@ public class Path {
      *
      * @return the ID of this node.
      */
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 

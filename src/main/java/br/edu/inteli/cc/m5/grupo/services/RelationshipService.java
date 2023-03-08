@@ -1,31 +1,33 @@
 package br.edu.inteli.cc.m5.grupo.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.neo4j.core.Neo4jTemplate;
-import br.edu.inteli.cc.m5.grupo.repositories.CoordinateRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.inteli.cc.m5.grupo.entities.Coordinate;
-
 import br.edu.inteli.cc.m5.grupo.entities.Graph;
+
+import br.edu.inteli.cc.m5.grupo.repositories.CoordinateRepository;
 
 public class RelationshipService {
 
+    @Autowired
     private Neo4jTemplate neo4jTemplate;
+    @Autowired
     private CoordinateRepository coordinateRepository;
 
-    private Graph graph;
+        public RelationshipService(Graph graph) {
 
-        public void SetRelationshipsService() {
-            Integer sizeLine = graph.getSize();
-            Integer sizeColumn = graph.getRows().get(0).size();
-            Integer totalNodes = sizeLine * sizeColumn;
+            Long sizeLine = (long) graph.getSize();
+            Long sizeColumn = (long) graph.getRows().get(0).size();
+            Long totalNodes = (long) sizeLine * sizeColumn;
 
-            for (Integer i = 1; i <= sizeLine; i++) {
-                for (Integer j = 1; j <= sizeColumn; j++) {
+            for (Long i = (long) 1; i <= sizeLine; i++) {
+                for (Long j = (long) 1; j <= sizeColumn; j++) {
 
-                    Integer idAtual = i * j;
+                    Long idAtual = i * j;
                     List<Coordinate> auxiliar = new ArrayList<Coordinate>();
                     Coordinate node = coordinateRepository.findById(i * j).orElseThrow();
                     

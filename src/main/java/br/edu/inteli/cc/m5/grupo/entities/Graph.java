@@ -8,6 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import br.edu.inteli.cc.m5.grupo.resources.LinkedCoordinatesList;
+import br.edu.inteli.cc.m5.grupo.services.RelationshipService;
+import br.edu.inteli.cc.m5.grupo.repositories.CoordinateRepository;
 
 /**
 
@@ -19,7 +21,8 @@ public class Graph {
     // Node attributes
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
+    private RelationshipService relationshipService;
     
     private List<LinkedCoordinatesList> rows;
     
@@ -30,6 +33,10 @@ public class Graph {
      */
     public Graph(List<LinkedCoordinatesList> rows) {
         this.rows = rows;
+    }
+
+    public void relationshiptService() {
+        
     }
 
     public int getSize() {
@@ -70,7 +77,9 @@ public class Graph {
         LinkedCoordinatesList row2 = new LinkedCoordinatesList();
         LinkedCoordinatesList row3 = new LinkedCoordinatesList();
     
-        row1.addLast(new Coordinate(1.0, 1.0, 1.0));
+        Coordinate coordinate1 = new Coordinate(1.0, 1.0, 1.0);
+
+        row1.addLast(coordinate1);
         row1.addLast(new Coordinate(2.0, 2.0, 2.0));
         row1.addLast(new Coordinate(3.0, 3.0, 3.0));
     
@@ -84,8 +93,10 @@ public class Graph {
     
         Graph graph = new Graph(Arrays.asList(row1, row2, row3));
 
-        graph.displayGraph();
-        
+        graph.displayGraph();       
+        System.out.println(coordinate1);
+
+
     }
 
 }    

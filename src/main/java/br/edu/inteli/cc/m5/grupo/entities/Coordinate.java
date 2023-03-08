@@ -15,13 +15,13 @@ public class Coordinate {
     
     // Node attributes
     @Id @GeneratedValue
-    private Integer id;
+    private Long id;
     private Double lat;
     private Double longi;
     private Double alt;
     
     @Relationship(type = "ADJACENT", direction = Relationship.Direction.OUTGOING)
-    private List<Adjacent> adjacents = new ArrayList<>();
+    private List<Coordinate> adjacents = new ArrayList<>();
 
     /**
      * Constructor for a Coordinate object.
@@ -45,7 +45,7 @@ public class Coordinate {
      * 
      * @return the ID of this node
      */
-    public Integer getId() {
+    public Long getId() {
         return id;
     }   
 
@@ -128,16 +128,10 @@ public class Coordinate {
     public void addAdjacent(Coordinate adjacent) {
         if (adjacents.isEmpty()) {
             adjacents.add(adjacent);
-        } else if (adjacents.size() == 1) {
-            Coordinate existingAdjacent = adjacents.get(0);
-            if (existingAdjacent.equals(adjacent)) {
-                // Do nothing, the same coordinate is already adjacent
-            } else {
-                adjacents.add(adjacent);
-            }
-        } else {
-            throw new IllegalStateException("A relação de adjacência já existe entre as coordenadas.");
-        }
+        } 
+        // } else {
+        //     throw new IllegalStateException("A relação de adjacência já existe entre as coordenadas.");
+        // }
     }
     
     public void removeAdjacent(Coordinate adjacent) {
@@ -164,7 +158,7 @@ public class Coordinate {
 
     @RelationshipProperties
         public class Adjacent {
-            private Integer id;
+            private Long id;
 
             @Property
             private Double weight;

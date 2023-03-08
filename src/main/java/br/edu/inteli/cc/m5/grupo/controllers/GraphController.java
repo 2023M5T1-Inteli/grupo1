@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import br.edu.inteli.cc.m5.grupo.entities.Graph;
 import br.edu.inteli.cc.m5.grupo.repositories.GraphRepository;
+import org.springframework.data.neo4j.core.Neo4jTemplate;
 
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class GraphController {
      * @return the Graph object corresponding to the specified ID, or null if it does not exist.
      */
     @GetMapping("/{id}")
-    public Graph getGraphById(@PathVariable Integer id) {
+    public Graph getGraphById(@PathVariable Long id) {
         return graphRepository.findById(id).orElse(null);
     }
     
@@ -49,7 +50,7 @@ public class GraphController {
      * @param id the ID of the graph to delete.
      */
     @DeleteMapping("/{id}")
-    public void deleteGraph(@PathVariable Integer id) {
+    public void deleteGraph(@PathVariable Long id) {
         graphRepository.deleteById(id);
     }
 
