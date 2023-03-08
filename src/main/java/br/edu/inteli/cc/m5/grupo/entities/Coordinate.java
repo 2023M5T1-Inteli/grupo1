@@ -3,6 +3,9 @@ package br.edu.inteli.cc.m5.grupo.entities;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Property;
+import org.springframework.data.neo4j.core.schema.Relationship;
+import org.springframework.data.neo4j.core.schema.RelationshipProperties;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +15,13 @@ public class Coordinate {
     
     // Node attributes
     @Id @GeneratedValue
-    private Long id;
+    private Integer id;
     private Double lat;
     private Double longi;
     private Double alt;
-    private List<Coordinate> adjacents = new ArrayList<>();
+    
+    @Relationship(type = "ADJACENT", direction = Relationship.Direction.OUTGOING)
+    private List<Adjacent> adjacents = new ArrayList<>();
 
     /**
      * Constructor for a Coordinate object.
@@ -40,7 +45,7 @@ public class Coordinate {
      * 
      * @return the ID of this node
      */
-    public Long getId() {
+    public Integer getId() {
         return id;
     }   
 
@@ -156,6 +161,35 @@ public class Coordinate {
     public int countAdjacents() {
         return adjacents.size();
     }    
+
+    @RelationshipProperties
+        public class Adjacent {
+            private Integer id;
+
+            @Property
+            private Double weight;
+
+            private Double getWeight() {
+                return weight;
+            }
+
+            private void setWeight(Double weight) {
+                this.weight = weight;
+            }
+
+            public Adjacent(Double relativeAltitude, Double distance) {
+                final double ALTITUDE_COEFFICIENT = 2.0;
+                final double NEGATIVE_ALTITUDE_FACTOR = 0.5;
+                
+                double weight = distance + ALTITUDE_COEFFICIENT * Math.max(0, relativeAltitude);
+                if (relativeAltitude < 0) {
+                    weight += ALTITUDE_COEFFICIENT * Math.abs(relativeAltitude) * NEGATIVE_ALTITUDE_FACTOR;
+                }
+                this.setWeight(weight);
+            }            
+
+        }
+
 
     /**
      * Returns a string representation of this node.

@@ -19,7 +19,7 @@ public class Graph {
     // Node attributes
     @Id
     @GeneratedValue
-    private Long id;
+    private Integer id;
     
     private List<LinkedCoordinatesList> rows;
     
@@ -83,7 +83,7 @@ public class Graph {
         row3.addLast(new Coordinate(9.0, 9.0, 9.0));
     
         Graph graph = new Graph(Arrays.asList(row1, row2, row3));
-    
+
         graph.displayGraph();
         
     }

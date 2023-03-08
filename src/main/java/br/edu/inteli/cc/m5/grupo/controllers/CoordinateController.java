@@ -34,7 +34,7 @@ public class CoordinateController {
     }
 
     @GetMapping("/adjacent/{id}")
-    public List<Coordinate> listAllAdjacentCoordinates(@PathVariable Long id) {
+    public List<Coordinate> listAllAdjacentCoordinates(@PathVariable Integer id) {
         Coordinate coordinate = listCoordinateById(id);
         return coordinate.getAdjacents();
     }
@@ -45,7 +45,7 @@ public class CoordinateController {
      * @return the Coordinate object corresponding to the specified ID, or null if it does not exist.
      */
     @GetMapping("/{id}")
-    public Coordinate listCoordinateById(@PathVariable Long id) {
+    public Coordinate listCoordinateById(@PathVariable Integer id) {
         return coordinateRepository.findById(id).orElse(null);
     }
     
@@ -60,7 +60,7 @@ public class CoordinateController {
     }
 
     // @PostMapping("/adjacent/{id}")
-    // public Coordinate createAdjacentCoordinate(@PathVariable Long id, @RequestBody Coordinate adjacentCoordinate) {
+    // public Coordinate createAdjacentCoordinate(@PathVariable Integer id, @RequestBody Coordinate adjacentCoordinate) {
     //     // Encontra a coordenada pelo ID
     //     Coordinate coordinate = listCoordinateById(id);
         
@@ -80,7 +80,7 @@ public class CoordinateController {
     // }    
 
     @PostMapping("adjacent/set/{id}")
-    public Coordinate setAllAdjacentCoordinates(@PathVariable Long id, @RequestBody Map<String, List<Integer>> adjacents) {
+    public Coordinate setAllAdjacentCoordinates(@PathVariable Integer id, @RequestBody Map<String, List<Integer>> adjacents) {
         // Encontra a coordenada pelo ID
         Coordinate coordinate = listCoordinateById(id);
     
@@ -89,7 +89,7 @@ public class CoordinateController {
         List<Coordinate> adjacentCoordinates = new ArrayList<>();
         
         ids.forEach(adjacentId -> {
-            Coordinate adjacentCoordinate = listCoordinateById(adjacentId.longValue());
+            Coordinate adjacentCoordinate = listCoordinateById(adjacentId);
             adjacentCoordinates.add(adjacentCoordinate);
         });
         
@@ -103,7 +103,7 @@ public class CoordinateController {
     }
 
     @PostMapping("/adjacent/{id}")
-    public Coordinate storeAdjacentCoordinate(@PathVariable Long id, @RequestBody Map<String, Long> requestBody) {
+    public Coordinate storeAdjacentCoordinate(@PathVariable Integer id, @RequestBody Map<String, Integer> requestBody) {
         // Encontra a coordenada pelo ID
         Coordinate coordinate = listCoordinateById(id);
         Coordinate adjacentCoordinate = listCoordinateById(requestBody.get("adjacentCoordinateId"));
@@ -128,7 +128,7 @@ public class CoordinateController {
      * @return the updated Coordinate object, or null if the specified ID does not exist.
      */
     @PutMapping("/{id}")
-    public Coordinate updateCoordinate(@PathVariable Long id, @RequestBody Coordinate coordinate) {
+    public Coordinate updateCoordinate(@PathVariable Integer id, @RequestBody Coordinate coordinate) {
         Coordinate existingCoordinate = coordinateRepository.findById(id).orElse(null);
         if (existingCoordinate != null) {
             existingCoordinate.setAlt(coordinate.getAlt());;
@@ -144,7 +144,7 @@ public class CoordinateController {
      * @param id the ID of the coordinate to delete.
      */
     @DeleteMapping("/{id}")
-    public void deleteCoordinate(@PathVariable Long id) {
+    public void deleteCoordinate(@PathVariable Integer id) {
         Coordinate coordinate = coordinateRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Coordenada com o id: " + id + " não encontrada "));
         coordinateRepository.delete(coordinate);

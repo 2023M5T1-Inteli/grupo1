@@ -19,9 +19,9 @@ public class Path {
 
     // Node attributes
     @Id @GeneratedValue
-    private Long id;
-    private Long weight;
-    private Long distance; 
+    private Integer id;
+    private Integer weight;
+    private Integer distance; 
     private List<Coordinate> nodes;
 
     /**
@@ -31,7 +31,7 @@ public class Path {
      * @param weight Path's weight.
      * @param distance Path's total distance.
      */
-    public Path(List<Coordinate> nodes, Long weight, Long distance) {
+    public Path(List<Coordinate> nodes, Integer weight, Integer distance) {
         this.nodes = nodes;
         this.weight = weight;
         this.distance = distance;
@@ -42,7 +42,7 @@ public class Path {
      *
      * @return the ID of this node.
      */
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -51,7 +51,7 @@ public class Path {
      *
      * @param weight the Path's weight.
      */
-    public void setWeight(Long weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 
@@ -60,7 +60,7 @@ public class Path {
      *
      * @return this Path's weight.
      */
-    public Long getWeight() {
+    public Integer getWeight() {
         return weight;
     }        
 
@@ -69,7 +69,7 @@ public class Path {
      *
      * @param distance the Path's total distance.
      */
-    public void setDistance(Long distance) {
+    public void setDistance(Integer distance) {
         this.distance = distance;
     }
 
@@ -78,7 +78,7 @@ public class Path {
      *
      * @return the Path's total distance.
      */
-    public Long getDistance() {
+    public Integer getDistance() {
         return distance;
     }
 

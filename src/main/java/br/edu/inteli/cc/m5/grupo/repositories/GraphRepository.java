@@ -14,4 +14,4 @@ It extends the {@link Neo4jRepository} interface, which provides basic CRUD oper
 @see Neo4jRepository
 */
 
-public interface GraphRepository extends Neo4jRepository<Graph, Long> {}
+public interface GraphRepository extends Neo4jRepository<Graph, Integer> {}

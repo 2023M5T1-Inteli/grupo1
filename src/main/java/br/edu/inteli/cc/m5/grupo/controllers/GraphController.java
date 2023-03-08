@@ -30,7 +30,7 @@ public class GraphController {
      * @return the Graph object corresponding to the specified ID, or null if it does not exist.
      */
     @GetMapping("/{id}")
-    public Graph getGraphById(@PathVariable Long id) {
+    public Graph getGraphById(@PathVariable Integer id) {
         return graphRepository.findById(id).orElse(null);
     }
     
@@ -49,7 +49,7 @@ public class GraphController {
      * @param id the ID of the graph to delete.
      */
     @DeleteMapping("/{id}")
-    public void deleteGraph(@PathVariable Long id) {
+    public void deleteGraph(@PathVariable Integer id) {
         graphRepository.deleteById(id);
     }
 
