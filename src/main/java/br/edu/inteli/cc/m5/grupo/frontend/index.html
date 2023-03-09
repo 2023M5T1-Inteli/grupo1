@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/logo_black.png" type="image/x-icon"> 
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="jquery-3.6.3.min.js"></script>
+    <title>P.R.G.</title>
+</head>
+<body>
+
+    <nav class="navbar">
+      <img src="./images/logo.png">
+      <h1>POWER ROUTES GENERATOR</h1>
+    </nav>
+
+    <div class="content">
+      <div class="map_box">
+          <div class="map">
+            <div id="my_dataviz"></div>
+          </div>
+      </div>
+    </div>
+
+    <div class="side_bar">
+      <!--malha-->
+      <div class="forms">
+
+
+        <form id="data" class="input-group" >
+          <div id="1">
+            <label>Latitude inicial da malha</label>
+            <input type="number">
+            <label for="line">Longitude inicial da malha</label>
+            <input type="number">
+            <label>Número de linhas</label>
+            <input type="number">
+            <label for="line">Número de colunas</label>
+            <input type="number">
+          </div>
+
+
+          <div style="display: none;" id="2">
+            <label>Latitude Inicial</label>
+            <input type="number">
+            <label for="line">Longitude Inicial</label>
+            <input type="number">
+            <label>Latitude Final</label>
+            <input type="number">
+            <label for="line">Longitude Final</label>
+            <input type="number">
+            <button id="send"">Criar rota</button>
+          </div>
+
+        </form>
+    
+        <button id="next" onclick="netx_step()">próximo</button>
+
+      </div>
+      
+
+      <div class="subtitles">
+        <h1>Legenda</h1>
+        <div class="subtitle_item">
+          <div class="circle"></div>
+          <p>Vértices</p>
+        </div>
+
+        <div class="subtitle_item">
+          <div class="line"></div>
+          <p>Arestas</p>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="alert" id="alert">
+      <div class="alert_box">
+        <div class="circle_alert">
+          <ion-icon name="checkmark"></ion-icon>
+        </div>
+        <h1>Sucesso!</h1>
+        <button class="alert_btn" id="confirm">Continuar</button>
+      </div>
+    </div>
+    
+</body>
+  <script src="./scripts/script.js"></script>
+  <script src="./scripts/forms.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</html>

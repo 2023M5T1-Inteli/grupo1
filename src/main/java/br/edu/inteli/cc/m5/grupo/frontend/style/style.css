@@ -1,0 +1,302 @@
+/*-------------------------------------------*/
+/*----------------Inicio Reset---------------*/
+/*-------------------------------------------*/
+
+*{
+  margin: 0;
+  overflow: hidden;
+}
+:root{
+  --main_color: #1a1a1a;
+  --secondary_color: #E14D2A;
+  --terciary_color: #3E6D9C;
+  --font_main_color: #fff;
+  --background: #000000;
+  --border_radius: 10px;
+  --content_size: 86vh;
+  --confirm_color: green;
+  --light_color: #ebebeb;
+  --dark_color: #000;
+}
+body {
+  background-color: var(--background);
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: var(--font_main_color);
+}
+div {
+  box-sizing: border-box;
+  margin: 10px;
+}
+
+
+
+/*-------------------------------------------*/
+/*------------------Nav Bar------------------*/
+/*-------------------------------------------*/
+
+.navbar{
+  position: fixed;
+  width: 100%;
+  height: 10vh;
+  background-image: linear-gradient(to right, var(--secondary_color), var(--terciary_color));
+  padding: auto;
+  border-bottom: 4px solid var(--main_color);
+  display: flex;
+}
+.navbar img{
+  height: 50px;
+  margin: auto 0 auto 20px;
+  animation: animate 10s linear infinite;
+}
+.navbar h1{
+  font-size: 1.7rem;
+  margin-left: 20px;
+  margin-top: 2.5vh;
+  width: auto;
+  color: var(--font_main_color);
+}
+
+
+/*-------------------------------------------*/
+/*----------------Map Section----------------*/
+/*-------------------------------------------*/
+
+.content {
+  background-color: var(--main_color);
+  color: var(--font_main_color);
+  float: left;
+  width: calc(78% - 20px);
+  height: var(--content_size);
+  margin-right: 10px;
+  margin-top: 12vh;
+  text-align: center;
+  border-radius: var(--border_radius);
+}
+
+.content h2 {
+  margin-top: 0;
+}
+
+.map{
+  width: 800px;
+  height: 480px;
+  margin: auto;
+  padding: auto;
+}
+.map_box{
+  padding: 0;
+}
+
+#my_dataviz{
+    
+    width: 100%;
+    height: 100%;
+}
+
+/*-------------------------------------------*/
+/*------------------Side Bar-----------------*/
+/*-------------------------------------------*/
+
+.side_bar {
+  color: var(--font_main_color);
+  float: left;
+  width: 20%;
+  height: var(--content_size);
+  margin-top: 12vh;
+  border-radius: var(--border_radius);
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.side_bar .forms{
+  height: 70.5%;
+  width: 100%;
+  padding: 10px 20px 20px 20px;
+  margin: 0;
+  background-color: var(--main_color);
+  overflow: hidden;
+  
+}
+
+.side_bar .forms input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid var(--font_main_color);
+  border-radius: 5px;
+  background-color: var(--main_color);
+  color: var(--font_main_color);
+}
+
+.side_bar .forms button{
+  margin-bottom: 8px;
+  margin-top: 5px;
+  padding: 10px;
+  background-color: var(--secondary_color);
+  color: var(--font_main_color);
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+  transition: .5s;
+}
+.side_bar .forms button:hover {
+  background-color: var(--terciary_color);
+}
+
+.side_bar .forms label{
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.input-group{
+  display: flex;
+}
+
+.forms #next{
+  width: 183.5px;
+  
+  margin-left: 10px;
+  margin-top: -6.2px;
+}
+
+
+.side_bar .subtitles{
+  height: 28.5%;
+  width: 100%;
+  padding: 20px;
+  margin: 0;
+  background-color: var(--main_color);
+  bottom: 10px;
+  margin-top: auto;
+}
+
+.side_bar .subtitles h1{
+  margin-left: 10px;
+  font-size: 1.2rem;
+}
+.side_bar .subtitles .subtitle_item{
+  display: flex;
+}
+.side_bar .subtitles .subtitle_item img{
+  height: 30px;
+}
+.side_bar .subtitles .subtitle_item p{
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.side_bar .subtitles .subtitle_item .circle{
+  height: 30px;
+  width: 30px;
+  background-color: var(--secondary_color);
+  border-radius: 50%;
+  margin: 0;
+}
+
+.side_bar .subtitles .subtitle_item .line{
+  height: 30px;
+  width: 2px;
+  background-color: var(--terciary_color);
+  margin: 0 15px 0 12px;
+  transform: rotate(45deg);
+}
+
+/*-------------------------------------------*/
+/*-------------------Alert-------------------*/
+/*-------------------------------------------*/
+.alert{
+  display: block !important;
+  background-color: #0000007a;
+  position: absolute;
+  margin: 0vh;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  margin-top: -100vh;
+  transition: .2s;
+}
+.alert .alert_box{
+  height: 70vh;
+  width: 30vw;
+  background-color: var(--font_main_color);
+  margin: auto;
+  margin-top: 20vh;
+  border-radius: var(--border_radius);
+}
+.alert .alert_box .circle_alert{
+  height: 120px;
+  width: 120px;
+  background-color: var(--confirm_color);
+  margin: auto;
+  margin-top: 20vh;
+  border-radius: 50%;
+}
+.alert .alert_box h1{
+  color: black;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.alert .alert_box ion-icon{
+  font-size: 60px;
+  margin-top: 6px;
+  transition: .3s;
+  color: var(--font_main_color);
+  margin: 30px;
+}
+.alert .alert_box .alert_btn{
+  color: var(--dark_color);
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 8px;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--light_color);
+  color: var(--main_color);
+  border-radius: 5px;
+  border: none;
+  width: 50%;
+  height: 50px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.alert .alert_box .alert_btn:hover{
+  background-color: var(--confirm_color);
+  color: var(--font_main_color);
+}
+
+/*-------------------------------------------*/
+/*------Estilo para dispositivos móveis------*/
+/*-------------------------------------------*/
+
+@media only screen and (max-width: 600px) {
+  .div1 {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .div2 {
+    width: 100%;
+  }
+}
+
+/*-------------------------------------------*/
+/*-------------Animação de girar-------------*/
+/*-------------------------------------------*/
+
+
+@keyframes animate{
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+      transform: rotate(360deg);
+  }
+}
