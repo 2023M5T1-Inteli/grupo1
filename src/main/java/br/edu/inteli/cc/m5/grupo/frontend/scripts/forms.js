@@ -4,11 +4,9 @@ var step_two = document.getElementById("2");
 var alert = document.getElementById("alert");
 
 
-
-
 var send_btn = document.getElementById("send");
 var confirm_btn = document.getElementById("confirm")
-let url = "https://s1cm6i-3000.preview.csb.app/category";
+let url = "http://localhost:8080";
   
 
 
@@ -18,6 +16,12 @@ let url = "https://s1cm6i-3000.preview.csb.app/category";
   });
 
   send_btn.addEventListener('click', function(event){
+    var rows = document.getElementById("rows");
+    var columns = document.getElementById("columns");
+    var initial_lat = document.getElementById("initial_lat");
+    var initial_long = document.getElementById("initial_long");
+
+
     event.preventDefault(); 
     alert.style.margin = "0vh 0 0 0";
     $.ajax({
@@ -26,8 +30,9 @@ let url = "https://s1cm6i-3000.preview.csb.app/category";
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       data: JSON.stringify({
-        name: name,
-        color: color,
+        rows: rows,
+        cols: columns,
+        coordZero: {lat: initial_lat, longi: initial_long}
       }),
       success: function (res) {
         window.location.reload();

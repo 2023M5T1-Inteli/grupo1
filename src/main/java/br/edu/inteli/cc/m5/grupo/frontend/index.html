@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="./images/logo_black.png" type="image/x-icon"> 
     <link rel="stylesheet" type="text/css" href="./style/style.css">
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-    <script src="jquery-3.6.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <title>P.R.G.</title>
 </head>
 <body>
@@ -33,13 +33,13 @@
         <form id="data" class="input-group" >
           <div id="1">
             <label>Latitude inicial da malha</label>
-            <input type="number">
+            <input type="number" id="initial_lat">
             <label for="line">Longitude inicial da malha</label>
-            <input type="number">
+            <input type="number" id="initial_long">
             <label>Número de linhas</label>
-            <input type="number">
+            <input type="number" id="rows">
             <label for="line">Número de colunas</label>
-            <input type="number">
+            <input type="number" id="columns">
           </div>
 
 
@@ -48,10 +48,12 @@
             <input type="number">
             <label for="line">Longitude Inicial</label>
             <input type="number">
+             <!--
             <label>Latitude Final</label>
             <input type="number">
             <label for="line">Longitude Final</label>
             <input type="number">
+            -->
             <button id="send"">Criar rota</button>
           </div>
 
