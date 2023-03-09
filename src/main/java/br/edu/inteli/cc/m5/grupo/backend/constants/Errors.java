@@ -1,4 +1,4 @@
-package br.edu.inteli.cc.m5.grupo.constants;
+package br.edu.inteli.cc.m5.grupo.backend.constants;
 
 public class Errors {
     

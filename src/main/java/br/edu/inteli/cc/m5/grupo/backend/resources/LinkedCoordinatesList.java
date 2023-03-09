@@ -1,6 +1,6 @@
-package br.edu.inteli.cc.m5.grupo.resources;
+package br.edu.inteli.cc.m5.grupo.backend.resources;
 
-import br.edu.inteli.cc.m5.grupo.entities.Coordinate;
+import br.edu.inteli.cc.m5.grupo.backend.entities.Coordinate;
 
 /**
  * This class represents a linked list of coordinates.

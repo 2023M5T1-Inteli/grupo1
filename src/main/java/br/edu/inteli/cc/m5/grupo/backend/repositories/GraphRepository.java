@@ -2,10 +2,10 @@
 
 This package contains classes and interfaces related to managing graph entities in Neo4j.
 */
-package br.edu.inteli.cc.m5.grupo.repositories;
+package br.edu.inteli.cc.m5.grupo.backend.repositories;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 
-import br.edu.inteli.cc.m5.grupo.entities.Graph;
+import br.edu.inteli.cc.m5.grupo.backend.entities.Graph;
 
 /**
 The GraphRepository interface is responsible for managing {@link Graph} entities in Neo4j.

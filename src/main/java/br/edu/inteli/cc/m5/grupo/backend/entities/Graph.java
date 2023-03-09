@@ -1,4 +1,4 @@
-package br.edu.inteli.cc.m5.grupo.entities;
+package br.edu.inteli.cc.m5.grupo.backend.entities;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.neo4j.core.Neo4jTemplate;
@@ -9,11 +9,11 @@ import org.springframework.data.neo4j.core.schema.Node;
 import java.util.List;
 import java.util.Optional;
 
-import br.edu.inteli.cc.m5.grupo.resources.LinkedCoordinatesList;
-import br.edu.inteli.cc.m5.grupo.services.DatabaseHandler;
-import br.edu.inteli.cc.m5.grupo.services.RelationshipService;
+import br.edu.inteli.cc.m5.grupo.backend.resources.LinkedCoordinatesList;
+import br.edu.inteli.cc.m5.grupo.backend.services.DatabaseHandler;
+import br.edu.inteli.cc.m5.grupo.backend.services.RelationshipService;
 import br.edu.inteli.cc.m5.dted.DtedDatabaseHandler;
-import br.edu.inteli.cc.m5.grupo.repositories.CoordinateRepository;
+import br.edu.inteli.cc.m5.grupo.backend.repositories.CoordinateRepository;
 
 /**
 

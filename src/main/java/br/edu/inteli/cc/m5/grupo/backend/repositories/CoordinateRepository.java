@@ -2,10 +2,10 @@
 
 This package contains classes and interfaces related to managing coordinate entities in Neo4j.
 */
-package br.edu.inteli.cc.m5.grupo.repositories;
+package br.edu.inteli.cc.m5.grupo.backend.repositories;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 
-import br.edu.inteli.cc.m5.grupo.entities.Coordinate;
+import br.edu.inteli.cc.m5.grupo.backend.entities.Coordinate;
 
 /**
 The CoordinateRepository interface is responsible for managing {@link Coordinate} entities in Neo4j.

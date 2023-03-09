@@ -1,4 +1,4 @@
-package br.edu.inteli.cc.m5.grupo;
+package br.edu.inteli.cc.m5.grupo.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,14 +1,14 @@
-package br.edu.inteli.cc.m5.grupo.controllers;
+package br.edu.inteli.cc.m5.grupo.backend.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import br.edu.inteli.cc.m5.grupo.entities.Graph;
-import br.edu.inteli.cc.m5.grupo.entities.Coordinate;
+import br.edu.inteli.cc.m5.grupo.backend.entities.Graph;
+import br.edu.inteli.cc.m5.grupo.backend.entities.Coordinate;
 
-import br.edu.inteli.cc.m5.grupo.resources.GraphData;
+import br.edu.inteli.cc.m5.grupo.backend.resources.GraphData;
 
-import br.edu.inteli.cc.m5.grupo.repositories.GraphRepository;
+import br.edu.inteli.cc.m5.grupo.backend.repositories.GraphRepository;
 
 import org.springframework.data.neo4j.core.Neo4jTemplate;
 import com.fasterxml.jackson.annotation.JsonCreator;

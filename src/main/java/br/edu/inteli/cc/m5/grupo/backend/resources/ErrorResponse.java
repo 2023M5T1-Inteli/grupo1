@@ -1,4 +1,4 @@
-package br.edu.inteli.cc.m5.grupo.resources;
+package br.edu.inteli.cc.m5.grupo.backend.resources;
 
 public class ErrorResponse {
     

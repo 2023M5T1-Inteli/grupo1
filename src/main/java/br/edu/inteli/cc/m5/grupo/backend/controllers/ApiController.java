@@ -1,4 +1,4 @@
-package br.edu.inteli.cc.m5.grupo.controllers;
+package br.edu.inteli.cc.m5.grupo.backend.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.inteli.cc.m5.grupo.resources.SuccessResponse;
+import br.edu.inteli.cc.m5.grupo.backend.resources.SuccessResponse;
 
 @RestController
 @RequestMapping("/")

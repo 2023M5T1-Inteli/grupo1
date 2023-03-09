@@ -1,4 +1,4 @@
-package br.edu.inteli.cc.m5.grupo.services;
+package br.edu.inteli.cc.m5.grupo.backend.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.neo4j.core.Neo4jTemplate;
@@ -6,10 +6,10 @@ import org.springframework.data.neo4j.core.Neo4jTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.inteli.cc.m5.grupo.entities.Coordinate;
-import br.edu.inteli.cc.m5.grupo.entities.Graph;
+import br.edu.inteli.cc.m5.grupo.backend.entities.Coordinate;
+import br.edu.inteli.cc.m5.grupo.backend.entities.Graph;
 
-import br.edu.inteli.cc.m5.grupo.repositories.CoordinateRepository;
+import br.edu.inteli.cc.m5.grupo.backend.repositories.CoordinateRepository;
 
 public class RelationshipService {
 

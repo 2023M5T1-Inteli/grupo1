@@ -1,7 +1,7 @@
-package br.edu.inteli.cc.m5.grupo.controllers;
+package br.edu.inteli.cc.m5.grupo.backend.controllers;
 
-import br.edu.inteli.cc.m5.grupo.entities.Coordinate;
-import br.edu.inteli.cc.m5.grupo.repositories.CoordinateRepository;
+import br.edu.inteli.cc.m5.grupo.backend.entities.Coordinate;
+import br.edu.inteli.cc.m5.grupo.backend.repositories.CoordinateRepository;
 
 import org.springframework.data.neo4j.core.Neo4jTemplate;
 
