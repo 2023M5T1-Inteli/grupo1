@@ -1,8 +1,8 @@
 package br.edu.inteli.cc.m5.grupo;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.PriorityQueue;
-import java.util.Set;
 
 public class Star {
 
@@ -10,13 +10,15 @@ public class Star {
 
         PriorityQueue<Node> openList = new PriorityQueue<Node>();
 
-        Set<Node> closedList = new HashSet<Node>();
+        List<Node> closedList = new ArrayList<Node>();
 
         Node initialNode = new Node(inicialVertex);
 
         openList.add(initialNode);
 
-        for (Node node : openList) {
+        while (!openList.isEmpty()) {
+
+            Node node = openList.peek();
 
             System.out.println(node.getVertex().toString());
 
@@ -24,9 +26,11 @@ public class Star {
                 openList.remove(node);
                 closedList.add(node);
 
+                break;
+
             }
 
-            for (Edge edge : node.getVertex().getEdges()) {
+            for (Edge edge : node.getVertex().getAdj()) {
                 Node nextNode = new Node(edge.getEnd(), node, edge, finalVertex);
 
                 if (!closedList.contains(nextNode)) {
@@ -41,16 +45,17 @@ public class Star {
 
         }
 
-        System.out.println("Open List:");
+        List<Vertex> pathVertices = new ArrayList<Vertex>();
 
-        for (Node node : openList) {
-            System.out.println(node.getVertex().toString());
+        Node explored = closedList.get(closedList.size() - 1);
+
+        while (explored.getParent() != null) {
+            pathVertices.add(explored.getVertex());
+            explored = explored.getParent();
         }
 
-        System.out.println("Closed List:");
-
-        for (Node node : closedList) {
-            System.out.println(node.getVertex().toString());
+        for (Vertex vertex : pathVertices) {
+            System.out.println(vertex);
         }
 
     }

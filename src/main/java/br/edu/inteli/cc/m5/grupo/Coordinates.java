@@ -59,10 +59,18 @@ public class Coordinates {
           id + col - 1, id + col, id + col + 1 };
 
       for (int adj : toConnect) {
-        if (adj >= 0 && adj < toConnect.length && (Calculator.calcDist(vertex, vertices[adj]) < 20000.0)) {
-          // ) {
-          vertex.addEgde(vertices[adj]);
-          System.out.println(Calculator.calcDist(vertex, vertices[adj]));
+
+        if (adj >= 0 && adj < vertices.length) {
+
+          // System.out.println("Distance between vertices " + vertex.getId() + " and " +
+          // adj + " : "
+          // + Calculator.calcDist(vertex, vertices[adj]));
+
+          if (Calculator.calcDist(vertex, vertices[adj]) < 20000.0) {
+            vertex.addEgde(vertices[adj]);
+            // System.out.println("Vertices " + vertex.getId() + " and " + adj + "
+            // connected");
+          }
         }
       }
     }
@@ -76,19 +84,9 @@ public class Coordinates {
 
     DtedDatabaseHandler dbRio = openDtedDB("dted/rio");
 
-    int rows = 5, cols = 4;
+    int rows = 4, cols = 3;
 
     Vertex[] coordData = getCoordData(dbRio, -43.4076, -22.1510, rows, cols);
-
-    for (int i = 0; i < coordData.length; i++) {
-      System.out.println(coordData[i].toString());
-    }
-
-    for (int i = 0; i < coordData.length; i++) {
-      for (Edge edge : coordData[i].getAdj()) {
-        System.out.println(edge.toString());
-      }
-    }
 
   }
 }

@@ -1,21 +1,29 @@
 package br.edu.inteli.cc.m5.grupo;
 
-public class Node {
+public class Node implements Comparable<Node> {
 
   private Vertex current;
+  private Node parent;
   private double gCost;
   private double fCost;
 
   public Node(Vertex current, Node parent, Edge connection, Vertex target) {
     this.current = current;
+    this.parent = parent;
 
-    this.gCost = parent.getgCost() + connection.getWeight();
+    this.gCost = this.parent.getgCost() + connection.getWeight();
 
     this.fCost = this.gCost + Calculator.calcDist(current, target) + Calculator.altVar(current, target);
   }
 
   public Node(Vertex current) {
     this.current = current;
+    this.parent = null;
+    this.gCost = 0;
+  }
+
+  public Node getParent() {
+    return this.parent;
   }
 
   public double getgCost() {
