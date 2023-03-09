@@ -59,7 +59,7 @@ public class Coordinates {
           id + col - 1, id + col, id + col + 1 };
 
       for (int adj : toConnect) {
-        if (adj > 0 && adj < toConnect.length && (Calculator.calcDist(vertex, vertices[adj]) < 20000.0)) {
+        if (adj >= 0 && adj < toConnect.length && (Calculator.calcDist(vertex, vertices[adj]) < 20000.0)) {
           // ) {
           vertex.addEgde(vertices[adj]);
           System.out.println(Calculator.calcDist(vertex, vertices[adj]));
