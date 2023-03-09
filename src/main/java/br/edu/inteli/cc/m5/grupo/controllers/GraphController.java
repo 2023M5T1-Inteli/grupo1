@@ -4,9 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import br.edu.inteli.cc.m5.grupo.entities.Graph;
-import br.edu.inteli.cc.m5.grupo.repositories.GraphRepository;
-import org.springframework.data.neo4j.core.Neo4jTemplate;
+import br.edu.inteli.cc.m5.grupo.entities.Coordinate;
 
+import br.edu.inteli.cc.m5.grupo.resources.GraphData;
+
+import br.edu.inteli.cc.m5.grupo.repositories.GraphRepository;
+
+import org.springframework.data.neo4j.core.Neo4jTemplate;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Map;
 import java.util.List;
 
 @RestController
@@ -41,8 +48,17 @@ public class GraphController {
      * @return the newly created Graph object.
      */
     @PostMapping("/")
-    public Graph createGraph(@RequestBody Graph graph) {
-        return graphRepository.save(graph);
+    public void createGraph(@RequestBody GraphData graphData) {
+        
+        Integer rows = graphData.getRows();
+        Integer cols = graphData.getCols();
+        Double lat = (Double) graphData.getcoordZero().getLat();
+        Double longi = (Double) graphData.getcoordZero().getLongi();
+    
+        Coordinate newCoordinate = new Coordinate(lat, longi);
+
+        graphRepository.save(new Graph(rows, cols, newCoordinate));
+        
     }
     
     /**

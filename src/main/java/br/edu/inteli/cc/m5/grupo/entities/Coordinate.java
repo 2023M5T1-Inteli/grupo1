@@ -18,11 +18,16 @@ public class Coordinate {
     private Long id;
     private Double lat;
     private Double longi;
-    private Double alt;
+    private Integer alt;
     
     @Relationship(type = "ADJACENT", direction = Relationship.Direction.OUTGOING)
     private List<Coordinate> adjacents = new ArrayList<>();
 
+    public Coordinate(Double lat, Double longi) {
+        this.lat = lat;
+        this.longi = longi;
+    }
+    
     /**
      * Constructor for a Coordinate object.
      * 
@@ -30,7 +35,7 @@ public class Coordinate {
      * @param longi the longitude coordinate
      * @param alt the altitude coordinate
      */
-    public Coordinate(Double lat, Double longi, Double alt) {
+    public Coordinate(Double lat, Double longi, Integer alt) {
         this.lat = lat;
         this.longi = longi;
         this.alt = alt;
@@ -90,7 +95,7 @@ public class Coordinate {
      * 
      * @param alt the altitude coordinate to set
      */
-    public void setAlt(Double alt) {
+    public void setAlt(Integer alt) {
         this.alt = alt;
     }
 
@@ -99,7 +104,7 @@ public class Coordinate {
      * 
      * @return the altitude coordinate of this node
      */
-    public Double getAlt() {
+    public Integer getAlt() {
         return alt;
     }
 

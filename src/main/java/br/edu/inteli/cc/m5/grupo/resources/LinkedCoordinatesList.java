@@ -36,6 +36,10 @@ public class LinkedCoordinatesList {
         }
     }
 
+    public LinkedCoordinatesList.Node getFirst() {
+        return this.head;
+    }
+
     /**
      * Adds a coordinate to the beginning of the list.
      * @param coordinate the coordinate to be added.

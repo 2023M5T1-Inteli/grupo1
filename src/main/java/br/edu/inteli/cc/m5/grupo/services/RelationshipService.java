@@ -18,7 +18,7 @@ public class RelationshipService {
     @Autowired
     private CoordinateRepository coordinateRepository;
 
-        public RelationshipService(Graph graph) {
+        public void SetRelationshipService(Graph graph) {
 
             Long sizeLine = (long) graph.getSize();
             Long sizeColumn = (long) graph.getRows().get(0).size();
@@ -100,6 +100,7 @@ public class RelationshipService {
                         }
 
                         node.setAdjacents(auxiliar);
+                        neo4jTemplate.save(node);
 
                     }
                 }
