@@ -1,5 +1,7 @@
 package br.edu.inteli.cc.m5.grupo.entities;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.neo4j.core.Neo4jTemplate;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
@@ -20,6 +22,9 @@ Graph class, consisting of doubly linked lists of coordinates
 @Node
 public class Graph {
 
+    @Autowired
+    private Neo4jTemplate neo4jTemplate;
+
     // Node attributes
     @Id
     @GeneratedValue
@@ -35,25 +40,33 @@ public class Graph {
      */
     public Graph(Integer rows, Integer columns, Coordinate firstNode) {
 
-        DtedDatabaseHandler dbRio = DatabaseHandler.openDtedDB("dted/SaoPaulo");
-
+        DtedDatabaseHandler dbRio = DatabaseHandler.openDtedDB("dted/Rio");
+        
         Optional<Integer> firstNodeAlt = dbRio.QueryLatLonElevation(firstNode.getLongi(), firstNode.getLat());
+        System.out.println("dbRio");        
+        System.out.println(dbRio);        
+        System.out.println("TESTE");
+        System.out.println(firstNode.getLongi());
+        System.out.println(firstNode.getLat());
+        System.out.println(firstNodeAlt);
 
-        if (firstNodeAlt.isEmpty()) {
+        if (!firstNodeAlt.isPresent()) {
             throw new IllegalArgumentException("Invalid coordinate values.");
         }
+
         firstNode.setLongi(Double.parseDouble(firstNodeAlt.toString()));
 
         Double lat = firstNode.getLat();
 
         for (int i = 0; i < rows; i++) {
 
+            System.out.println(i);
             Double lon = firstNode.getLongi();
             LinkedCoordinatesList row = new LinkedCoordinatesList();
 
             for (int j = 0; j < columns; j++) {
 
-                Optional<Integer> alt = dbRio.QueryLatLonElevation(lon, lat);
+                Optional<Integer> alt = dbRio.QueryLatLonElevation(lat, lon);
                 if (alt.isEmpty()) {
                     throw new IllegalArgumentException("Coordinate does not exist.");
                 } else {
@@ -68,6 +81,8 @@ public class Graph {
             lat -= 0.0011;
 
         }
+
+        neo4jTemplate.save(this);
 
     }
 
