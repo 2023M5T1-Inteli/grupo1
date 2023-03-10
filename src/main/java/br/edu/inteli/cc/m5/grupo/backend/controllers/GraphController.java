@@ -48,14 +48,26 @@ public class GraphController {
         DtedDatabaseHandler dbRio = GraphConstructor.openDtedDB("dted/Rio");
         List<Vertex> vertexes = Arrays.asList(GraphConstructor.getCoordData(dbRio, rows, cols, latZero, longZero));
         
-        List<Vertex> path = Star.findPath(vertexes.get(4), vertexes.get(55));
+        List<Vertex> path = Star.findPath(vertexes.get(4), vertexes.get(61));
 
         path.add(vertexes.get(4));
         
         Collections.reverse(path);
 
-        return path.toString();
-
+        System.out.print("\n\n\n\n\n");
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = 0; i < path.size(); i++) {
+            Vertex vertex = path.get(i);
+            sb.append("{ id: ").append(vertex.getId()).append(",\nlat: ").append(vertex.getLatitude())
+              .append(",\nlongi: ").append(vertex.getLongitude()).append("}");
+            if (i < path.size() - 1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
+        
     }
 
     @GetMapping("/{id}")
@@ -64,7 +76,6 @@ public class GraphController {
         Graph graph = graphRepository.findById(id).orElseThrow();
         
         return graph;
-
 
     }
 
