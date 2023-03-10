@@ -23,10 +23,7 @@ public class Vertex {
   private double latitude;
   private double altitude;
 
-  @Autowired
-  private Neo4jTemplate neo4jTemplate;
-
-  @Relationship
+  @Relationship(type = "ADJ", direction = Relationship.Direction.OUTGOING)
   private List<Edge> adj;
 
   public Vertex(double longitude, double latitude, double altitude) {
@@ -42,16 +39,12 @@ public class Vertex {
     this.altitude = altitude;
     this.adj = new ArrayList<Edge>();
   }
-  
   public void addEdge(Vertex end) {
       Edge edge = new Edge(this, end);
-
+  
       this.adj.add(edge);
   
-      edgeRepository.save(edge);
-  }
-  
-  
+  }  
 
   public long getId() {
     return id;

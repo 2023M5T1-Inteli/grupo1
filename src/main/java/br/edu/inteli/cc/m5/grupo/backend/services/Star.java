@@ -10,7 +10,7 @@ import br.edu.inteli.cc.m5.grupo.backend.resources.Node;
 
 public class Star {
 
-    public static void findPath(Vertex inicialVertex, Vertex finalVertex) {
+    public static List<Vertex> findPath(Vertex inicialVertex, Vertex finalVertex) {
 
         PriorityQueue<Node> openList = new PriorityQueue<Node>();
 
@@ -23,8 +23,6 @@ public class Star {
         while (!openList.isEmpty()) {
 
             Node node = openList.peek();
-
-            System.out.println(node.getVertex().toString());
 
             if (node.getVertex() == finalVertex) {
                 openList.remove(node);
@@ -58,9 +56,7 @@ public class Star {
             explored = explored.getParent();
         }
 
-        for (Vertex vertex : pathVertices) {
-            System.out.println(vertex);
-        }
+        return pathVertices;
 
     }
 

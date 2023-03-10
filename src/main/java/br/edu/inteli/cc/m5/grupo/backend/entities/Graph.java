@@ -31,7 +31,7 @@ public class Graph {
 
         String initial = "";
         for (Vertex vertex : vertexes) {
-            initial += vertex + ", ";
+            initial += vertex.getAdj() + ", ";
         }
 
         return initial;

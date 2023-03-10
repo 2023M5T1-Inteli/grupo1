@@ -13,7 +13,6 @@ public class Edge {
 
   private final double alfa = 0.5;
 
-  @TargetNode
   private Vertex start;
 
   @TargetNode
