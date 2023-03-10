@@ -6,13 +6,20 @@ var alert = document.getElementById("alert");
 
 var send_btn = document.getElementById("send");
 var confirm_btn = document.getElementById("confirm")
+
+
+
 let url = "http://localhost:8080/graph/";
   
 
 
 
   confirm_btn.addEventListener('click', function(event){
-    location.reload();
+    //location.reload();
+    alert.style.margin = "100vh 0 0 0";
+    let svg = document.querySelector('svg');
+    svg.style.display = "block";
+    
   });
 
   send_btn.addEventListener('click', function(event){
