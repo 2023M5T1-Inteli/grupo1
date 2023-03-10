@@ -6,7 +6,7 @@ var alert = document.getElementById("alert");
 
 var send_btn = document.getElementById("send");
 var confirm_btn = document.getElementById("confirm")
-let url = "http://localhost:8080";
+let url = "http://localhost:8080/graph/";
   
 
 
@@ -44,15 +44,21 @@ let url = "http://localhost:8080";
       },
     });
 
+
     $.ajax({
       type: "POST",
       url: url,
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       data: JSON.stringify({
-        rows: parseInt(rows),
-        cols: parseInt(columns),
-        coordZero: {lat: parseFloat(initial_lat), longi: parseFloat(initial_long)}
+        origin: {
+          lat: parseFloat(lat_ini),
+          longi: parseFloat(longi_ini)
+        },
+        destiny: {
+          lat: parseFloat(lat_final),
+          longi: parseFloat(longi_final)
+        }
       }),
       success: function (res) {
         window.location.reload();

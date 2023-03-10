@@ -19,7 +19,8 @@ var svg = d3.select("#my_dataviz")
 
 
 // carrega o arquivo json com informações dos nós e arestas
-d3.json("./data/data.json").then(function(data) {
+//d3.json("http://localhost:8080/path/").then(function(data) {
+  d3.json("./data/data.json").then(function(data) {
 //para cada aresta, desenha uma linha
 
 var link = svg
@@ -41,7 +42,7 @@ var nodes = svg
   .enter()
   .append("circle")
     .style("fill", "#E14D2A")
-    .attr("r",3) //é possível atribuir o valor de altitude do nó para controlar o raio do círculo
+    .attr("r",1) //é possível atribuir o valor de altitude do nó para controlar o raio do círculo
     .attr("cx",function(d) {return d.longi*scale + translateX})
     .attr("cy",function(d) {return (-d.lat)*scale + translateY});
 
