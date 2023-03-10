@@ -1,4 +1,8 @@
-package br.edu.inteli.cc.m5.grupo.backend.resources;
+package br.edu.inteli.cc.m5.grupo.backend.entities;
+
+import org.springframework.data.neo4j.core.schema.GeneratedValue;
+import org.springframework.data.neo4j.core.schema.Id;
+import org.springframework.data.neo4j.core.schema.Node;
 
 import br.edu.inteli.cc.m5.grupo.backend.entities.Coordinate;
 
@@ -7,10 +11,12 @@ import br.edu.inteli.cc.m5.grupo.backend.entities.Coordinate;
  */
 public class LinkedCoordinatesList {
 
+    private Long id;
+
     private Node head;
     private Node tail;
     private int size;
-
+    
     /**
      * Constructs an empty LinkedCoordinatesList.
      */

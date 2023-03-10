@@ -6,11 +6,11 @@ import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import br.edu.inteli.cc.m5.grupo.backend.resources.LinkedCoordinatesList;
-import br.edu.inteli.cc.m5.grupo.backend.services.DatabaseHandler;
+import br.edu.inteli.cc.m5.grupo.backend.entities.LinkedCoordinatesList;
 import br.edu.inteli.cc.m5.grupo.backend.services.RelationshipService;
 import br.edu.inteli.cc.m5.dted.DtedDatabaseHandler;
 import br.edu.inteli.cc.m5.grupo.backend.repositories.CoordinateRepository;
@@ -29,65 +29,19 @@ public class Graph {
     @Id
     @GeneratedValue
     private Long id;
-    private RelationshipService relationshipService = new RelationshipService();
+    // private RelationshipService relationshipService = new RelationshipService();
 
-    private List<LinkedCoordinatesList> rows;
+    private List<LinkedCoordinatesList> rows = new ArrayList<LinkedCoordinatesList>();
     
     /**
      * Constructs a Graph object with the given rows.
      * 
      * @param rows The list of connected coordinates forming the graph.
      */
-    public Graph(Integer rows, Integer columns, Coordinate firstNode) {
+    public Graph(List<LinkedCoordinatesList> rows) {
 
-        DtedDatabaseHandler dbRio = DatabaseHandler.openDtedDB("dted/Rio");
+        this.rows = rows;
         
-        Optional<Integer> firstNodeAlt = dbRio.QueryLatLonElevation(firstNode.getLongi(), firstNode.getLat());
-        System.out.println("dbRio");        
-        System.out.println(dbRio);        
-        System.out.println("TESTE");
-        System.out.println(firstNode.getLongi());
-        System.out.println(firstNode.getLat());
-        System.out.println(firstNodeAlt);
-
-        if (!firstNodeAlt.isPresent()) {
-            throw new IllegalArgumentException("Invalid coordinate values.");
-        }
-
-        firstNode.setLongi(Double.parseDouble(firstNodeAlt.toString()));
-
-        Double lat = firstNode.getLat();
-
-        for (int i = 0; i < rows; i++) {
-
-            System.out.println(i);
-            Double lon = firstNode.getLongi();
-            LinkedCoordinatesList row = new LinkedCoordinatesList();
-
-            for (int j = 0; j < columns; j++) {
-
-                Optional<Integer> alt = dbRio.QueryLatLonElevation(lat, lon);
-                if (alt.isEmpty()) {
-                    throw new IllegalArgumentException("Coordinate does not exist.");
-                } else {
-                    Coordinate newCoordinate = new Coordinate(lon, lat, alt.get());
-                    row.addLast(newCoordinate);
-                    lon += 0.12;
-                }
-
-            }
-
-            this.addRow(row);
-            lat -= 0.0011;
-
-        }
-
-        neo4jTemplate.save(this);
-
-    }
-
-    public void relationshiptService() {
-        relationshipService.SetRelationshipService(this);
     }
 
     public int getSize() {

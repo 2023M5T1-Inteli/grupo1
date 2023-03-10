@@ -7,7 +7,7 @@ import br.edu.inteli.cc.m5.grupo.backend.entities.Graph;
 import br.edu.inteli.cc.m5.grupo.backend.entities.Coordinate;
 
 import br.edu.inteli.cc.m5.grupo.backend.resources.GraphData;
-
+import br.edu.inteli.cc.m5.grupo.backend.services.GraphConstructor;
 import br.edu.inteli.cc.m5.grupo.backend.repositories.GraphRepository;
 
 import org.springframework.data.neo4j.core.Neo4jTemplate;
@@ -48,7 +48,7 @@ public class GraphController {
      * @return the newly created Graph object.
      */
     @PostMapping("/")
-    public void createGraph(@RequestBody GraphData graphData) {
+    public Graph createGraph(@RequestBody GraphData graphData) {
         
         Integer rows = graphData.getRows();
         Integer cols = graphData.getCols();
@@ -57,8 +57,11 @@ public class GraphController {
     
         Coordinate newCoordinate = new Coordinate(lat, longi);
 
-        graphRepository.save(new Graph(rows, cols, newCoordinate));
-        
+        GraphConstructor graphConstructor = new GraphConstructor();
+        Graph graph = graphConstructor.CreateGraph(rows, cols, newCoordinate);
+
+        return graphRepository.save(graph);
+
     }
     
     /**
