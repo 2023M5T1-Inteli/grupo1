@@ -2,8 +2,8 @@
     [
         {
           "id": 0,
-          "lat": 85,
-          "longi": 13,
+          "lat": 90,
+          "longi": 23,
           "alt": 520,
           "adjacents": [
             {
@@ -15,15 +15,15 @@
           ]
         },
         {
-          "id": 1,
-          "lat": 84,
-          "longi": 12,
-          "alt": 565,
+        "id": 1,
+        "lat": 84,
+        "longi": 12,
+        "alt": 565,
           "adjacents": [
             {
                 "id": 2,
                 "lat": 83,
-                "longi": 11,
+                "longi": 18,
                 "alt": 786
             }
           ]
@@ -31,7 +31,7 @@
         {
           "id": 2,
           "lat": 83,
-          "longi": 11,
+          "longi": 18,
           "alt": 786,
           "adjacents": [
             {
@@ -122,7 +122,7 @@
                 "id": 9,
                 "lat": 76,
                 "longi": 4,
-                "alt": 619
+                "alt": 510
             }
           ]
         },
@@ -131,8 +131,86 @@
           "lat": 76,
           "longi": 4,
           "alt": 619,
-          "adjacents": []
+          "adjacents": [{
+            "id": 10,
+            "lat": 74,
+            "longi": 3,
+            "alt": 613
+          }]
+        },
+        {
+            "id": 10,
+            "lat": 74,
+            "longi": 3,
+            "alt": 619,
+            "adjacents": [{
+              "id": 11,
+              "lat": 73,
+              "longi": 0,
+              "alt": 619
+            }]
+          },
+          {
+            "id": 11,
+            "lat": 73,
+            "longi": 0,
+            "alt": 619,
+            "adjacents": [{
+              "id": 12,
+              "lat": 70,
+              "longi": -10,
+              "alt": 680
+            }]
+          },
+          {
+            "id": 12,
+            "lat": 70,
+            "longi": -10,
+            "alt": 619,
+            "adjacents": [{
+              "id": 13,
+              "lat": 65,
+              "longi": -15,
+              "alt": 619
+            }]
+          },
+          {
+            "id": 13,
+            "lat": 65,
+            "longi": -15,
+            "alt": 619,
+            "adjacents": [{
+              "id": 14,
+              "lat": 62,
+              "longi": -20,
+              "alt": 500
+            }]
+          },
+          {
+            "id": 14,
+            "lat": 62,
+            "longi": -20,
+            "alt": 500,
+            "adjacents": [{
+              "id": 15,
+              "lat": 60,
+              "longi": -24,
+              "alt": 619
+            }]
+          },
+          {
+            "id": 15,
+            "lat": 60,
+            "longi": -24,
+            "alt": 619,
+            "adjacents": [{
+              "id": 10,
+              "lat": 74,
+              "longi": 3,
+              "alt": 619
+            }]
         }
+        
              
       
 ]

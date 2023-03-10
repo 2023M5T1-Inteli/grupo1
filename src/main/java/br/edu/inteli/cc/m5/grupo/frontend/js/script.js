@@ -41,10 +41,27 @@ var nodes = svg
   .data(data)
   .enter()
   .append("circle")
-    .style("fill", "#E14D2A")
-    .attr("r",1) //é possível atribuir o valor de altitude do nó para controlar o raio do círculo
+    .style("fill", function(d){
+      if (d.id == 0){
+      return "#41aa61"
+      }
+      else if (d.id == data.length-1){
+        return "#d12ef3"
+      }
+      return "#E14D2A";
+    })
+    .attr("r",2) //é possível atribuir o valor de altitude do nó para controlar o raio do círculo
     .attr("cx",function(d) {return d.longi*scale + translateX})
-    .attr("cy",function(d) {return (-d.lat)*scale + translateY});
+    .attr("cy",function(d) {return (-d.lat)*scale + translateY})
+    .attr("alt", function(d){
+      if (d.id == 0){
+        return "Ponto inicial"
+        }
+        else if (d.id == data.length-1){
+          return "Ponto final"
+        }
+        
+    });
 
 
 });
