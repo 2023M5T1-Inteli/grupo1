@@ -1,12 +1,27 @@
-package br.edu.inteli.cc.m5.grupo;
+package br.edu.inteli.cc.m5.grupo.backend.entities;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.neo4j.core.schema.*;
+
+import br.edu.inteli.cc.m5.grupo.backend.services.Calculator;
+
+@RelationshipProperties
 public class Edge {
+
+  @Id @GeneratedValue
+  private Long id;
 
   private final double alfa = 0.5;
 
+  @TargetNode
   private Vertex start;
+
+  @TargetNode
   private Vertex end;
+
   private double weight;
+
+  public Edge() {}
 
   public Edge(Vertex start, Vertex end) {
     this.start = start;

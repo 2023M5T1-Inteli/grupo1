@@ -1,8 +1,12 @@
-package br.edu.inteli.cc.m5.grupo;
+package br.edu.inteli.cc.m5.grupo.backend.services;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
+
+import br.edu.inteli.cc.m5.grupo.backend.entities.Edge;
+import br.edu.inteli.cc.m5.grupo.backend.entities.Vertex;
+import br.edu.inteli.cc.m5.grupo.backend.resources.Node;
 
 public class Star {
 

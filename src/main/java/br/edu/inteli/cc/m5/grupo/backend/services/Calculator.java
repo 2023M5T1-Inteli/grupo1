@@ -1,4 +1,6 @@
-package br.edu.inteli.cc.m5.grupo;
+package br.edu.inteli.cc.m5.grupo.backend.services;
+
+import br.edu.inteli.cc.m5.grupo.backend.entities.Vertex;
 
 public class Calculator {
 

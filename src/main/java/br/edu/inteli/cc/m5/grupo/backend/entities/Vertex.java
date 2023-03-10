@@ -1,16 +1,32 @@
-package br.edu.inteli.cc.m5.grupo;
+package br.edu.inteli.cc.m5.grupo.backend.entities;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.neo4j.core.schema.GeneratedValue;
+import org.springframework.data.neo4j.core.schema.Id;
+import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Property;
+import org.springframework.data.neo4j.core.schema.Relationship;
+import org.springframework.data.neo4j.core.schema.RelationshipProperties;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.inteli.cc.m5.grupo.backend.repositories.EdgeRepository;
+
+@Node
 public class Vertex {
 
-  private int id;
+  @Id @GeneratedValue
+  private long id;
 
   private double longitude;
   private double latitude;
   private double altitude;
 
+  @Autowired
+  private Neo4jTemplate neo4jTemplate;
+
+  @Relationship
   private List<Edge> adj;
 
   public Vertex(double longitude, double latitude, double altitude) {
@@ -26,14 +42,18 @@ public class Vertex {
     this.altitude = altitude;
     this.adj = new ArrayList<Edge>();
   }
+  
+  public void addEdge(Vertex end) {
+      Edge edge = new Edge(this, end);
 
-  public void addEgde(Vertex end) {
-    Edge edge = new Edge(this, end);
-
-    this.adj.add(edge);
+      this.adj.add(edge);
+  
+      edgeRepository.save(edge);
   }
+  
+  
 
-  public int getId() {
+  public long getId() {
     return id;
   }
 

@@ -1,8 +1,9 @@
-package br.edu.inteli.cc.m5.grupo;
+package br.edu.inteli.cc.m5.grupo.backend.services;
 
 import br.edu.inteli.cc.m5.dted.DtedDatabaseHandler;
+import br.edu.inteli.cc.m5.grupo.backend.entities.Vertex;
 
-public class Coordinates {
+public class GraphConstructor {
   /**
    * Essa função abre um determinado Banco de Dados DTED
    * 
@@ -29,7 +30,8 @@ public class Coordinates {
    * @param col      número de colunas da malha de nós
    * @return array de Vértices que compõem o Grafo
    */
-  public static Vertex[] getCoordData(DtedDatabaseHandler dbDTED, double longZero, double latZero, int row, int col) {
+  public static Vertex[] getCoordData(DtedDatabaseHandler dbDTED, Integer row, Integer col, Double latZero, Double longZero) {
+
     Vertex[] vertices = new Vertex[row * col]; // array que contém as informações de todos os Nós da malha
 
     int count = 0; // variável auxiliar que armazena a quantidade de nós criados
@@ -53,24 +55,17 @@ public class Coordinates {
     }
 
     for (Vertex vertex : vertices) {
-      int id = vertex.getId();
+      int id = (int) vertex.getId();
       int[] toConnect = { id - col - 1, id - col, id - col + 1,
           id - 1, id + 1,
           id + col - 1, id + col, id + col + 1 };
 
       for (int adj : toConnect) {
 
-        if (adj >= 0 && adj < vertices.length) {
+        if (adj >= 0 && adj < vertices.length && Calculator.calcDist(vertex, vertices[adj]) < 20000.0) {
 
-          // System.out.println("Distance between vertices " + vertex.getId() + " and " +
-          // adj + " : "
-          // + Calculator.calcDist(vertex, vertices[adj]));
+            vertex.addEdge(vertices[adj]);
 
-          if (Calculator.calcDist(vertex, vertices[adj]) < 20000.0) {
-            vertex.addEgde(vertices[adj]);
-            // System.out.println("Vertices " + vertex.getId() + " and " + adj + "
-            // connected");
-          }
         }
       }
     }
@@ -78,15 +73,15 @@ public class Coordinates {
     return vertices;
   }
 
-  public static void main(String[] args) {
+  // public static void main(String[] args) {
 
-    // TESTES
+  //   // TESTES
 
-    DtedDatabaseHandler dbRio = openDtedDB("dted/rio");
+  //   DtedDatabaseHandler dbRio = openDtedDB("dted/rio");
 
-    int rows = 4, cols = 3;
+  //   int rows = 4, cols = 3;
 
-    Vertex[] coordData = getCoordData(dbRio, -43.4076, -22.1510, rows, cols);
+  //   Vertex[] coordData = getCoordData(dbRio, -43.4076, -22.1510, rows, cols);
 
-  }
+  // }
 }

@@ -1,4 +1,8 @@
-package br.edu.inteli.cc.m5.grupo;
+package br.edu.inteli.cc.m5.grupo.backend.resources;
+
+import br.edu.inteli.cc.m5.grupo.backend.entities.Edge;
+import br.edu.inteli.cc.m5.grupo.backend.entities.Vertex;
+import br.edu.inteli.cc.m5.grupo.backend.services.Calculator;
 
 public class Node implements Comparable<Node> {
 
