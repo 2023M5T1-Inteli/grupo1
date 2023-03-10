@@ -21,6 +21,10 @@ let url = "http://localhost:8080";
     var initial_lat = document.getElementById("initial_lat");
     var initial_long = document.getElementById("initial_long");
 
+    var lat_ini = document.getElementById("lat_ini");
+    var longi_ini = document.getElementById("longi_ini");
+    var lat_final = document.getElementById("lat_final");
+    var longi_final = document.getElementById("longi_final");
 
     event.preventDefault(); 
     alert.style.margin = "0vh 0 0 0";
@@ -30,9 +34,25 @@ let url = "http://localhost:8080";
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       data: JSON.stringify({
-        rows: rows,
-        cols: columns,
-        coordZero: {lat: initial_lat, longi: initial_long}
+        rows: parseInt(rows),
+        cols: parseInt(columns),
+        coordZero: {lat: parseFloat(initial_lat), longi: parseFloat(initial_long)}
+      }),
+      success: function (res) {
+        window.location.reload();
+        console.log(res);
+      },
+    });
+
+    $.ajax({
+      type: "POST",
+      url: url,
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      data: JSON.stringify({
+        rows: parseInt(rows),
+        cols: parseInt(columns),
+        coordZero: {lat: parseFloat(initial_lat), longi: parseFloat(initial_long)}
       }),
       success: function (res) {
         window.location.reload();
