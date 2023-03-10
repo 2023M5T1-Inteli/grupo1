@@ -203,12 +203,7 @@
             "lat": 60,
             "longi": -24,
             "alt": 619,
-            "adjacents": [{
-              "id": 10,
-              "lat": 74,
-              "longi": 3,
-              "alt": 619
-            }]
+            "adjacents": []
         }
         
              

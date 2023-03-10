@@ -42,10 +42,10 @@ var nodes = svg
   .enter()
   .append("circle")
     .style("fill", function(d){
-      if (d.id == 0){
+      if (d.id == data[0].id){
       return "#41aa61"
       }
-      else if (d.id == data.length-1){
+      else if (d.id == data[data.length-1].id){
         return "#d12ef3"
       }
       return "#E14D2A";
