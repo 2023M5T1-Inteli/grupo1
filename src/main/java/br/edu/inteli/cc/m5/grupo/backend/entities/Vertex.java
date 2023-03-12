@@ -39,6 +39,14 @@ public class Vertex {
     this.altitude = altitude;
     this.adj = new ArrayList<Edge>();
   }
+
+  public Vertex(double longitude, double latitude, double altitude, List<Edge> adjs) {
+    this.longitude = longitude;
+    this.latitude = latitude;
+    this.altitude = altitude;
+    this.adj = adjs;
+  }
+
   public void addEdge(Vertex end) {
       Edge edge = new Edge(this, end);
   

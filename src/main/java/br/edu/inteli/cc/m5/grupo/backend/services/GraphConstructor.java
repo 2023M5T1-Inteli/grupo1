@@ -3,6 +3,7 @@ package br.edu.inteli.cc.m5.grupo.backend.services;
 import br.edu.inteli.cc.m5.dted.DtedDatabaseHandler;
 import br.edu.inteli.cc.m5.grupo.backend.entities.Vertex;
 import br.edu.inteli.cc.m5.grupo.backend.services.VertexService;
+import br.edu.inteli.cc.m5.grupo.backend.repositories.VertexRepository;
 
 public class GraphConstructor {
   /**
@@ -44,7 +45,7 @@ public class GraphConstructor {
             double alt = (double) dbDTED.QueryLatLonElevation(lon, lat).get(); // altitude of a coordinate
 
             Vertex newVert = new Vertex(count, lon, lat, alt); // creation of a new Vertex
-
+            
             vertices[count] = newVert; // stores the created vertex in the array
 
             lon += 0.0016; // constant (in degrees) that travels 120m in the West-East direction on the same

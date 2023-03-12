@@ -10,13 +10,9 @@ var confirm_btn = document.getElementById("confirm")
 
 
 let url = "http://localhost:8080/graph/";
-  
-
-
 
   confirm_btn.addEventListener('click', function(event){
     location.reload();
-    
   });
 
   send_btn.addEventListener('click', function(event){
@@ -30,20 +26,22 @@ let url = "http://localhost:8080/graph/";
     var lat_final = document.getElementById("lat_final");
     var longi_final = document.getElementById("longi_final");
 
+    console.log("RODOU");
+
     event.preventDefault(); 
     alert.style.margin = "0vh 0 0 0";
     $.ajax({
       type: "POST",
       url: url,
-      contentType: "application/json; charset=utf-8",
+      contentType: "application/json;",
       dataType: "json",
       data: JSON.stringify({
         rows: parseInt(rows),
         cols: parseInt(columns),
-        coordZero: {lat: parseFloat(initial_lat), longi: parseFloat(initial_long)}
+        latZero: parseFloat(initial_lat),
+        longiZero: parseFloat(initial_long)
       }),
       success: function (res) {
-        window.location.reload();
         console.log(res);
       },
     });

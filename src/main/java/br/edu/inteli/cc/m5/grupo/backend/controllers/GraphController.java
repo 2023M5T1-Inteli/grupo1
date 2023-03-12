@@ -4,7 +4,7 @@ import br.edu.inteli.cc.m5.dted.DtedDatabaseHandler;
 import br.edu.inteli.cc.m5.grupo.backend.entities.Graph;
 import br.edu.inteli.cc.m5.grupo.backend.services.Star;
 import br.edu.inteli.cc.m5.grupo.backend.entities.Vertex;
-import br.edu.inteli.cc.m5.grupo.backend.repositories.GraphRepository;
+import br.edu.inteli.cc.m5.grupo.backend.repositories.VertexRepository;
 
 import org.springframework.data.neo4j.core.Neo4jTemplate;
 
@@ -26,9 +26,9 @@ import br.edu.inteli.cc.m5.grupo.backend.services.GraphConstructor;
 public class GraphController { 
     
     @Autowired
-    private GraphRepository graphRepository;
-    @Autowired
     private Neo4jTemplate neo4jTemplate;
+    @Autowired
+    private VertexRepository vertexRepository; 
 
     public static class GraphRequestData {
         public int rows;
@@ -39,46 +39,44 @@ public class GraphController {
 
     @PostMapping("/")
     public String storeGraph(@RequestBody GraphRequestData graphRequestData) {
-
+    
         int rows = graphRequestData.rows;
         int cols = graphRequestData.cols;
         double latZero = graphRequestData.latZero;
         double longZero = graphRequestData.longZero;
-
+    
         DtedDatabaseHandler dbRio = GraphConstructor.openDtedDB("dted/Rio");
         List<Vertex> vertexes = Arrays.asList(GraphConstructor.getCoordData(dbRio, rows, cols, latZero, longZero));
-        
+    
+        System.out.println("Size:");
+        System.out.println(vertexes);
+        System.out.println(vertexes.size());
+        // Salva os vértices no vertexRepository
+        for (Vertex vertex : vertexes) {
+            System.out.println(vertex.getId() + ", " + vertex.getLongitude() + ", " + vertex.getLatitude() + ", " + vertex.getAltitude()); 
+            neo4jTemplate.save(new Vertex(vertex.getLongitude(), vertex.getLatitude(), vertex.getAltitude()));
+        }
+    
         List<Vertex> path = Star.findPath(vertexes.get(4), vertexes.get(61));
-
+    
         path.add(vertexes.get(4));
-        
+    
         Collections.reverse(path);
-
+    
         System.out.print("\n\n\n\n\n");
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         for (int i = 0; i < path.size(); i++) {
             Vertex vertex = path.get(i);
-            sb.append("{ id: ").append(vertex.getId()).append(",\nlat: ").append(vertex.getLatitude())
-              .append(",\nlongi: ").append(vertex.getLongitude()).append("}");
+            sb.append("{ id: ").append(vertex.getId()).append(", lat: ").append(vertex.getLatitude())
+                .append(", longi: ").append(vertex.getLongitude()).append("}");
             if (i < path.size() - 1) {
                 sb.append(", ");
             }
         }
         sb.append("]");
         return sb.toString();
-        
+    
     }
-
-    @GetMapping("/{id}")
-    public Graph listById(Long id) {
-        
-        Graph graph = graphRepository.findById(id).orElseThrow();
-        
-        return graph;
-
-    }
-
-        
-
+    
 }

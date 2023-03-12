@@ -31,4 +31,5 @@ public class VertexService {
     public Vertex getVertexById(Long id) {
         return vertexRepository.findById(id).orElse(null);
     }
+    
 }
