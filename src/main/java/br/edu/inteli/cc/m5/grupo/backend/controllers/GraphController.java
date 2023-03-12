@@ -55,9 +55,10 @@ public class GraphController {
         System.out.println(vertexes);
         System.out.println(vertexes.size());
         // Salva os vértices no vertexRepository
+
         for (Vertex vertex : vertexes) {
             System.out.println(vertex);
-            neo4jTemplate.save(new Vertex(vertex.getLongitude(), vertex.getLatitude(), vertex.getAltitude()));
+            neo4jTemplate.save(vertex);
         }
     
         List<Vertex> path = Star.findPath(vertexes.get(4), vertexes.get(61));
