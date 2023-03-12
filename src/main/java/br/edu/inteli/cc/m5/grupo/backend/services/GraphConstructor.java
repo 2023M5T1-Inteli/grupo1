@@ -6,12 +6,18 @@ import br.edu.inteli.cc.m5.grupo.backend.services.VertexService;
 import br.edu.inteli.cc.m5.grupo.backend.repositories.VertexRepository;
 
 public class GraphConstructor {
+
+    private VertexRepository vertexRepository;
   /**
    * Essa função abre um determinado Banco de Dados DTED
    * 
    * @param path caminho do banco de dados
    * @return retorna o banco de dados inicializado
    */
+
+   public GraphConstructor(VertexRepository vertexRepository) {
+        this.vertexRepository = vertexRepository;
+   }
   public static DtedDatabaseHandler openDtedDB(String path) {
     DtedDatabaseHandler dtedDB = new DtedDatabaseHandler(); // variável do tipo DtedDatabaseHandler que armazena o DB
     dtedDB.InitializeFromResources(path); // inicialização do DB através do caminho fornecido
@@ -32,7 +38,7 @@ public class GraphConstructor {
    * @param col      número de colunas da malha de nós
    * @return array de Vértices que compõem o Grafo
    */
-  public static Vertex[] getCoordData(DtedDatabaseHandler dbDTED, Integer row, Integer col, Double latZero, Double longZero) {
+  public Vertex[] getCoordData(DtedDatabaseHandler dbDTED, Integer row, Integer col, Double latZero, Double longZero) {
 
     Vertex[] vertices = new Vertex[row * col]; // array that contains all Nodes information of the mesh
 

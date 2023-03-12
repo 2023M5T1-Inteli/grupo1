@@ -40,20 +40,23 @@ public class GraphController {
     @PostMapping("/")
     public String storeGraph(@RequestBody GraphRequestData graphRequestData) {
     
+        GraphConstructor graphConstructor = new GraphConstructor(vertexRepository);
+
         int rows = graphRequestData.rows;
         int cols = graphRequestData.cols;
         double latZero = graphRequestData.latZero;
         double longZero = graphRequestData.longZero;
     
         DtedDatabaseHandler dbRio = GraphConstructor.openDtedDB("dted/Rio");
-        List<Vertex> vertexes = Arrays.asList(GraphConstructor.getCoordData(dbRio, rows, cols, latZero, longZero));
+
+        List<Vertex> vertexes = Arrays.asList(graphConstructor.getCoordData(dbRio, rows, cols, latZero, longZero));
     
         System.out.println("Size:");
         System.out.println(vertexes);
         System.out.println(vertexes.size());
         // Salva os vértices no vertexRepository
         for (Vertex vertex : vertexes) {
-            System.out.println(vertex.getId() + ", " + vertex.getLongitude() + ", " + vertex.getLatitude() + ", " + vertex.getAltitude()); 
+            System.out.println(vertex);
             neo4jTemplate.save(new Vertex(vertex.getLongitude(), vertex.getLatitude(), vertex.getAltitude()));
         }
     
