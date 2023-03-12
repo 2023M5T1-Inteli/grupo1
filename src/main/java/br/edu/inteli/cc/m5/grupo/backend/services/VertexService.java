@@ -6,12 +6,16 @@ import org.springframework.stereotype.Service;
 import br.edu.inteli.cc.m5.grupo.backend.repositories.VertexRepository;
 import br.edu.inteli.cc.m5.grupo.backend.entities.Vertex;
 
+import org.springframework.data.neo4j.core.Neo4jTemplate;
+
 @Service
 public class VertexService {
     
+    @Autowired
+    private Neo4jTemplate neo4jTemplate;
+
     private final VertexRepository vertexRepository;
     
-    @Autowired
     public VertexService(VertexRepository vertexRepository) {
         this.vertexRepository = vertexRepository;
     }

@@ -6,9 +6,8 @@ import br.edu.inteli.cc.m5.grupo.backend.services.Star;
 import br.edu.inteli.cc.m5.grupo.backend.entities.Vertex;
 import br.edu.inteli.cc.m5.grupo.backend.repositories.VertexRepository;
 
-import org.springframework.data.neo4j.core.Neo4jTemplate;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.neo4j.core.Neo4jTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.http.HttpStatus;
@@ -40,7 +39,7 @@ public class GraphController {
     @PostMapping("/")
     public String storeGraph(@RequestBody GraphRequestData graphRequestData) {
     
-        GraphConstructor graphConstructor = new GraphConstructor(vertexRepository);
+        GraphConstructor graphConstructor = new GraphConstructor(vertexRepository, neo4jTemplate);
 
         int rows = graphRequestData.rows;
         int cols = graphRequestData.cols;
@@ -52,14 +51,8 @@ public class GraphController {
         List<Vertex> vertexes = Arrays.asList(graphConstructor.getCoordData(dbRio, rows, cols, latZero, longZero));
     
         System.out.println("Size:");
-        System.out.println(vertexes);
         System.out.println(vertexes.size());
         // Salva os vértices no vertexRepository
-
-        for (Vertex vertex : vertexes) {
-            System.out.println(vertex);
-            neo4jTemplate.save(vertex);
-        }
     
         List<Vertex> path = Star.findPath(vertexes.get(4), vertexes.get(61));
     

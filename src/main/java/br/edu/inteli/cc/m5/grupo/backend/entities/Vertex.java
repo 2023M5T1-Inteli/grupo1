@@ -16,7 +16,7 @@ import br.edu.inteli.cc.m5.grupo.backend.repositories.EdgeRepository;
 @Node
 public class Vertex {
 
-  @Id @GeneratedValue
+  @Id
   private long id;
 
   private double longitude;
@@ -24,22 +24,21 @@ public class Vertex {
   private double altitude;
 
   @Relationship(type = "ADJ", direction = Relationship.Direction.OUTGOING)
-  private List<Edge> adj;
+  private List<Edge> adj = new ArrayList<>();
 
+  public Vertex(long id, double longitude, double latitude, double altitude) {
+    this.id = id;
+    this.longitude = longitude;
+    this.latitude = latitude;
+    this.altitude = altitude;
+  }
+  
   public Vertex(double longitude, double latitude, double altitude) {
     this.longitude = longitude;
     this.latitude = latitude;
     this.altitude = altitude;
   }
-
-  public Vertex(int id, double longitude, double latitude, double altitude) {
-    this.id = id;
-    this.longitude = longitude;
-    this.latitude = latitude;
-    this.altitude = altitude;
-    this.adj = new ArrayList<Edge>();
-  }
-
+  
   public Vertex(double longitude, double latitude, double altitude, List<Edge> adjs) {
     this.longitude = longitude;
     this.latitude = latitude;
@@ -51,7 +50,8 @@ public class Vertex {
       Edge edge = new Edge(this, end);
   
       this.adj.add(edge);
-  
+      System.out.println("ADJ:");
+      System.out.println(this.adj);
   }  
 
   public long getId() {
@@ -71,6 +71,7 @@ public class Vertex {
   }
 
   public List<Edge> getAdj() {
+    
     return adj;
   }
 

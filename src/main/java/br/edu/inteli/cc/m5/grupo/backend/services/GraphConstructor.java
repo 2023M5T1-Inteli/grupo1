@@ -1,12 +1,16 @@
 package br.edu.inteli.cc.m5.grupo.backend.services;
 
+import java.util.Collections;
+
+import org.springframework.data.neo4j.core.Neo4jTemplate;
+
 import br.edu.inteli.cc.m5.dted.DtedDatabaseHandler;
 import br.edu.inteli.cc.m5.grupo.backend.entities.Vertex;
-import br.edu.inteli.cc.m5.grupo.backend.services.VertexService;
 import br.edu.inteli.cc.m5.grupo.backend.repositories.VertexRepository;
 
 public class GraphConstructor {
 
+    private Neo4jTemplate neo4jTemplate;
     private VertexRepository vertexRepository;
   /**
    * Essa função abre um determinado Banco de Dados DTED
@@ -15,8 +19,9 @@ public class GraphConstructor {
    * @return retorna o banco de dados inicializado
    */
 
-   public GraphConstructor(VertexRepository vertexRepository) {
+   public GraphConstructor(VertexRepository vertexRepository, Neo4jTemplate neo4jTemplate) {
         this.vertexRepository = vertexRepository;
+        this.neo4jTemplate = neo4jTemplate;
    }
   public static DtedDatabaseHandler openDtedDB(String path) {
     DtedDatabaseHandler dtedDB = new DtedDatabaseHandler(); // variável do tipo DtedDatabaseHandler que armazena o DB
@@ -47,23 +52,26 @@ public class GraphConstructor {
     double lat = latZero;
     for (int i = 0; i < row; i++) { // loop that gets the data line by line
         lon = longZero;
-        for (int j = 0; j < col; j++) { // loop that gets the data of all the nodes of a certain line of the mesh
-            double alt = (double) dbDTED.QueryLatLonElevation(lon, lat).get(); // altitude of a coordinate
-
-            Vertex newVert = new Vertex(count, lon, lat, alt); // creation of a new Vertex
+        for (int j = 0; j < col; j++) {
+            double alt = (double) dbDTED.QueryLatLonElevation(lon, lat).get();
             
-            vertices[count] = newVert; // stores the created vertex in the array
-
-            lon += 0.0016; // constant (in degrees) that travels 120m in the West-East direction on the same
-            // latitude (close to 43°S) based on the Harversine Formula (WIP!!!)
+            Vertex newVert = new Vertex(count, lon, lat, alt);
+            System.out.println("Vertice instanciado:");
+            System.out.println(newVert);
+            newVert = vertexRepository.save(newVert); // Salva o objeto no banco de dados e atualiza o ID gerado
+            System.out.println("Vertice salvo:");
+            System.out.println(newVert);
+            vertices[(int) newVert.getId()] = newVert;
+            
+            lon += 0.0016;
             count++;
         }
-        lat -= 0.00018; // constant (in degrees) that travels 120m in the North-South direction on the same
-        // longitude based on the Harversine Formula (WIP!!!)
     }
-
+    System.out.println("ALL VERTICES:");
+    for (Vertex v : vertices) {
+        System.out.print(v + ", ");
+    }
     addEdges(vertices, row, col); // add edges between vertices based on their positions and distances
-
     return vertices;
 }
 
@@ -74,7 +82,11 @@ public class GraphConstructor {
  * @param row      number of rows of the mesh
  * @param col      number of columns of the mesh
  */
-private static void addEdges(Vertex[] vertices, int row, int col) {
+private void addEdges(Vertex[] vertices, int row, int col) {
+    System.out.println("Entrou no addEdges");
+    for (Vertex v : vertices) {
+        System.out.print(v + ", ");
+    }
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
             int index = i * col + j;
@@ -86,6 +98,7 @@ private static void addEdges(Vertex[] vertices, int row, int col) {
 
             for (int adj : toConnect) {
                 if (adj >= 0 && adj < vertices.length && Calculator.calcDist(vertex, vertices[adj]) < 20000.0) {
+                    System.out.println(vertex + ", " + vertices[adj]);
                     // add an edge between the current vertex and its neighbor
                     VertexService.addEdge(vertex, vertices[adj]);
                 }
