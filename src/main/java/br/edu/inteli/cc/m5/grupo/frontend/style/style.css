@@ -7,11 +7,11 @@
   overflow: hidden;
 }
 :root{
-  --main_color: #1a1a1a;
+  --main_color: #fff;
   --secondary_color: #E14D2A;
   --terciary_color: #3E6D9C;
-  --font_main_color: #fff;
-  --background: #000000;
+  --font_main_color: #000;
+  --background: #dfdfdf;
   --border_radius: 10px;
   --content_size: 86vh;
   --confirm_color: green;
@@ -53,7 +53,7 @@ div {
   margin-left: 20px;
   margin-top: 2.5vh;
   width: auto;
-  color: var(--font_main_color);
+  color: var(--main_color);
 }
 
 
@@ -248,7 +248,7 @@ div {
 .alert .alert_box{
   height: 70vh;
   width: 30vw;
-  background-color: var(--font_main_color);
+  background-color: var(--main_color);
   margin: auto;
   margin-top: 20vh;
   border-radius: var(--border_radius);
@@ -262,7 +262,7 @@ div {
   border-radius: 50%;
 }
 .alert .alert_box h1{
-  color: black;
+  color: #000;
   text-align: center;
   margin-top: 20px;
 }
@@ -281,7 +281,7 @@ div {
   margin-bottom: 8px;
   margin-top: 20px;
   padding: 10px;
-  background-color: var(--light_color);
+  background-color: var(--confirm_color);
   color: var(--main_color);
   border-radius: 5px;
   border: none;
