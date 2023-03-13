@@ -1,8 +1,9 @@
 /**
 
-Classe responsável por controlar as requisições referentes aos grafos.
+Class responsible for controlling requests related to graphs.
 */
 package br.edu.inteli.cc.m5.grupo.backend.controllers;
+
 import br.edu.inteli.cc.m5.dted.DtedDatabaseHandler;
 import br.edu.inteli.cc.m5.grupo.backend.services.Star;
 import br.edu.inteli.cc.m5.grupo.backend.entities.Vertex;
@@ -20,33 +21,33 @@ import java.util.Arrays;
 @RestController
 @RequestMapping("/graph")
 public class GraphController {
+    
     /**
-     * Instância do Neo4jTemplate para interagir com o banco de dados Neo4j.
-     */
+    * Neo4jTemplate instance to interact with Neo4j database.
+    */
     @Autowired
     private Neo4jTemplate neo4jTemplate;
-
     /**
-     * Repositório de vértices do banco de dados Neo4j.
+     * Repository of vertices in Neo4j database.
      */
     @Autowired
     private VertexRepository vertexRepository;
 
     /**
-     * Classe interna que define os dados necessários para construir um grafo.
+     * Inner class that defines the data needed to construct a graph.
      */
     public static class GraphRequestData {
-        public int rows; // Quantidade de linhas da grade de coordenadas.
-        public int cols; // Quantidade de colunas da grade de coordenadas.
-        public double latZero; // Latitude da posição (0, 0) da grade de coordenadas.
-        public double longZero; // Longitude da posição (0, 0) da grade de coordenadas.
+        public int rows; // Number of rows in the coordinate grid.
+        public int cols; // Number of columns in the coordinate grid.
+        public double latZero; // Latitude of the position (0, 0) in the coordinate grid.
+        public double longZero; // Longitude of the position (0, 0) in the coordinate grid.
     }
 
     /**
-     * Endpoint responsável por receber os dados necessários para construir um grafo e retornar um caminho entre vértices.
+     * Endpoint responsible for receiving the data needed to construct a graph and returning a path between vertices.
      * 
-     * @param graphRequestData Dados necessários para construir o grafo.
-     * @return Caminho entre dois vértices.
+     * @param graphRequestData Data needed to construct the graph.
+     * @return Path between two vertices.
      */
     @PostMapping("/")
     public String storeGraph(@RequestBody GraphRequestData graphRequestData) {
@@ -60,7 +61,7 @@ public class GraphController {
         DtedDatabaseHandler dbRio = GraphConstructor.openDtedDB("dted/Rio");
         List<Vertex> vertexes = Arrays.asList(graphConstructor.getCoordData(dbRio, rows, cols, latZero, longZero));
 
-        // Salva os vértices no vertexRepository
+        // Saves the vertices in vertexRepository
         List<Vertex> path = Star.findPath(vertexes.get(1), vertexes.get(3));
         path.add(vertexes.get(1));
         Collections.reverse(path);
@@ -79,4 +80,5 @@ public class GraphController {
         sb.append("]");
         return sb.toString();
     }
+
 }

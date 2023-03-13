@@ -1,7 +1,7 @@
 /**
 
-Classe que representa um grafo em Neo4j.
-Um grafo é composto por vértices.
+Class that represents a Neo4j graph.
+A graph is composed of vertices.
 */
 package br.edu.inteli.cc.m5.grupo.backend.entities;
 
@@ -13,27 +13,27 @@ import java.util.List;
 
 /**
 
-Representa um nó em Neo4j.
+Represents a node in Neo4j.
 */
 @Node
 public class Graph {
-
-    /**
-
-    Identificador único do nó.
-    */
-    @Id @GeneratedValue
-    private Long id;
     
     /**
 
-    Lista de vértices que compõem o grafo.
+    Unique identifier of the node.
+    */
+    @Id @GeneratedValue
+    private Long id;
+
+    /**
+
+    List of vertices that compose the graph.
     */
     private List<Vertex> vertexes;
     /**
 
-    Construtor da classe Graph.
-    @param vertexes lista de vértices do grafo.
+    Constructor for the Graph class.
+    @param vertexes list of vertices in the graph.
     */
     public Graph(List<Vertex> vertexes) {
         this.vertexes = vertexes;
@@ -41,8 +41,8 @@ public class Graph {
 
     /**
 
-    Retorna o identificador único do nó.
-    @return o identificador único do nó.
+    Returns the unique identifier of the node.
+    @return the unique identifier of the node.
     */
     public Long getId() {
         return id;
@@ -50,8 +50,8 @@ public class Graph {
 
     /**
 
-    Adiciona um vértice ao grafo.
-    @param vertex vértice a ser adicionado.
+    Adds a vertex to the graph.
+    @param vertex vertex to be added.
     */
     public void addVertex(Vertex vertex) {
         this.vertexes.add(vertex);
@@ -59,9 +59,9 @@ public class Graph {
 
     /**
 
-    Retorna uma representação em string do grafo.
+    Returns a string representation of the graph.
 
-    @return uma string representando o grafo.
+    @return a string representing the graph.
     */
     public String toString() {
         String initial = "";
