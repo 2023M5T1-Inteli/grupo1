@@ -71,6 +71,7 @@ Planejador de trajetórias para voos em baixa altitude
 - [Teste de Software](#teste-de-software)
   - [Testes Unitários](#testes-unitários)
   - [Teste de Usabilidade](#teste-de-usabilidade)
+  - [Teste de API](#teste-de-api)
 - [Análise de Dados](#análise-de-dados)
 - [Manuais](#manuais)
   - [Manual de Implantação](#manual-de-implantação)
@@ -349,6 +350,10 @@ missão. | 9 | A fazer |
 
 ## Teste de Usabilidade
 
+## Teste de API
+
+[Execução do teste](https://documenter.getpostman.com/view/26173488/2s93JtRPmH)
+
 
 # Análise de Dados
 
@@ -360,6 +365,7 @@ missão. | 9 | A fazer |
 ## Manual do Usuário
 
 ## Manual do Administrador
+
 
 
 # Referências
