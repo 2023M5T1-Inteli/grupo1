@@ -4,9 +4,9 @@
 var margin = {top: 10, right: 300, bottom: 30, left: 400},
 width = 800,
 height = 500,
-scale = 2, //modifique este valor para aumentar ou diminuir o zoom
-translateX = width/2, //modifique este valor para translação horizontal
-translateY = height/2; //modifique este valor para translação vertical
+scale = 2, // zoom
+translateX = width/2, // translação horizontal
+translateY = height/2; // translação vertical
 
 
 // monta o svg que receberá o desenho do grafo
@@ -21,7 +21,8 @@ var svg = d3.select("#my_dataviz")
 // carrega o arquivo json com informações dos nós e arestas
 //d3.json("http://localhost:8080/path/").then(function(data) {
   d3.json("./data/data.json").then(function(data) {
-//para cada aresta, desenha uma linha
+
+//criar as arestas que ligam os nós
 
 var link = svg
   .selectAll("line")
@@ -42,15 +43,18 @@ var nodes = svg
   .enter()
   .append("circle")
     .style("fill", function(d){
+      // atribuir cor ao nó inicial
       if (d.id == data[0].id){
       return "#41aa61"
       }
+      // atribuir cor ao nó final
       else if (d.id == data[data.length-1].id){
         return "#d12ef3"
       }
+      // atribuir cor aos nós intermediários
       return "#E14D2A";
     })
-    .attr("r",2) //é possível atribuir o valor de altitude do nó para controlar o raio do círculo
+    .attr("r",2) // o raio do círculo dos nós
     .attr("cx",function(d) {return d.longi*scale + translateX})
     .attr("cy",function(d) {return (-d.lat)*scale + translateY})
     .attr("alt", function(d){

@@ -1,21 +1,30 @@
+// botão next do forms
 var next = document.getElementById("next");
+
+// páginas do forms
 var step_one = document.getElementById("1");
 var step_two = document.getElementById("2");
-var alert = document.getElementById("alert");
 
-
+// botão de enviar o forms
 var send_btn = document.getElementById("send");
-var confirm_btn = document.getElementById("confirm")
+
+// alert de sucesso
+var alert = document.getElementById("alert");
+var confirm_btn = document.getElementById("confirm");
 
 
 
 let url = "http://localhost:8080/graph/";
 
+  // recarregar a página após clicar em confirmar no alert
   confirm_btn.addEventListener('click', function(event){
     location.reload();
   });
 
+  
   send_btn.addEventListener('click', function(event){
+
+    // armazenar informações dos inputs do forms
     var rows = document.getElementById("rows");
     var columns = document.getElementById("columns");
     var initial_lat = document.getElementById("initial_lat");
@@ -28,6 +37,7 @@ let url = "http://localhost:8080/graph/";
 
     console.log("RODOU");
 
+    // enviar informações da criação da malha
     event.preventDefault(); 
     alert.style.margin = "0vh 0 0 0";
     $.ajax({
@@ -47,6 +57,7 @@ let url = "http://localhost:8080/graph/";
     });
 
 
+    // enviar informações do ponto inicial e final da rota
     $.ajax({
       type: "POST",
       url: url,
@@ -71,6 +82,7 @@ let url = "http://localhost:8080/graph/";
 
   });
 
+  // alterar a página do forms
   function netx_step(){
     step_one.style.display = "none";
     next.style.display = "none";
