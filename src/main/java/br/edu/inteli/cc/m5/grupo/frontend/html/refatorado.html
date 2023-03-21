@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/refatorado.css">
+    <link rel="stylesheet" href="../style/loading.css">
+    <script src="../js/script.js"></script>
+    <script src="../js/refatorado.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  </head>
+<body>
+    <div class="loading-container">
+      <div class="dot-spinner">
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+      </div>
+    </div>
+    <nav>
+      <img src="../images/logo.png">
+      <p>Power Routes Generator</p>
+      <input class="checkbox" type="checkbox" name="" id="" />
+      <div class="hamburger-lines">
+        <span class="line line1"></span>
+        <span class="line line2"></span>
+        <span class="line line3"></span>
+      </div> 
+    </nav>
+    <div class="container">
+      <main>
+        <div class="map_box">
+          <div class="map">
+            <div id="my_dataviz"></div>
+          </div>
+        </div>
+      </main>
+      <aside>
+        <div class="form-container">
+          <div class="input-wrapper">
+            <label for="">Latitude mínima</label>
+            <input type="number" id="min-lat" />
+          </div>
+          <div class="input-wrapper">
+            <label for="">Longitude mínima</label>
+            <input type="number" id="min-long" />
+          </div>
+          <div class="input-wrapper">
+            <label for="">Latitude máxima</label>
+            <input type="number" id="max-lat" />
+          </div>
+          <div class="input-wrapper">
+            <label for="">Longitude máxima</label>
+            <input type="number" id="max-long" />
+          </div>
+          <button class="form-btn" onclick="handleForm()">Próximo</button>
+        </div>
+        <div class="form-container" id="path-form">
+            <div class="input-wrapper">
+              <label for="">Latitude X</label>
+              <input type="number" id="lat-x" />
+            </div>
+            <div class="input-wrapper">
+              <label for="">Longitude X</label>
+              <input type="number" id="long-x" />
+            </div>
+            <div class="input-wrapper">
+              <label for="">Latitude Y</label>
+              <input type="number" id="lat-y" />
+            </div>
+            <div class="input-wrapper">
+              <label for="">Longitude Y</label>
+              <input type="number" id="long-y" />
+            </div>
+          <button class="form-btn" id="send-btn" onclick="postGraph()">Enviar</button>
+        </div>
+        <span>Legenda</span>
+        <ul class="subtitles">
+          <li class="subtitle">
+            <div class="symbol circle origin"></div>
+            <p class="name">Nó inicial</p>
+          </li>
+          <li class="subtitle">
+            <div class="symbol circle path"></div>
+            <p class="name">Nó intermediário</p>
+          </li>
+          <li class="subtitle">
+            <div class="symbol circle target"></div>
+            <p class="name">Nó final</p>
+          </li>
+          <li class="subtitle">
+            <div class="symbol edge"></div>
+            <p class="name">Aresta</p>
+          </li>
+        </ul>
+      </aside>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
