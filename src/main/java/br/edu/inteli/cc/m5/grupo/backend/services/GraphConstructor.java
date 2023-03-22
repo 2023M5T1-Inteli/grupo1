@@ -15,13 +15,14 @@ import br.edu.inteli.cc.m5.grupo.backend.repositories.VertexRepository;
 
 public class GraphConstructor {
 
-    private Neo4jTemplate neo4jTemplate;
-    private VertexRepository vertexRepository;
+    // private Neo4jTemplate neo4jTemplate;
+    // private VertexRepository vertexRepository;
 
-    public GraphConstructor(VertexRepository vertexRepository, Neo4jTemplate neo4jTemplate) {
-        this.vertexRepository = vertexRepository;
-        this.neo4jTemplate = neo4jTemplate;
-    }
+    // public GraphConstructor(VertexRepository vertexRepository, Neo4jTemplate
+    // neo4jTemplate) {
+    // this.vertexRepository = vertexRepository;
+    // this.neo4jTemplate = neo4jTemplate;
+    // }
 
     /**
      * function that opens a Dted DB
@@ -48,7 +49,7 @@ public class GraphConstructor {
      * @return array of vertex which contains all vertices of the graph thats beeing
      *         created
      */
-    public Vertex[] getCoordData(DtedDatabaseHandler dbDTED, Integer row, Integer col, Double latZero,
+    public static Vertex[] getCoordData(DtedDatabaseHandler dbDTED, Integer row, Integer col, Double latZero,
             Double longZero) {
 
         Vertex[] vertices = new Vertex[row * col]; // array that contains all vertex information of the mesh
@@ -62,7 +63,8 @@ public class GraphConstructor {
                 double alt = (double) dbDTED.QueryLatLonElevation(lon, lat).get();
 
                 Vertex newVert = new Vertex(count, lon, lat, alt);
-                newVert = vertexRepository.save(newVert); // storing the created vertex in Neo4j updating ID
+                // newVert = vertexRepository.save(newVert); // storing the created vertex in
+                // Neo4j updating ID
                 vertices[(int) newVert.getId()] = newVert;
 
                 lon += 0.0016;
@@ -82,10 +84,7 @@ public class GraphConstructor {
      * @param row      number of rows of the mesh
      * @param col      number of columns of the mesh
      */
-    private void addEdges(Vertex[] vertices, int row, int col) {
-        for (Vertex v : vertices) {
-            System.out.print(v + ", ");
-        }
+    private static void addEdges(Vertex[] vertices, int row, int col) {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 int index = i * col + j;
@@ -100,7 +99,7 @@ public class GraphConstructor {
                     if (adj >= 0 && adj < vertices.length && Calculator.calcDist(vertex, vertices[adj]) < 20000.0) {
                         // add an edge between the current vertex and its neighbor
                         VertexService.addEdge(vertex, vertices[adj]);
-                        neo4jTemplate.save(vertex);
+                        // neo4jTemplate.save(vertex);
                     }
                 }
             }
