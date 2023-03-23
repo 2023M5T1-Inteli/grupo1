@@ -62,7 +62,7 @@ public class GraphController {
         DtedDatabaseHandler dbRio = GraphConstructor.openDtedDB("dted/Rio");
         List<Vertex> vertexes = Arrays.asList(graphConstructor.getCoordData(dbRio, rows, cols, latZero, longZero));
 
-        List<Vertex> path = Star.findPath(vertexes.get(0), vertexes.get(100917));
+        List<Vertex> path = Star.findPath(vertexes.get(0), vertexes.get(9));
         path.add(vertexes.get(0));
         Collections.reverse(path);
 
