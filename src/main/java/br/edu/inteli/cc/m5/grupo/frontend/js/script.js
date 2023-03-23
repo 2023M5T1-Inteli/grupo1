@@ -70,11 +70,13 @@ const createSvg = (data) => {
 
 
     // monta o svg que receberá o desenho do grafo
-    var svg = d3.select("#my_dataviz")
+    var svg = d3.select(".leaflet-pane_Virtual_0-pane")
             .append("svg")
             .attr("width", width)
             .attr("height", height)
+            .style("z-index", "9999999999999999")
             .append("g");
+            
 
     var link = svg
     .selectAll("line")
@@ -82,6 +84,7 @@ const createSvg = (data) => {
     .enter()
     .append("line")
         .style("stroke", "#333")
+       
         .attr("y1",function(d) {return d.latitude*scale*-1 + translateY})
         .attr("x1",function(d) {return d.longitude*scale + translateX})
         .attr("y2",function(d, i) {
