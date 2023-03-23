@@ -7,8 +7,19 @@
     <title>P.R.G.</title>
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/loading.css">
+    <link rel="stylesheet" href="../style/map/leaflet.css">
+    <link rel="stylesheet" href="../style/map/qgis2web.css"><link rel="stylesheet" href="../style/map/fontawesome-all.min.css">
     <script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="../js/map/qgis2web_expressions.js"></script>
+    <script src="../js/map/leaflet.js"></script>
+    <script src="../js/map/leaflet.rotatedMarker.js"></script>
+    <script src="../js/map/leaflet.pattern.js"></script>
+    <script src="../js/map/leaflet-hash.js"></script>
+    <script src="../js/map/Autolinker.min.js"></script>
+    <script src="../js/map/rbush.min.js"></script>
+    <script src="../js/map/labelgun.min.js"></script>
+    <script src="../js/map/labels.js"></script>
   </head>
 <body>
     <div class="loading-container">
@@ -37,7 +48,8 @@
       <main>
         <div class="map_box">
           <div class="map">
-            <div id="my_dataviz"></div>
+            <div id="my_dataviz">
+            </div>
           </div>
         </div>
       </main>
@@ -101,5 +113,48 @@
         </ul>
       </aside>
     </div>
+    <script>
+      var map = L.map("my_dataviz", {
+    zoomControl:true, 
+    maxZoom:28, 
+    minZoom:2,
+});
+
+var hash = new L.Hash(map);
+var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+var bounds_group = new L.featureGroup([]);
+// function setBounds() {
+//     if (bounds_group.getLayers().length) {
+//         map.fitBounds(bounds_group.getBounds());
+//     }
+//     // map.setMaxBounds(map.getBounds());
+// }
+map.createPane('pane_Virtual_0');
+map.getPane('pane_Virtual_0').style.zIndex = 400;
+var img_Virtual_0 = '../data/Virtual_0.png';
+var img_bounds_Virtual_0 = [[-59.99999999996002,-100.0],[39.99999999999999,-20.00000000003199]];
+var layer_Virtual_0 = new L.imageOverlay(img_Virtual_0,
+                                      img_bounds_Virtual_0,
+                                      {pane: 'pane_Virtual_0'});
+bounds_group.addLayer(layer_Virtual_0);
+
+map.addLayer(layer_Virtual_0);
+// setBounds();
+L.ImageOverlay.include({
+    getBounds: function () {
+        return this._bounds;
+    }
+});
+// function onMapMouseMove(e) {
+// var lat = e.latlng.lat.toFixed(15);
+// var lng = e.latlng.lng.toFixed(15);
+// L.popup()
+// .setContent("Latitude: " + lat + "<br>Longitude: " + lng)
+// .setLatLng(e.latlng)
+// .openOn(map);
+// }
+// map.on('mousemove', onMapMouseMove);
+
+    </script>
 </body>
 </html>
