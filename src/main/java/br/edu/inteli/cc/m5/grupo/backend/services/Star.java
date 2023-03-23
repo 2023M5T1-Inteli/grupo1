@@ -84,6 +84,8 @@ public class Star {
 
             for (Edge edge : node.getVertex().getAdj()) { // analizing each adjacent vertex of the current node
 
+                // if (edge.getEnd().equals(node.getParent()))
+
                 boolean test = true;
 
                 Node nextNode = new Node(edge.getEnd(), node, edge, finalVertex); // creating new nodes to be explored
@@ -137,6 +139,7 @@ public class Star {
                                                // the path from end to start
             pathVertices.add(explored.getVertex()); // add the current vertex to the path list
             explored = explored.getParent(); // set the next element as the parent of the current node
+
         }
 
         // time2 = System.nanoTime();

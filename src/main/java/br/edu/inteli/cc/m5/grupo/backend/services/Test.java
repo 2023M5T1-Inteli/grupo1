@@ -1,5 +1,6 @@
 package br.edu.inteli.cc.m5.grupo.backend.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.inteli.cc.m5.dted.DtedDatabaseHandler;
@@ -11,13 +12,15 @@ public class Test {
 
     int tests = 1;
 
+    int square = 30;
+
     double[] pathTime = new double[tests];
     double[] graphTime = new double[tests];
     int[] size = new int[tests];
 
     DtedDatabaseHandler dbRio = GraphConstructor.openDtedDB("dted/Rio");
 
-    for (int i = 0, l = 100; i < tests; i++, l += 10) {
+    for (int i = 0, l = square; i < tests; i++, l += 50) {
 
       size[i] = l;
 
@@ -35,7 +38,7 @@ public class Test {
 
       time1 = System.nanoTime();
 
-      Star.findPath(graph[graph.length - 1], graph[0]);
+      List<Vertex> shortPath = Star.findPath(graph[0], graph[graph.length - 1]);
 
       time2 = System.nanoTime();
 
@@ -44,6 +47,22 @@ public class Test {
       System.out.println(
           "Elapsed time to find path: " + ((time2 - time1) / 1000000) + " ms // " + ((time2 - time1) / 60000000000.0) +
               " min\n\n\n\n");
+
+      List<Long> ids = new ArrayList<Long>();
+
+      for (int j = 0; j < shortPath.size(); j++) {
+        ids.add(shortPath.get(j).getId());
+      }
+
+      for (int j = 0; j < square; j++) {
+        for (int k = 0; k < square; k++) {
+          if (ids.contains((long) (j * square + k)))
+            System.out.print(" x ");
+          else
+            System.out.print(" - ");
+        }
+        System.out.print("\n");
+      }
 
     }
 
