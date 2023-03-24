@@ -104,11 +104,21 @@ const createSvg = (data) => {
             return "#d12ef3"
         }
         // atribuir cor aos nós intermediários
-        return "#E14D2A";
+        return "#FFD600";
         })
-        .attr("r", 3) // o raio do círculo dos nós
-        .attr("cx",function(d, i) {console.log(d); return d.longitude*scale + translateX + (i*10)})
-        .attr("cy",function(d, i) {return d.latitude*scale*-1 + translateY + (i*10)});
+        .attr("r", function(d, i){
+            if (i == 0){
+                return 4
+            }
+            // atribuir cor ao nó final
+            else if (i == data.length-1){
+                return 4
+            }
+            // atribuir cor aos nós intermediários
+            return 2
+        }) // o raio do círculo dos nós
+        .attr("cx",function(d, i) {console.log(d); return d.longitude*scale + translateX + (i/5)})
+        .attr("cy",function(d, i) {return d.latitude*scale*-1 + translateY + (i/5)});
     
 
 }
