@@ -97,11 +97,6 @@ const createSvg = (data) => {
     //             return data[i+1].longitude*scale + translateX}
     //         })
 
-<<<<<<< HEAD
-    //     console.log(data);
-=======
-        //console.log(data);
->>>>>>> be8d33cd40cd07a2d72c0b3854d848b8ef623749
     //para cada nó, desenha um círculo
     var nodes = svg
     .selectAll("circle")
