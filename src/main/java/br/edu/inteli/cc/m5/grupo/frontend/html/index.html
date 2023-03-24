@@ -56,22 +56,25 @@
       <aside>
         <div class="form-container">
           <div class="input-wrapper">
-            <label for="">Latitude mínima</label>
+            <label for="">Latitude 0</label>
             <input type="number" id="min-lat" />
           </div>
           <div class="input-wrapper">
-            <label for="">Longitude mínima</label>
+            <label for="">Longitude 0</label>
             <input type="number" id="min-long" />
           </div>
           <div class="input-wrapper">
-            <label for="">Latitude máxima</label>
+            <label for="">Numero de linhas</label>
             <input type="number" id="max-lat" />
           </div>
           <div class="input-wrapper">
-            <label for="">Longitude máxima</label>
+            <label for="">Numero de colunas</label>
             <input type="number" id="max-long" />
           </div>
+          <button class="form-btn" id="send-btn" onclick="postGraph()">Enviar</button>
+          <!--
           <button class="form-btn" onclick="handleForm()">Próximo</button>
+          -->
         </div>
         <div class="form-container" id="path-form">
             <div class="input-wrapper">
