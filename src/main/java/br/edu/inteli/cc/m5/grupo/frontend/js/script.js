@@ -62,8 +62,8 @@ const createSvg = (data) => {
 
     // configura as dimensões e parâmetros gerais do SVG
     var margin = {top: 10, right: 300, bottom: 30, left: 400},
-    width = 800,
-    height = 500,
+    width = 1456,
+    height = 800,
     scale = 1, // zoom
     translateX = width/2, // translação horizontal
     translateY = height/2; // translação vertical
@@ -78,26 +78,26 @@ const createSvg = (data) => {
             .append("g");
             
 
-    var link = svg
-    .selectAll("line")
-    .data(data)
-    .enter()
-    .append("line")
-        .style("stroke", "#333")
+    // var link = svg
+    // .selectAll("line")
+    // .data(data)
+    // .enter()
+    // .append("line")
+    //     .style("stroke", "#333")
        
-        .attr("y1",function(d) {return d.latitude*scale*-1 + translateY})
-        .attr("x1",function(d) {return d.longitude*scale + translateX})
-        .attr("y2",function(d, i) {
-            if (i < data.length-1) {
-                return data[i+1].latitude*scale*-1 + translateY
-            } 
-            })
-        .attr("x2",function(d, i) {
-            if (i < data.length - 1) {
-                return data[i+1].longitude*scale + translateX}
-            })
+    //     .attr("y1",function(d) {return d.latitude*scale*-1 + translateY})
+    //     .attr("x1",function(d) {return d.longitude*scale + translateX})
+    //     .attr("y2",function(d, i) {
+    //         if (i < data.length-1) {
+    //             return data[i+1].latitude*scale*-1 + translateY
+    //         } 
+    //         })
+    //     .attr("x2",function(d, i) {
+    //         if (i < data.length - 1) {
+    //             return data[i+1].longitude*scale + translateX}
+    //         })
 
-        console.log(data);
+    //     console.log(data);
     //para cada nó, desenha um círculo
     var nodes = svg
     .selectAll("circle")
@@ -117,8 +117,8 @@ const createSvg = (data) => {
         return "#E14D2A";
         })
         .attr("r", 3) // o raio do círculo dos nós
-        .attr("cx",function(d) {console.log(d); return d.longitude*scale + translateX})
-        .attr("cy",function(d) {return d.latitude*scale*-1 + translateY});
+        .attr("cx",function(d, i) {console.log(d); return d.longitude*scale + translateX + (i*10)})
+        .attr("cy",function(d, i) {return d.latitude*scale*-1 + translateY + (i*10)});
     
 
 }

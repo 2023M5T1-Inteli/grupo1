@@ -114,11 +114,10 @@
       </aside>
     </div>
     <script>
-      var map = L.map("my_dataviz", {
-    zoomControl:true, 
-    maxZoom:28, 
-    minZoom:2,
-});
+      var map = L.map("my_dataviz",{
+            zoomControl:true, maxZoom:28, minZoom:3
+        });
+        map.setView([-22.9035, -43.2096], 13);
 
 var hash = new L.Hash(map);
 var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -145,6 +144,25 @@ L.ImageOverlay.include({
         return this._bounds;
     }
 });
+
+// var pega = d3.select(".leaflet-pane_Virtual_0-pane");
+// // Define o comportamento de zoom para o SVG
+// var zoom = d3.zoom()
+//   .on("zoom", function() {
+//     // Define o nível de zoom do SVG com base no zoom do mapa
+//     pega.attr("transform", d3.event.transform);
+//   });
+
+// // Adiciona o comportamento de zoom ao SVG
+// pega.call(zoom);
+
+// // Adiciona o evento de zoom ao mapa
+// map.on("zoom", function() {
+//   // Define o nível de zoom do SVG com base no zoom do mapa
+//   pega.attr("transform", d3.zoomIdentity().translate(d3.event.sourceEvent.offsetX, d3.event.sourceEvent.offsetY).scale(d3.event.scale));
+// });
+
+
 // function onMapMouseMove(e) {
 // var lat = e.latlng.lat.toFixed(15);
 // var lng = e.latlng.lng.toFixed(15);
