@@ -13,19 +13,10 @@ const handleForm = () => {
 
 const postGraph = async () => {
 
-    const minLat = parseFloat(document.querySelector('#min-lat'));
-    const minLong = parseFloat(document.querySelector('#min-long'));
-    const maxLat = parseFloat(document.querySelector('#max-lat'));
-    const maxLong = parseFloat(document.querySelector('#max-long'));
-    const latX = parseFloat(document.querySelector('#lat-x'));
-    const longX = parseFloat(document.querySelector('#long-x'));
-    const latY = parseFloat(document.querySelector('#lat-y'));
-    const LongY = parseFloat(document.querySelector('#long-y'));
-
-    console.log(minLat);
-    console.log(minLong);
-    console.log(maxLat);
-    console.log(maxLong);
+    const longZero = parseFloat(document.querySelector('#min-lat').value);
+    const latZero = parseFloat(document.querySelector('#min-long').value);
+    const rows = parseFloat(document.querySelector('#rows').value);
+    const cols = parseFloat(document.querySelector('#cols').value);
 
     const requestSettings = {
         method: 'POST',
@@ -33,10 +24,10 @@ const postGraph = async () => {
             'Content-type': 'application/json'
         },
         body: JSON.stringify({
-            longZero: -43.4855748,
-            latZero: -22.5889042043,    
-            rows: 900,
-            cols: 900
+            longZero: longZero,
+            latZero: latZero,    
+            rows: rows,
+            cols: cols
         })
     }
 

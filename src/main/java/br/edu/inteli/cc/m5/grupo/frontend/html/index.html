@@ -65,11 +65,11 @@
           </div>
           <div class="input-wrapper">
             <label for="">Numero de linhas</label>
-            <input type="number" id="max-lat" />
+            <input type="number" id="rows" />
           </div>
           <div class="input-wrapper">
             <label for="">Numero de colunas</label>
-            <input type="number" id="max-long" />
+            <input type="number" id="cols" />
           </div>
           <button class="form-btn" id="send-btn" onclick="postGraph()">Enviar</button>
           <!--
@@ -98,21 +98,23 @@
         <span>Legenda</span>
         <ul class="subtitles">
           <li class="subtitle">
-            <div class="symbol circle origin"></div>
+            <div class="symbol circle origin initial_node"></div>
             <p class="name">Nó inicial</p>
           </li>
           <li class="subtitle">
-            <div class="symbol circle path"></div>
+            <div class="symbol circle path regular_node"></div>
             <p class="name">Nó intermediário</p>
           </li>
           <li class="subtitle">
-            <div class="symbol circle target"></div>
+            <div class="symbol circle target final_node"></div>
             <p class="name">Nó final</p>
           </li>
+          <!--
           <li class="subtitle">
             <div class="symbol edge"></div>
             <p class="name">Aresta</p>
           </li>
+          -->
         </ul>
       </aside>
     </div>
