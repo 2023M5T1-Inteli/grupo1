@@ -62,7 +62,6 @@ public class GraphConstructor {
                 double alt = (double) dbDTED.QueryLatLonElevation(lon, lat).get();
 
                 Vertex newVert = new Vertex(count, lon, lat, alt);
-                newVert = vertexRepository.save(newVert); // storing the created vertex in Neo4j updating ID
                 vertices[(int) newVert.getId()] = newVert;
 
                 lon += 0.0016;
@@ -83,9 +82,6 @@ public class GraphConstructor {
      * @param col      number of columns of the mesh
      */
     private void addEdges(Vertex[] vertices, int row, int col) {
-        for (Vertex v : vertices) {
-            System.out.print(v + ", ");
-        }
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 int index = i * col + j;
@@ -100,7 +96,6 @@ public class GraphConstructor {
                     if (adj >= 0 && adj < vertices.length && Calculator.calcDist(vertex, vertices[adj]) < 20000.0) {
                         // add an edge between the current vertex and its neighbor
                         VertexService.addEdge(vertex, vertices[adj]);
-                        neo4jTemplate.save(vertex);
                     }
                 }
             }

@@ -5,6 +5,8 @@ import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 import org.springframework.data.neo4j.core.schema.Relationship;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +50,7 @@ public class Vertex {
     The annotation @Relationship indicates a relationship between the vertex and the Edge entity.
     The attribute type specifies the relationship type, while direction specifies the direction of the relationship.
     */
+    @JsonIgnore
     @Relationship(type = "ADJ", direction = Relationship.Direction.OUTGOING)
     private List<Edge> adj = new ArrayList<>();
 
