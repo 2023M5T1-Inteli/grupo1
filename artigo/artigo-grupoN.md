@@ -51,7 +51,31 @@ Ainda em outro trecho de DASGUPTA et. al. (2011), temos:
 
 # Resultados obtidos
 
+A partir das citações e análises de complexidade e corretude, levando em consideração que o algoritmo A* é o melhor e mais conhecido algoritmo para mapeamento utilizando grafos, pode-se concluir que o algoritmo possui um bom desempenho, porém com algumas ressalvas que serão discutidas a seguir.
+
+Em primeiro lugar, é importante destacar que seu desempenho é inversamente proporcional à quantidade de nós a serem percorridos, o que resulta em um aumento no tempo necessário para escolher o melhor caminho. Essa análise pode ser visualizada, por exemplo, em trajetos que percorrem uma grande quantidade de nós, como um trajeto que tem início em uma das pontas da malha e término na outra ponta que se encontra no lado oposto da diagonal entre essas duas pontas.
+
+Além disso, a heurística é outro ponto importante a ser considerado. Ela é formada pela correlação das variáveis de altitude e distância, bem como do custo entre o nó de origem e o de destino. Dependendo do resultado do custo, pode haver um aumento na complexidade e, consequentemente, no tempo necessário para a conclusão do algoritmo.
+
+Portanto, apesar das observações e explicações simplificadas das análises obtidas, é necessário demonstrar a efetividade do algoritmo na prática em relação à sua atuação.
+
+![Resultados dos testes](../docs/img/Grid.PNG)
+
+O conteúdo apresentado anteriormente está de acordo com a linha de raciocínio adotada, pois à medida que a área aumenta, a performance da criação da malha de pontos (grafo) e da trajetória gerada diminui. No entanto, mesmo em grandes quantidades, como 14.400 quilômetros quadrados, o tempo de geração ainda se mantém na casa dos milissegundos, o que se repete na criação do caminho.
+
+Diante dos resultados obtidos nos testes realizados, pode-se concluir que o algoritmo A* é eficiente e eficaz na geração de caminhos otimizados para uso na tecnologia de terrain following.
+
+
 # Conclusão
+
+Considerando os resultados apresentados na seção anterior e retomando o objetivo principal deste estudo, que é a criação de rotas otimizadas para voos de baixa altitude com o intuito de minimizar os impactos inerentes a essa modalidade de voo, como por exemplo, colisões com o solo ou detecção por inimigos, e ainda, aumentar a segurança e a integridade da aeronave, foi desenvolvido um programa que implementa o algoritmo A* em uma interface gráfica de usuário por meio de uma aplicação web, direcionada tanto para planejadores de missões quanto para pilotos.
+
+Além disso, em relação à aplicação desenvolvida, o software permite que o usuário insira dados de coordenadas nas regiões do estado do Rio de Janeiro e de São Paulo, gerando trajetórias baseadas em restrições de altitude e critérios de distância.
+
+Na perspectiva do usuário, os passos percorridos são restritos à visualização gráfica, enquanto na camada do planejador de trajetórias, o algoritmo A* atua com alta performance, mesmo em áreas extensas, conforme apresentado na seção anterior.
+
+Além de atender ao objetivo proposto neste artigo, o software desenvolvido é categorizado como de código aberto, o que permite a abertura para desenvolvedores interessados no projeto, que tenham o objetivo de otimizar ou até mesmo usufruir de suas funcionalidades, como a mudança da escolha de variáveis que fazem parte da heurística, conscientes da potencialidade do programa.
+
 
 # Referências Bibliográficas
 
