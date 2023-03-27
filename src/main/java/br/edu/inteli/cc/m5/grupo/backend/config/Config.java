@@ -10,16 +10,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Config implements WebMvcConfigurer {
 
-    /**
-    * Configuration for CORS to allow all origins, HTTP methods and headers.
-    * @param registry CorsRegistry used to register CORS settings.
-    */
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-        .allowedOrigins("")
-        .allowedMethods("GET", "POST", "PUT", "DELETE")
-        .allowedHeaders("*");
+        registry.addMapping("/graph")
+                .allowedOrigins("http://127.0.0.1:5500")
+                .allowedMethods("POST")
+                .allowedHeaders("*");
     }
-    
+
 }

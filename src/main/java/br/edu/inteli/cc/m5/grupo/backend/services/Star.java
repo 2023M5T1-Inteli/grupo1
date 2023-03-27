@@ -1,6 +1,7 @@
 package br.edu.inteli.cc.m5.grupo.backend.services;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -37,6 +38,8 @@ public class Star {
 
             Node node = openList.peek(); // getting the top node of the queue (lowest final cost = highest priority)
 
+            System.out.println(node.getVertex() + " // custo:" + node.getfCost());
+
             if (node.getVertex() == finalVertex) { // if the current node is the end vertex, the shortest path is found
                 openList.remove(node);
                 closedList.add(node);
@@ -46,11 +49,26 @@ public class Star {
             }
 
             for (Edge edge : node.getVertex().getAdj()) { // analizing each adjacent vertex of the current node
-                Node nextNode = new Node(edge.getEnd(), node, edge, finalVertex); // creating new nodes to be explored
 
-                if (!closedList.contains(nextNode)) { // the node will only be explored if its not in the already
-                                                      // explored nodes list
-                    openList.add(nextNode);
+                if (node.getParent() == null || edge.getEnd().getId() != node.getParent().getVertex().getId()) {
+
+                    boolean test = true;
+
+                    Node nextNode = new Node(edge.getEnd(), node, edge, finalVertex); // creating new nodes to be
+                                                                                      // explored
+
+                    for (Node node2 : closedList) {
+                        if (node2.getVertex().getId() == nextNode.getVertex().getId() && node2.getParent() != null
+                                && node2.getParent().getVertex().getId() == node.getVertex().getId()) {
+                            test = false;
+                        }
+                    }
+
+                    if (test) { // the node will only be explored if its not in the already
+                        // explored nodes list
+                        openList.add(nextNode);
+                    }
+
                 }
 
             }
@@ -67,10 +85,22 @@ public class Star {
 
         Node explored = closedList.get(closedList.size() - 1); // last element in the explored nodes list
 
+        boolean path = true;
+
         while (explored.getParent() != null) { // exploring each node and its parent to find all vertices that are in
                                                // the path from end to start
             pathVertices.add(explored.getVertex()); // add the current vertex to the path list
             explored = explored.getParent(); // set the next element as the parent of the current node
+
+        }
+
+        Collections.reverse(pathVertices);
+
+        int count = 0;
+
+        for (Vertex vert : pathVertices) {
+            System.out.println(count + ": " + vert.getId() + " -> ");
+            count++;
         }
 
         return pathVertices;
