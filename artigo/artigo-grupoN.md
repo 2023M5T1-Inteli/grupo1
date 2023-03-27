@@ -31,6 +31,17 @@ De mesmo modo, Campos et al. (2016) destacam que o Neo4J é uma opção promisso
 
 # Trabalhos relacionados
 
+A partir dos principais pontos referentes ao problema expostos na seção "Descrição do Problema" - a saber, as consequências decorrentes de uma missão de voo baixo, como colisão com o solo ou exposição a aeronaves oponentes, que comprometem não apenas a missão, mas também a integridade da aeronave e a segurança de seus ocupantes - esta seção do artigo tem por objetivo apresentar soluções que abordam problemáticas semelhantes àquela introduzida no contexto do texto, além de retomar os principais problemas que motivaram a criação da solução proposta no artigo.
+
+Ao focarmos no cerne da questão - ou seja, o voo em baixa altitude levando em consideração a segurança - podemos citar o artigo "Planejamento de voo de acompanhamento de terreno de baixa altitude para multirotores" como uma referência, uma vez que ele trata de um veículo aéreo capaz de intervir em uma região ampla (desconhecida) e/ou em um cenário modificado por um evento catastrófico (como terremoto, deslizamento de terra, erupção vulcânica, etc.), em que a coleta de dados do solo não é simples nem segura (MELITA et al., 2020). Esse artigo enfatiza a importância da realização desse tipo de missão, mas também destaca os impactos negativos decorrentes dessa ação.
+
+Além disso, para mitigar esses problemas, propõe-se que a trajetória seja gerada levando em consideração a morfologia da área de interesse, representada como um Modelo Digital de Superfície (DSM) georreferenciado, garantindo ao mesmo tempo uma separação segura de quaisquer obstáculos (MELITA et al., 2020). A eficácia da solução é comprovada por meio de testes tanto em simulação quanto em cenários reais (MELITA et al., 2020).
+
+Em suma, a proposta apresentada no artigo supracitado é um exemplo que se relaciona com alguns pontos mencionados neste artigo. Embora a solução proposta não possua muitas semelhanças com a implementada aqui, é importante ressaltar alguns pontos relevantes, como a utilização das feições geográficas para a geração de uma orientação ao piloto.
+
+Outro artigo que aborda o cerne do problema é "Novo planejamento de trajetória de tempo mínimo no terreno seguindo voos", que aprimora as aplicações da dinâmica inversa no processo de planejamento e otimização de trajetória em voos de seguimento de terreno (TFFs) (KOSARI et al., 2018). Seguindo essa linha de raciocínio, a implementação proposta neste artigo converge com a aplicação desse artigo, uma vez que ambos visam à geração de trajetórias otimizadas.
+
+
 # Descrição da estratégia adotada para resolver o problema
 
 # Análise da complexidade da solução proposta
