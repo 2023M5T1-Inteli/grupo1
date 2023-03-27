@@ -71,6 +71,7 @@ Planejador de trajetórias para voos em baixa altitude
 - [Teste de Software](#teste-de-software)
   - [Testes Unitários](#testes-unitários)
   - [Teste de Usabilidade](#teste-de-usabilidade)
+  - [Teste de API](#teste-de-api)
 - [Análise de Dados](#análise-de-dados)
 - [Manuais](#manuais)
   - [Manual de Implantação](#manual-de-implantação)
@@ -277,7 +278,7 @@ A Persona é uma representação fictícia do cliente-alvo de uma empresa ou pro
 | User Story | Prioridade | Status |
 |--- |--- |--- |
 | 1. Eu como piloto quero que o sistema evite rotas cruzadas, para garantir a segurança da
-viagem e evitar possíveis colisões. | 7 | A fazer |
+viagem e evitar possíveis colisões. | 7 | Feito |
 | 2. Como piloto, quero que o programa mantenha a altitude o mais baixo possível e dê o
 melhor trecho a ser percorrido, para minimizar o tempo de viagem. | 1 | A fazer |
 | 3. Como piloto, quero que o programa contribua para minimizar o consumo de
@@ -289,9 +290,9 @@ riscos de segurança pública. | 6 | A fazer |
 | 6. Como piloto, quero que a trajetória aproveite também feições geográficas elevadas para
 evitar restrições, arrastos e condições adversas. | 2 | A fazer |
 | 7. Como piloto, quero ter uma interface intuitiva e objetiva, para que possa me concentrar
-na missão sem me preocupar com dificuldades técnicas. | 3 | A fazer |
+na missão sem me preocupar com dificuldades técnicas. | 3 | Feito |
 | 8. Como piloto quero um sistema que reduza a carga horária de trabalho para torná-la
-menos desgastante e ter maior foco na missão. | 8 | A fazer |
+menos desgastante e ter maior foco na missão. | 8 | Feito |
 | 9. Como operador, quero definir zonas de exclusão, restrições e outras informações em
 parâmetros de entrada para manter um sistema de planejamento eficiente. | 5 | A fazer |
 | 10. Como piloto, quero uma ferramenta de roteamento que me dê informações precisas sobre a distância do percurso de forma otimizada para operar em baixa altitude do ponto de início até o ponto de retorno como destino. | 6 | A fazer |
@@ -349,6 +350,10 @@ missão. | 9 | A fazer |
 
 ## Teste de Usabilidade
 
+## Teste de API
+
+[Execução do teste](https://documenter.getpostman.com/view/26173488/2s93JtRPmH)
+
 
 # Análise de Dados
 
@@ -360,6 +365,7 @@ missão. | 9 | A fazer |
 ## Manual do Usuário
 
 ## Manual do Administrador
+
 
 
 # Referências
