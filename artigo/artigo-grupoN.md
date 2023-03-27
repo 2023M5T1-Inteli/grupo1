@@ -197,6 +197,4 @@ RUNQI, C. et al. A review of optimization techniques in spacecraft flight trajec
 
 YANG, Y. Optimization of Aircraft Flight Trajectory Combined with Thinking Navigation Algorithm, 2022. Disponível: https://www.hindawi.com/journals/am/2022/6169331/. Acesso em: 22 marc. 2023.
 
-DASGUPTA, S.; Papadimitriou, C.; Vazirani, U. **Algoritmos.** Porto Alegre: AMGH, 2011. 1 recurso online. ISBN 9788563308535. Disponível em: https://integrada.minhabiblioteca.com.br/books/9788563308535. Acesso em: 17 jan. 2023.
-
 
