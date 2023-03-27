@@ -199,5 +199,4 @@ YANG, Y. Optimization of Aircraft Flight Trajectory Combined with Thinking Navig
 
 DASGUPTA, S.; Papadimitriou, C.; Vazirani, U. **Algoritmos.** Porto Alegre: AMGH, 2011. 1 recurso online. ISBN 9788563308535. Disponível em: https://integrada.minhabiblioteca.com.br/books/9788563308535. Acesso em: 17 jan. 2023.
 
-KRISHNA, S. Time Complexity of the A* Algorithm. HappyCoders.eu. Disponível em: https://www.happycoders.eu/algorithms/a-star-algorithm-java/#Time_Complexity_of_the_A_Algorithm. Acesso em: 23 mar. 2023.
-WENGROW, J. A Common-Sense Guide to Algorithms and Data Structures. Raleigh: The Pragmatic Bookshelf, 2018. ISBN 9781680502445. Acesso em: 21 mar. 2023.
+
