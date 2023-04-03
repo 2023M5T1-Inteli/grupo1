@@ -48,16 +48,37 @@ public class GraphConstructor {
      * @return array of vertex which contains all vertices of the graph thats beeing
      *         created
      */
-    public Vertex[] getCoordData(DtedDatabaseHandler dbDTED, Integer row, Integer col, Double latZero,
-            Double longZero) {
+    public Vertex[] getCoordData(DtedDatabaseHandler dbDTED, Double latZero,
+            Double longZero, double finalLat, double finalLong) {
+
+        double maxLat, maxLong, minLat, minLong;
+
+        if (latZero > finalLat) {
+            maxLat = latZero;
+            minLat = finalLat;
+        } else {
+            maxLat = finalLat;
+            minLat = finalLat;
+        }
+
+        if (longZero > finalLong) {
+            maxLong = longZero;
+            minLong = finalLong;
+        } else {
+            maxLong = finalLong;
+            minLong = finalLong;
+        }
+
+        int row = (int) Math.ceil((maxLat - minLat) / 0.001111) + 1;
+        int col = (int) Math.ceil((maxLong - minLong) / 0.001111) + 1;
 
         Vertex[] vertices = new Vertex[row * col]; // array that contains all vertex information of the mesh
 
         int count = 0; // auxiliary variable that stores the number of vertices created
         double lon;
-        double lat = latZero;
+        double lat = maxLat;
         for (int i = 0; i < row; i++) { // loop that gets the data row by row
-            lon = longZero;
+            lon = minLong;
             for (int j = 0; j < col; j++) { // loop that creates all vertices in a row
                 double alt = (double) dbDTED.QueryLatLonElevation(lon, lat).get();
 
@@ -67,6 +88,8 @@ public class GraphConstructor {
                 lon += 0.0016;
                 count++;
             }
+
+            lat -= 0.001111;
         }
 
         addEdges(vertices, row, col); // add edges between vertices based on their positions and distances
@@ -101,4 +124,5 @@ public class GraphConstructor {
             }
         }
     }
+
 }
