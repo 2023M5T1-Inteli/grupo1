@@ -267,7 +267,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 #my_dataviz {
   margin-top: 2rem;
-  width: 91rem;
+  width: 90rem;
   height: 50rem;
   position: fixed;
 }
