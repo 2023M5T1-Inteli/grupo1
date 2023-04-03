@@ -1,3 +1,9 @@
+var idMap = document.getElementById("my_dataviz");
+//var sendBtn = document.getElementById("send-btn");
+
+
+
+
 const url = "http://127.0.0.1:8080/graph/";
 
 
@@ -13,10 +19,12 @@ const handleForm = () => {
 
 const postGraph = async () => {
 
-    const longZero = parseFloat(document.querySelector('#min-lat').value);
-    const latZero = parseFloat(document.querySelector('#min-long').value);
-    const rows = parseFloat(document.querySelector('#rows').value);
-    const cols = parseFloat(document.querySelector('#cols').value);
+    const longZero = parseFloat(document.querySelector('#min-long').value);
+    const latZero = parseFloat(document.querySelector('#min-lat').value);
+    const rows = parseInt(document.querySelector('#rows').value);
+    const cols = parseInt(document.querySelector('#cols').value);
+
+    myMap.setView([latZero, longZero], 15);
 
     const requestSettings = {
         method: 'POST',
@@ -47,79 +55,47 @@ const postGraph = async () => {
 
 }
 
+
+
+var myMap = L.map(idMap).setView([-22.5889042043, -43.4855748], 13);
+    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
+    maxZoom: 18,
+    }).addTo(myMap);
+
+
+    myMap.on("click", function(e) {
+
+        var lat = e.latlng.lat.toFixed(15);
+        var lng = e.latlng.lng.toFixed(15);
+        L.popup()
+        .setLatLng(e.latlng)
+        .setContent("Latitude: " + lat + "<br>Longitude: " + lng)
+        .openOn(myMap);
+    });
+
+
+
 const createSvg = (data) => {
 
     console.log(data);
+    for (i in data){
+        var circle = L.circle([data[i].latitude, data[i].longitude], {
+            radius: 100,
+            color: 'blue',
+            fillColor: '#f03',
+            fillOpacity: 0.5
+        }).addTo(myMap);
+    }
 
-    // configura as dimensões e parâmetros gerais do SVG
-    var margin = {top: 10, right: 300, bottom: 30, left: 400},
-    width = 1456,
-    height = 800,
-    scale = 1, // zoom
-    translateX = width/2, // translação horizontal
-    translateY = height/2; // translação vertical
+    // for (i in data){
+    //     if (i < data.lenght - 2) {
 
-
-    // monta o svg que receberá o desenho do grafo
-    var svg = d3.select(".leaflet-pane_Virtual_0-pane")
-            .append("svg")
-            .attr("width", width)
-            .attr("height", height)
-            .style("z-index", "9999999999999999")
-            .append("g");
-            
-
-    // var link = svg
-    // .selectAll("line")
-    // .data(data)
-    // .enter()
-    // .append("line")
-    //     .style("stroke", "#333")
-       
-    //     .attr("y1",function(d) {return d.latitude*scale*-1 + translateY})
-    //     .attr("x1",function(d) {return d.longitude*scale + translateX})
-    //     .attr("y2",function(d, i) {
-    //         if (i < data.length-1) {
-    //             return data[i+1].latitude*scale*-1 + translateY
-    //         } 
-    //         })
-    //     .attr("x2",function(d, i) {
-    //         if (i < data.length - 1) {
-    //             return data[i+1].longitude*scale + translateX}
-    //         })
-
-    //para cada nó, desenha um círculo
-    var nodes = svg
-    .selectAll("circle")
-    .data(data)
-    .enter()
-    .append("circle")
-        .style("fill", function(d, i){
-        // atribuir cor ao nó inicial
-        if (i == 0){
-        return "#41aa61"
-        }
-        // atribuir cor ao nó final
-        else if (i == data.length-1){
-            return "#d12ef3"
-        }
-        // atribuir cor aos nós intermediários
-        return "#FFD600";
-        })
-        .attr("r", function(d, i){
-            if (i == 0){
-                return 4
-            }
-            // atribuir cor ao nó final
-            else if (i == data.length-1){
-                return 4
-            }
-            // atribuir cor aos nós intermediários
-            return 2
-        }) // o raio do círculo dos nós
-        .attr("cx",function(d, i) {console.log(d); return d.longitude*scale + translateX + (i/5)})
-        .attr("cy",function(d, i) {return d.latitude*scale*-1 + translateY + (i/5)});
-    
+    //         var edge = L.polyline([[data[i].latitude, data[i].longitude], [data[i+1].latitude, data[i+1].longitude]], {
+    //             color: 'yellow',
+    //             weight: 3,
+    //             opacity: 0.5
+    //         }).addTo(myMap);
+    //     }
+    // }
 
 }
-

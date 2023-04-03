@@ -63,6 +63,8 @@ public class GraphController {
         List<Vertex> vertexes = Arrays.asList(graphConstructor.getCoordData(dbRio, rows, cols, latZero, longZero));
 
         List<Vertex> path = Star.findPath(vertexes.get(0), vertexes.get(vertexes.size() - 1));
+        System.out.println(vertexes.get(0));
+        System.out.println(vertexes.get(vertexes.size() - 1));
         path.add(vertexes.get(0));
         Collections.reverse(path);
 
