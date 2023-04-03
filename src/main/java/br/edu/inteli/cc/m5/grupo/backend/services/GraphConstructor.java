@@ -58,7 +58,7 @@ public class GraphConstructor {
             minLat = finalLat;
         } else {
             maxLat = finalLat;
-            minLat = finalLat;
+            minLat = latZero;
         }
 
         if (longZero > finalLong) {
@@ -66,7 +66,7 @@ public class GraphConstructor {
             minLong = finalLong;
         } else {
             maxLong = finalLong;
-            minLong = finalLong;
+            minLong = longZero;
         }
 
         int row = (int) Math.ceil((maxLat - minLat) / 0.001111) + 1;
