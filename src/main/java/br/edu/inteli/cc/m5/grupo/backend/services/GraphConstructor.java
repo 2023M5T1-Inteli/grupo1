@@ -5,6 +5,7 @@ import java.util.Collections;
 import org.springframework.data.neo4j.core.Neo4jTemplate;
 
 import br.edu.inteli.cc.m5.dted.DtedDatabaseHandler;
+import br.edu.inteli.cc.m5.grupo.backend.entities.Grid;
 import br.edu.inteli.cc.m5.grupo.backend.entities.Vertex;
 import br.edu.inteli.cc.m5.grupo.backend.repositories.VertexRepository;
 
@@ -48,7 +49,7 @@ public class GraphConstructor {
      * @return array of vertex which contains all vertices of the graph thats beeing
      *         created
      */
-    public Vertex[] getCoordData(DtedDatabaseHandler dbDTED, Double latZero,
+    public Grid getCoordData(DtedDatabaseHandler dbDTED, Double latZero,
             Double longZero, double finalLat, double finalLong) {
 
         double maxLat, maxLong, minLat, minLong;
@@ -70,7 +71,7 @@ public class GraphConstructor {
         }
 
         int row = (int) Math.ceil((maxLat - minLat) / 0.001111) + 1;
-        int col = (int) Math.ceil((maxLong - minLong) / 0.001111) + 1;
+        int col = (int) Math.ceil((maxLong - minLong) / 0.0016) + 1;
 
         Vertex[] vertices = new Vertex[row * col]; // array that contains all vertex information of the mesh
 
@@ -93,7 +94,10 @@ public class GraphConstructor {
         }
 
         addEdges(vertices, row, col); // add edges between vertices based on their positions and distances
-        return vertices;
+
+        Grid grid = new Grid(vertices, minLat, minLong, maxLat, maxLong, row, col);
+
+        return grid;
     }
 
     /**
