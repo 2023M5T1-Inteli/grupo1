@@ -37,6 +37,7 @@ Planejador de trajetórias para voos em baixa altitude
       - [Qual a solução proposta:](#qual-a-solução-proposta)
       - [Como a solução proposta deverá ser utilizada:](#como-a-solução-proposta-deverá-ser-utilizada)
       - [Quais os benefícios trazidos pela solução proposta:](#quais-os-benefícios-trazidos-pela-solução-proposta)
+      - [Critério de sucesso:](#critério-de-sucesso)
   - [Variáveis de decisão consideradas](#variáveis-de-decisão-consideradas)
   - [Limitações do problema](#limitações-do-problema)
   - [Representação do Grafo](#representação-do-grafo)
@@ -175,6 +176,15 @@ Na fase de planejamento da operação, com o time de inteligência e outros poss
 #### Quais os benefícios trazidos pela solução proposta:
 
 Um auxílio no planejamento da missão por meio da obtenção de uma rota calculada com base nas variáveis que permita ao piloto viajar com segurança em baixa altitude, evitando zonas de risco e reduzindo sua carga de trabalho, dado que se atentará a menos pontos paralelos à operação enquanto realiza a mesma.
+
+#### Critério de sucesso:
+
+O critério de sucesso da solução, caso fosse implementada, seria medido, basicamente, pela eficácia do sistema em garantir a segurança de voos em baixa altitude. Algumas medidas mais específicas para avaliar esse critério poderiam ser:
+    * Redução de acidentes;
+    * Aumento da eficácia da missão, ou seja, redução do tempo e dos recursos necessários;
+    * Redução da carga de trabalho do piloto, permitindo que ele se concentre em tarefas mais importantes;
+    * Redução dos riscos associados a zonas que deveriam ser evitadas.
+
 
 ## Variáveis de decisão consideradas
 
