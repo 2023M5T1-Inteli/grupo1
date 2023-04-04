@@ -210,6 +210,10 @@ https://www.gov.br/defesa/pt-br/assuntos/seprod/ciencia-e-tecnologia
 * Sobram vagas no setor de tecnologia no Brasil por falta de profissionais qualificados:
 https://g1.globo.com/jornal-nacional/noticia/2022/09/29/sobram-vagas-no-setor-de-tecnologia-no-brasil-por-falta-de-profissionais-qualificados.ghtml
 
+* "Effective project management in the aerospace industry": https://www.emerald.com/insight/content/doi/10.1108/eb037641/full/html
+
+* Burocracia no setor aeroespacial brasileiro: https://www2.camara.leg.br/a-camara/estruturaadm/altosestudos/arquivos/politica-espacial/a-politica-espacial-brasileira
+
 ## Análise da indústria: 5 forças de Porter
 
 As Cinco Forças de Porter é um modelo estratégico desenvolvido por Michael Porter que ajuda a analisar a competição dentro de um setor da indústria. O modelo identifica cinco forças que podem afetar a lucratividade e a competitividade de uma empresa. Ao avaliar essas cinco forças, as empresas podem entender melhor o ambiente competitivo em que operam e tomar decisões estratégicas mais eficientes.
