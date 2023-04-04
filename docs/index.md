@@ -49,6 +49,7 @@ Planejador de trajetórias para voos em baixa altitude
       - [Poder de negociação dos clientes:](#poder-de-negociação-dos-clientes)
       - [Poder de negociação dos fornecedores:](#poder-de-negociação-dos-fornecedores)
       - [Rivalidade entre os concorrentes:](#rivalidade-entre-os-concorrentes)
+      - [Tendências](#tendências)
       - [Referências:](#referências-1)
   - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
   - [Matriz de Risco](#matriz-de-risco)
@@ -235,7 +236,11 @@ No que tange ao poder de barganha dos fornecedores, a AEL encontra-se em uma pos
 
 #### Rivalidade entre os concorrentes:
 
-As indústrias de Defesa, Segurança Pública e Aeroespacial são, em suma, mercados do tipo “business-to-business” (empresa e empresa) e “business-to-government” (empresa e governo). Tendo isso em mente, as organizações desses setores não destinam muitos recursos para o marketing de seus produtos e serviços, mas sim para a manutenção das relações já estabelecidas. Nesse contexto, a AEL já possui uma longa história de projetos bem-sucedidos, o que firma sua posição no mercado. Além disso, a companhia ainda possui estreitas relações com possíveis competidores tanto nacionalmente, a exemplo da Embraer, a qual possui parte das ações da AEL, quanto mundialmente, como o renomado grupo Elbit Systems. Portanto, a organização está muito bem situada na indústria.
+As indústrias de Defesa, Segurança Pública e Aeroespacial são, em suma, mercados do tipo “business-to-business” (empresa e empresa) e “business-to-government” (empresa e governo). Tendo isso em mente, as organizações desses setores não destinam muitos recursos para o marketing de seus produtos e serviços, mas sim para a manutenção das relações já estabelecidas. Nesse contexto, a AEL já possui uma longa história de projetos bem-sucedidos, o que firma sua posição no mercado. Além disso, a companhia ainda possui estreitas relações com possíveis competidores tanto nacionalmente, a exemplo da Embraer, a qual possui parte das ações da AEL, quanto mundialmente, como o renomado grupo Elbit Systems. Portanto, a organização está muito bem situada na indústria. Para citar alguns nomes relevantes desse mercado, considerando também um escopo global, podemos citar: Lockheed Martin, maior empresa de defesa do mundo; Boeing, uma das principais empresas aeroespaciais do mundo e que oferece uma ampla gama de produtos; BAE Systems, empresa britânica de defesa e segurança, com operações em diversos países. Num contexto nacional, que é o mais relevante para considerar-se tratando da AEL podemos citar as empresas: IACIT Soluções Tecnológicas, Atech Negócios em Tecnologias S/A, Avibras Indústria Aeroespacial. 
+
+#### Tendências
+
+O setor de defesa militar e aeroespacial é um dos mais importantes e estratégicos em todo o mundo, por isso, existe um enorme atenção direcionada a ele. Com isso, inovações surgem a todo instante. Nos últimos anos, o setor tem apresentado diversas tendências, tais como o aumento da utilização de tecnologias avançadas, como drones e inteligência artificial, para aprimorar as operações militares e aeroespaciais. Além disso, tem ocorrido uma crescente demanda por sistemas de defesa cibernética e de proteção de dados, devido à grande quantidade de informações sensíveis que são manipuladas nesse setor. Outra tendência importante é a busca por soluções de energia renovável e eficiência energética para reduzir a dependência dos combustíveis fósseis e minimizar os impactos ambientais das operações militares e aeroespaciais.
 
 #### Referências:
 
@@ -245,6 +250,8 @@ As indústrias de Defesa, Segurança Pública e Aeroespacial são, em suma, merc
 
 * Políticas de incentivo à indústria de defesa:
 https://www.gov.br/defesa/pt-br/assuntos/industria-de-defesa/base-industrial-de-defesa
+
+* 'Global Defense Outlook 2022-2026': https://aviationanddefensemarketreports.com/download-the-global-defense-outlook-2021-2026/
 
 ## Proposta de Valor: Value Proposition Canvas
 
