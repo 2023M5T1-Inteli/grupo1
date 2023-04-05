@@ -2,8 +2,6 @@ var idMap = document.getElementById("my_dataviz");
 //var sendBtn = document.getElementById("send-btn");
 
 
-
-
 const url = "http://127.0.0.1:8080/graph/";
 
 
@@ -57,7 +55,7 @@ const postGraph = async () => {
 
 
 
-var myMap = L.map(idMap).setView([-22.5889042043, -43.4855748], 13);
+var myMap = L.map(idMap).setView([-22.5889042043, -43.4855748], 8);
     L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
     maxZoom: 18,
     }).addTo(myMap);
@@ -77,25 +75,39 @@ var myMap = L.map(idMap).setView([-22.5889042043, -43.4855748], 13);
 
 const createSvg = (data) => {
 
-    console.log(data);
-    for (i in data){
-        var circle = L.circle([data[i].latitude, data[i].longitude], {
-            radius: 100,
-            color: 'blue',
-            fillColor: '#f03',
-            fillOpacity: 0.5
-        }).addTo(myMap);
+    for (i = 0; i != data.length; i++){
+        // Cria os círculos intermediários e o inicial
+        if (i != data.length - 1) {
+            var circle = L.circle([data[i].latitude, data[i].longitude], {
+                radius: 50,
+                color: i == 0 ? "#41aa61" : "#FFD600",
+                fillColor: "#FFD600",
+                fillOpacity: 0.5
+            }).addTo(myMap);
+        }
+        console.log(data.length - 1)
+        console.log(i)
+        console.log(`latitude ${data[i].latitude}`)
+        console.log(`longitude ${data[i].longitude}`)
+
+        // Cria o círculo final
+        if (i == data.length - 1) {
+            
+            var circle = L.circle([data[i].latitude, data[i].longitude], {
+                radius: 50,
+                color:  "#d12ef3",
+                fillColor: "#d12ef3",
+                fillOpacity: 0.5
+            }).addTo(myMap);
+        }
+
+        // Cria as arestas 
+        if (i < data.length - 1) {
+
+            var pointA = new L.LatLng(data[i].latitude, data[i].longitude);
+            var pointB = new L.LatLng(data[i + 1].latitude, data[i + 1].longitude);
+            var linePoints = [pointA, pointB];
+            var polyline = L.polyline(linePoints, {color: '#FFD600'}).addTo(myMap);
+        }
     }
-
-    // for (i in data){
-    //     if (i < data.lenght - 2) {
-
-    //         var edge = L.polyline([[data[i].latitude, data[i].longitude], [data[i+1].latitude, data[i+1].longitude]], {
-    //             color: 'yellow',
-    //             weight: 3,
-    //             opacity: 0.5
-    //         }).addTo(myMap);
-    //     }
-    // }
-
 }
