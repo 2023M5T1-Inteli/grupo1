@@ -5,6 +5,7 @@ import java.util.Collections;
 import org.springframework.data.neo4j.core.Neo4jTemplate;
 
 import br.edu.inteli.cc.m5.dted.DtedDatabaseHandler;
+import br.edu.inteli.cc.m5.grupo.backend.entities.Grid;
 import br.edu.inteli.cc.m5.grupo.backend.entities.Vertex;
 import br.edu.inteli.cc.m5.grupo.backend.repositories.VertexRepository;
 
@@ -48,16 +49,37 @@ public class GraphConstructor {
      * @return array of vertex which contains all vertices of the graph thats beeing
      *         created
      */
-    public Vertex[] getCoordData(DtedDatabaseHandler dbDTED, Integer row, Integer col, Double latZero,
-            Double longZero) {
+    public Grid getCoordData(DtedDatabaseHandler dbDTED, Double latZero,
+            Double longZero, double finalLat, double finalLong) {
+
+        double maxLat, maxLong, minLat, minLong;
+
+        if (latZero > finalLat) {
+            maxLat = latZero;
+            minLat = finalLat;
+        } else {
+            maxLat = finalLat;
+            minLat = latZero;
+        }
+
+        if (longZero > finalLong) {
+            maxLong = longZero;
+            minLong = finalLong;
+        } else {
+            maxLong = finalLong;
+            minLong = longZero;
+        }
+
+        int row = (int) Math.ceil((maxLat - minLat) / 0.001111) + 1;
+        int col = (int) Math.ceil((maxLong - minLong) / 0.0016) + 1;
 
         Vertex[] vertices = new Vertex[row * col]; // array that contains all vertex information of the mesh
 
         int count = 0; // auxiliary variable that stores the number of vertices created
         double lon;
-        double lat = latZero;
+        double lat = maxLat;
         for (int i = 0; i < row; i++) { // loop that gets the data row by row
-            lon = longZero;
+            lon = minLong;
             for (int j = 0; j < col; j++) { // loop that creates all vertices in a row
                 double alt = (double) dbDTED.QueryLatLonElevation(lon, lat).get();
 
@@ -67,10 +89,15 @@ public class GraphConstructor {
                 lon += 0.0016;
                 count++;
             }
+
+            lat -= 0.001111;
         }
 
         addEdges(vertices, row, col); // add edges between vertices based on their positions and distances
-        return vertices;
+
+        Grid grid = new Grid(vertices, minLat, minLong, maxLat, maxLong, row, col);
+
+        return grid;
     }
 
     /**
@@ -81,7 +108,7 @@ public class GraphConstructor {
      * @param row      number of rows of the mesh
      * @param col      number of columns of the mesh
      */
-    private void addEdges(Vertex[] vertices, int row, int col) {
+    public static void addEdges(Vertex[] vertices, int row, int col) {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 int index = i * col + j;
@@ -101,4 +128,10 @@ public class GraphConstructor {
             }
         }
     }
+
+    public static void main(String[] args) {
+        DtedDatabaseHandler dbRio = openDtedDB("dted/Rio");
+        System.out.println("main");
+    }
+
 }

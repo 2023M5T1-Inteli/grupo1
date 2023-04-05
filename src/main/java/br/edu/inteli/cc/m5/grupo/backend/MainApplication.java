@@ -7,6 +7,8 @@ package br.edu.inteli.cc.m5.grupo.backend;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import br.edu.inteli.cc.m5.grupo.backend.controllers.GraphController.GraphRequestData;
+
 @SpringBootApplication
 public class MainApplication {
 	/**
