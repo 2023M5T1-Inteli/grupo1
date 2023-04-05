@@ -1,113 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P.R.G.</title>
-    <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="../style/loading.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
-  </head>
+    <!--meta tags-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    
+    <!--Tab informations-->
+    <title>P.R.G. Home</title>
+    <link rel="shortcut icon" href="../images/logo_black.png" type="image/x-icon">
+
+    <!--custom css-->
+    <link rel="stylesheet" href="../style/index.css">
+</head>
+
 <body>
-    <div class="loading-container">
-      <div class="dot-spinner">
-        <div class="dot-spinner__dot"></div>
-        <div class="dot-spinner__dot"></div>
-        <div class="dot-spinner__dot"></div>
-        <div class="dot-spinner__dot"></div>
-        <div class="dot-spinner__dot"></div>
-        <div class="dot-spinner__dot"></div>
-        <div class="dot-spinner__dot"></div>
-        <div class="dot-spinner__dot"></div>
-      </div>
+    <div class="landing">
+
+        <!--text section-->
+        <div class="content">
+            <h1>Power Routes Generator</h1>
+            <p>
+                Simplifique sua missão e aumente sua segurança em voos baixos com nosso
+                gerador de rotas de voo.
+            </p>
+            <a href="../html/prg.html" class="button">
+                <span class="icon"><i class="fas fa-angle-right"></i></span>
+                <span class="text">Iniciar</span>
+            </a>
+        </div>
+        <!--text section-->
+
     </div>
-    <nav>
-      <img src="../images/logo.png">
-      <p>Power Routes Generator</p>
-      <input class="checkbox" type="checkbox" name="" id="" />
-      <div class="hamburger-lines">
-        <span class="line line1"></span>
-        <span class="line line2"></span>
-        <span class="line line3"></span>
-      </div> 
-    </nav>
-    <div class="container">
-      <main>
-        <div class="map_box">
-          <div class="map">
-            <div id="my_dataviz">
-            </div>
-          </div>
-        </div>
-      </main>
-      <aside>
-        <div class="form-container">
-          <div class="input-wrapper">
-            <label for="">Latitude 0</label>
-            <input type="number" id="min-lat" />
-          </div>
-          <div class="input-wrapper">
-            <label for="">Longitude 0</label>
-            <input type="number" id="min-long" />
-          </div>
-          <div class="input-wrapper">
-            <label for="">Numero de linhas</label>
-            <input type="number" id="rows" />
-          </div>
-          <div class="input-wrapper">
-            <label for="">Numero de colunas</label>
-            <input type="number" id="cols" />
-          </div>
-          <button class="form-btn" id="send-btn" onclick="postGraph()">Enviar</button>
-          <!--
-          <button class="form-btn" onclick="handleForm()">Próximo</button>
-          -->
-        </div>
-        <div class="form-container" id="path-form">
-            <div class="input-wrapper">
-              <label for="">Latitude X</label>
-              <input type="number" id="lat-x" />
-            </div>
-            <div class="input-wrapper">
-              <label for="">Longitude X</label>
-              <input type="number" id="long-x" />
-            </div>
-            <div class="input-wrapper">
-              <label for="">Latitude Y</label>
-              <input type="number" id="lat-y" />
-            </div>
-            <div class="input-wrapper">
-              <label for="">Longitude Y</label>
-              <input type="number" id="long-y" />
-            </div>
-          <button class="form-btn" id="send-btn" onclick="postGraph()">Enviar</button>
-        </div>
-        <span>Legenda</span>
-        <ul class="subtitles">
-          <li class="subtitle">
-            <div class="symbol circle origin initial_node"></div>
-            <p class="name">Nó inicial</p>
-          </li>
-          <li class="subtitle">
-            <div class="symbol circle path regular_node"></div>
-            <p class="name">Nó intermediário</p>
-          </li>
-          <li class="subtitle">
-            <div class="symbol circle target final_node"></div>
-            <p class="name">Nó final</p>
-          </li>
-          <!--
-          <li class="subtitle">
-            <div class="symbol edge"></div>
-            <p class="name">Aresta</p>
-          </li>
-          -->
-        </ul>
-      </aside>
-    </div>
-    <script src="../js/script.js"></script>
-</body>
-</html>
+
+    <!--background video-->
+    <video id="bg-video" autoplay loop muted>
+        <source src="../images/mixkit-military-jets-formation-crossing-the-sky-7373-medium.mp4">
+        <source src="video.webm" type="video/webm">
+    </video>
+    <!--background video-->
+</body
