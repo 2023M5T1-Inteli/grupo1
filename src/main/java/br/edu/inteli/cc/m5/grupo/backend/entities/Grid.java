@@ -99,10 +99,13 @@ public class Grid {
       // throw
     }
 
-    int row = (int) Math.ceil(Math.abs(Math.abs(maxLat) - Math.abs(latitude)) / 0.001111);
-    int col = (int) Math.ceil(Math.abs(Math.abs(longitude) - Math.abs(minLong)) / 0.0016);
+    int row = (int) Math.floor(Math.abs(Math.abs(maxLat) - Math.abs(latitude)) / 0.001111);
+    System.out.println("vertex row: " + row);
+    int col = (int) Math.floor(Math.abs(Math.abs(longitude) - Math.abs(minLong)) / 0.0016);
+    System.out.println("vertex col: " + col);
 
     int index = this.cols * row + col;
+    System.out.println("vertex index: " + index);
 
     return this.vertices[index];
 

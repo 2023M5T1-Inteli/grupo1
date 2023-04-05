@@ -138,10 +138,10 @@ public class Star {
 
             System.out.println("end vertex: " + end);
 
-            // List<Vertex> path = findPath(grid.getVertices()[0],
-            // grid.getVertices()[grid.getVertices().length - 1]);
+            List<Vertex> path = findPath(grid.getVertices()[0],
+                    grid.getVertices()[grid.getVertices().length - 1]);
 
-            // System.out.println("path found:");
+            System.out.println("path found:");
 
             // for (Vertex v : path) {
             // System.out.println(v);
