@@ -108,7 +108,7 @@ public class GraphConstructor {
      * @param row      number of rows of the mesh
      * @param col      number of columns of the mesh
      */
-    private void addEdges(Vertex[] vertices, int row, int col) {
+    public static void addEdges(Vertex[] vertices, int row, int col) {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 int index = i * col + j;
@@ -127,6 +127,11 @@ public class GraphConstructor {
                 }
             }
         }
+    }
+
+    public static void main(String[] args) {
+        DtedDatabaseHandler dbRio = openDtedDB("dted/Rio");
+        System.out.println("main");
     }
 
 }
