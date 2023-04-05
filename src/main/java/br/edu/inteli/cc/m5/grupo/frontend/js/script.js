@@ -1,7 +1,8 @@
+// map variable
 var idMap = document.getElementById("my_dataviz");
-//var sendBtn = document.getElementById("send-btn");
 
 
+// request endpoint
 const url = "http://127.0.0.1:8080/graph/";
 
 
@@ -76,12 +77,12 @@ var myMap = L.map(idMap).setView([-22.5889042043, -43.4855748], 8);
 const createSvg = (data) => {
 
     for (i = 0; i != data.length; i++){
-        // Cria os círculos intermediários e o inicial
+        // create the initial points and the others
         if (i != data.length - 1) {
             var circle = L.circle([data[i].latitude, data[i].longitude], {
                 radius: 50,
-                color: i == 0 ? "#41aa61" : "#FFD600",
-                fillColor: "#FFD600",
+                color: i == 0 ? "#41aa61" : "rgba(0,0,0,0)",
+                fillColor: i == 0 ? "#41aa61" : "rgba(0,0,0,0)",
                 fillOpacity: 0.5
             }).addTo(myMap);
         }
@@ -90,7 +91,7 @@ const createSvg = (data) => {
         console.log(`latitude ${data[i].latitude}`)
         console.log(`longitude ${data[i].longitude}`)
 
-        // Cria o círculo final
+        // create the final point
         if (i == data.length - 1) {
             
             var circle = L.circle([data[i].latitude, data[i].longitude], {
@@ -101,7 +102,7 @@ const createSvg = (data) => {
             }).addTo(myMap);
         }
 
-        // Cria as arestas 
+        // create the edges
         if (i < data.length - 1) {
 
             var pointA = new L.LatLng(data[i].latitude, data[i].longitude);
