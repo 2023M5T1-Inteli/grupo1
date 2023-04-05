@@ -80,7 +80,6 @@ public class GraphController {
         // List<Vertex> vertexes = Arrays.asList(graphConstructor.getCoordData(dbRio, rows, cols, latZero, longZero));
 
         List<Vertex> path = Star.findPath(vertexX, vertexY);
-        
         Collections.reverse(path);
 
         return ResponseEntity.ok(path);

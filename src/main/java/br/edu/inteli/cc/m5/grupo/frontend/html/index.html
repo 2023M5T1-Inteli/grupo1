@@ -1,183 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P.R.G.</title>
-    <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="../style/loading.css">
-    <link rel="stylesheet" href="../style/map/leaflet.css">
-    <link rel="stylesheet" href="../style/map/qgis2web.css"><link rel="stylesheet" href="../style/map/fontawesome-all.min.css">
-    <script src="../js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-    <script src="../js/map/qgis2web_expressions.js"></script>
-    <script src="../js/map/leaflet.js"></script>
-    <script src="../js/map/leaflet.rotatedMarker.js"></script>
-    <script src="../js/map/leaflet.pattern.js"></script>
-    <script src="../js/map/leaflet-hash.js"></script>
-    <script src="../js/map/Autolinker.min.js"></script>
-    <script src="../js/map/rbush.min.js"></script>
-    <script src="../js/map/labelgun.min.js"></script>
-    <script src="../js/map/labels.js"></script>
-  </head>
+    <!--meta tags-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    
+    <!--Tab informations-->
+    <title>P.R.G. Home</title>
+    <link rel="shortcut icon" href="../images/logo_black.png" type="image/x-icon">
+
+    <!--custom css-->
+    <link rel="stylesheet" href="../style/index.css">
+</head>
+
 <body>
-    <div class="loading-container">
-      <div class="dot-spinner">
-        <div class="dot-spinner__dot"></div>
-        <div class="dot-spinner__dot"></div>
-        <div class="dot-spinner__dot"></div>
-        <div class="dot-spinner__dot"></div>
-        <div class="dot-spinner__dot"></div>
-        <div class="dot-spinner__dot"></div>
-        <div class="dot-spinner__dot"></div>
-        <div class="dot-spinner__dot"></div>
-      </div>
+    <div class="landing">
+
+        <!--text section-->
+        <div class="content">
+            <h1>Power Routes Generator</h1>
+            <p>
+                Simplifique sua missão e aumente sua segurança em voos baixos com nosso
+                gerador de rotas de voo.
+            </p>
+            <a href="../html/prg.html" class="button">
+                <span class="icon"><i class="fas fa-angle-right"></i></span>
+                <span class="text">Iniciar</span>
+            </a>
+        </div>
+        <!--text section-->
+
     </div>
-    <nav>
-      <img src="../images/logo.png">
-      <p>Power Routes Generator</p>
-      <input class="checkbox" type="checkbox" name="" id="" />
-      <div class="hamburger-lines">
-        <span class="line line1"></span>
-        <span class="line line2"></span>
-        <span class="line line3"></span>
-      </div> 
-    </nav>
-    <div class="container">
-      <main>
-        <div class="map_box">
-          <div class="map">
-            <div id="my_dataviz">
-            </div>
-          </div>
-        </div>
-      </main>
-      <aside>
-        <div class="form-container">
-          <div class="input-wrapper">
-            <label for="">Latitude 0</label>
-            <input type="number" id="min-lat" />
-          </div>
-          <div class="input-wrapper">
-            <label for="">Longitude 0</label>
-            <input type="number" id="min-long" />
-          </div>
-          <div class="input-wrapper">
-            <label for="">Numero de linhas</label>
-            <input type="number" id="rows" />
-          </div>
-          <div class="input-wrapper">
-            <label for="">Numero de colunas</label>
-            <input type="number" id="cols" />
-          </div>
-          <button class="form-btn" id="send-btn" onclick="postGraph()">Enviar</button>
-          <!--
-          <button class="form-btn" onclick="handleForm()">Próximo</button>
-          -->
-        </div>
-        <div class="form-container" id="path-form">
-            <div class="input-wrapper">
-              <label for="">Latitude X</label>
-              <input type="number" id="lat-x" />
-            </div>
-            <div class="input-wrapper">
-              <label for="">Longitude X</label>
-              <input type="number" id="long-x" />
-            </div>
-            <div class="input-wrapper">
-              <label for="">Latitude Y</label>
-              <input type="number" id="lat-y" />
-            </div>
-            <div class="input-wrapper">
-              <label for="">Longitude Y</label>
-              <input type="number" id="long-y" />
-            </div>
-          <button class="form-btn" id="send-btn" onclick="postGraph()">Enviar</button>
-        </div>
-        <span>Legenda</span>
-        <ul class="subtitles">
-          <li class="subtitle">
-            <div class="symbol circle origin initial_node"></div>
-            <p class="name">Nó inicial</p>
-          </li>
-          <li class="subtitle">
-            <div class="symbol circle path regular_node"></div>
-            <p class="name">Nó intermediário</p>
-          </li>
-          <li class="subtitle">
-            <div class="symbol circle target final_node"></div>
-            <p class="name">Nó final</p>
-          </li>
-          <!--
-          <li class="subtitle">
-            <div class="symbol edge"></div>
-            <p class="name">Aresta</p>
-          </li>
-          -->
-        </ul>
-      </aside>
-    </div>
-    <script>
-      var map = L.map("my_dataviz",{
-            zoomControl:true, maxZoom:28, minZoom:3
-        });
-        map.setView([-22.9035, -43.2096], 13);
 
-var hash = new L.Hash(map);
-var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
-var bounds_group = new L.featureGroup([]);
-// function setBounds() {
-//     if (bounds_group.getLayers().length) {
-//         map.fitBounds(bounds_group.getBounds());
-//     }
-//     // map.setMaxBounds(map.getBounds());
-// }
-map.createPane('pane_Virtual_0');
-map.getPane('pane_Virtual_0').style.zIndex = 400;
-var img_Virtual_0 = '../data/Virtual_0.png';
-var img_bounds_Virtual_0 = [[-59.99999999996002,-100.0],[39.99999999999999,-20.00000000003199]];
-var layer_Virtual_0 = new L.imageOverlay(img_Virtual_0,
-                                      img_bounds_Virtual_0,
-                                      {pane: 'pane_Virtual_0'});
-bounds_group.addLayer(layer_Virtual_0);
-
-map.addLayer(layer_Virtual_0);
-// setBounds();
-L.ImageOverlay.include({
-    getBounds: function () {
-        return this._bounds;
-    }
-});
-
-// var pega = d3.select(".leaflet-pane_Virtual_0-pane");
-// // Define o comportamento de zoom para o SVG
-// var zoom = d3.zoom()
-//   .on("zoom", function() {
-//     // Define o nível de zoom do SVG com base no zoom do mapa
-//     pega.attr("transform", d3.event.transform);
-//   });
-
-// // Adiciona o comportamento de zoom ao SVG
-// pega.call(zoom);
-
-// // Adiciona o evento de zoom ao mapa
-// map.on("zoom", function() {
-//   // Define o nível de zoom do SVG com base no zoom do mapa
-//   pega.attr("transform", d3.zoomIdentity().translate(d3.event.sourceEvent.offsetX, d3.event.sourceEvent.offsetY).scale(d3.event.scale));
-// });
-
-
-// function onMapMouseMove(e) {
-// var lat = e.latlng.lat.toFixed(15);
-// var lng = e.latlng.lng.toFixed(15);
-// L.popup()
-// .setContent("Latitude: " + lat + "<br>Longitude: " + lng)
-// .setLatLng(e.latlng)
-// .openOn(map);
-// }
-// map.on('mousemove', onMapMouseMove);
-
-    </script>
-</body>
-</html>
+    <!--background video-->
+    <video id="bg-video" autoplay loop muted>
+        <source src="../images/mixkit-military-jets-formation-crossing-the-sky-7373-medium.mp4">
+        <source src="video.webm" type="video/webm">
+    </video>
+    <!--background video-->
+</body

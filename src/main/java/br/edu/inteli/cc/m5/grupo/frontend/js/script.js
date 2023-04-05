@@ -1,3 +1,8 @@
+// map variable
+var idMap = document.getElementById("my_dataviz");
+
+
+// request endpoint
 const url = "http://127.0.0.1:8080/graph/";
 
 
@@ -13,10 +18,29 @@ const handleForm = () => {
 
 const postGraph = async () => {
 
-    const longZero = parseFloat(document.querySelector('#min-lat').value);
-    const latZero = parseFloat(document.querySelector('#min-long').value);
-    const rows = parseFloat(document.querySelector('#rows').value);
-    const cols = parseFloat(document.querySelector('#cols').value);
+    // const longZero = parseFloat(document.querySelector('#min-long').value);
+    // const latZero = parseFloat(document.querySelector('#min-lat').value);
+    const longZero = -22.5889042043;
+    const latZero = -43.4855748;
+    const finalLat = parseFloat(document.querySelector('#final-lat').value);
+    const finalLong = parseFloat(document.querySelector('#final-long').value);
+    const pathLatX = parseFloat(document.querySelector('#path-lat-x').value)
+    const pathLongX = parseFloat(document.querySelector('#path-long-x').value)
+    const pathLatY = parseFloat(document.querySelector('#path-lat-y').value)
+    const pathLongY = parseFloat(document.querySelector('#path-long-y').value)
+
+    console.log(`
+    longZero: ${longZero},
+    latZero: ${latZero},
+    finalLat: ${finalLat},
+    finalLong: ${finalLong},
+    pathLatX: ${pathLatX},
+    pathLongX: ${pathLongX},
+    pathLatY: ${pathLatY}
+    pathLongY: ${pathLongY}
+    `)
+
+    myMap.setView([latZero, longZero], 15);
 
     const requestSettings = {
         method: 'POST',
@@ -26,8 +50,8 @@ const postGraph = async () => {
         body: JSON.stringify({
             longZero: longZero,
             latZero: latZero,    
-            rows: rows,
-            cols: cols
+            finalLat: finalLat,
+            finalLong: finalLong
         })
     }
 
@@ -47,79 +71,63 @@ const postGraph = async () => {
 
 }
 
+
+
+var myMap = L.map(idMap).setView([-22.5889042043, -43.4855748], 8);
+    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
+    maxZoom: 18,
+    }).addTo(myMap);
+
+
+    myMap.on("click", function(e) {
+
+        var lat = e.latlng.lat.toFixed(15);
+        var lng = e.latlng.lng.toFixed(15);
+        L.popup()
+        .setLatLng(e.latlng)
+        .setContent("Latitude: " + lat + "<br>Longitude: " + lng)
+        .openOn(myMap);
+    });
+
+
+
 const createSvg = (data) => {
 
-    console.log(data);
+    console.log(data)
 
-    // configura as dimensões e parâmetros gerais do SVG
-    var margin = {top: 10, right: 300, bottom: 30, left: 400},
-    width = 1456,
-    height = 800,
-    scale = 1, // zoom
-    translateX = width/2, // translação horizontal
-    translateY = height/2; // translação vertical
+    for (i = 0; i != data.length; i++){
+        // create the initial points and the others
+        if (i != data.length - 1) {
+            var circle = L.circle([data[i].latitude, data[i].longitude], {
+                radius: 50,
+                color: i == 0 ? "#41aa61" : "rgba(0,0,0,0)",
+                fillColor: i == 0 ? "#41aa61" : "rgba(0,0,0,0)",
+                fillOpacity: 0.5
+            }).addTo(myMap);
+        }
+        console.log(data.length - 1)
+        console.log(i)
+        console.log(`latitude ${data[i].latitude}`)
+        console.log(`longitude ${data[i].longitude}`)
 
-
-    // monta o svg que receberá o desenho do grafo
-    var svg = d3.select(".leaflet-pane_Virtual_0-pane")
-            .append("svg")
-            .attr("width", width)
-            .attr("height", height)
-            .style("z-index", "9999999999999999")
-            .append("g");
+        // create the final point
+        if (i == data.length - 1) {
             
-
-    // var link = svg
-    // .selectAll("line")
-    // .data(data)
-    // .enter()
-    // .append("line")
-    //     .style("stroke", "#333")
-       
-    //     .attr("y1",function(d) {return d.latitude*scale*-1 + translateY})
-    //     .attr("x1",function(d) {return d.longitude*scale + translateX})
-    //     .attr("y2",function(d, i) {
-    //         if (i < data.length-1) {
-    //             return data[i+1].latitude*scale*-1 + translateY
-    //         } 
-    //         })
-    //     .attr("x2",function(d, i) {
-    //         if (i < data.length - 1) {
-    //             return data[i+1].longitude*scale + translateX}
-    //         })
-
-    //para cada nó, desenha um círculo
-    var nodes = svg
-    .selectAll("circle")
-    .data(data)
-    .enter()
-    .append("circle")
-        .style("fill", function(d, i){
-        // atribuir cor ao nó inicial
-        if (i == 0){
-        return "#41aa61"
+            var circle = L.circle([data[i].latitude, data[i].longitude], {
+                radius: 50,
+                color:  "#d12ef3",
+                fillColor: "#d12ef3",
+                fillOpacity: 0.5
+            }).addTo(myMap);
         }
-        // atribuir cor ao nó final
-        else if (i == data.length-1){
-            return "#d12ef3"
-        }
-        // atribuir cor aos nós intermediários
-        return "#FFD600";
-        })
-        .attr("r", function(d, i){
-            if (i == 0){
-                return 4
-            }
-            // atribuir cor ao nó final
-            else if (i == data.length-1){
-                return 4
-            }
-            // atribuir cor aos nós intermediários
-            return 2
-        }) // o raio do círculo dos nós
-        .attr("cx",function(d, i) {console.log(d); return d.longitude*scale + translateX + (i/5)})
-        .attr("cy",function(d, i) {return d.latitude*scale*-1 + translateY + (i/5)});
-    
 
+        // create the edges
+        if (i < data.length - 1) {
+
+            var pointA = new L.LatLng(data[i].latitude, data[i].longitude);
+            var pointB = new L.LatLng(data[i + 1].latitude, data[i + 1].longitude);
+            var linePoints = [pointA, pointB];
+            var polyline = L.polyline(linePoints, {color: '#FFD600'}).addTo(myMap);
+        }
+    }
 }
-

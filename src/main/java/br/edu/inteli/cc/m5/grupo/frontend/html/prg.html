@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Meta tags-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Tab informations-->
+    <title>P.R.G.</title>
+    <link rel="shortcut icon" href="../images/logo_black.png" type="image/x-icon"> 
+
+    <!--custom css-->
+    <link rel="stylesheet" href="../style/prg.css">
+    <link rel="stylesheet" href="../style/loading.css">
+
+    <!--leafleat / d3 scripts-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    
+
+  </head>
+<body>
+    <!--load screen-->
+    <div class="loading-container">
+      <div class="dot-spinner">
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+        <div class="dot-spinner__dot"></div>
+      </div>
+    </div>
+    <!--load screen-->
+
+    <!--header-->
+    <nav>
+      <img src="../images/logo.png">
+      <p>Power Routes Generator</p>
+      <input class="checkbox" type="checkbox" name="" id="" />
+      <div class="hamburger-lines">
+        <span class="line line1"></span>
+        <span class="line line2"></span>
+        <span class="line line3"></span>
+      </div> 
+    </nav>
+    <!--header-->
+
+    <!--map container-->
+    <div class="container">
+      <main>
+        <div class="map_box">
+          <div class="map">
+            <div id="my_dataviz">
+            </div>
+          </div>
+        </div>
+      </main>
+      <!--map container-->
+      
+      <aside>
+        <!--Forms container-->
+        <div class="form-container">
+          <div class="input-wrapper">
+            <label for="">Latitude inicial</label>
+            <input type="number" id="min-lat" />
+          </div>
+          <div class="input-wrapper">
+            <label for="">Longitude final</label>
+            <input type="number" id="min-long" />
+          </div>
+          <div class="input-wrapper">
+            <label for="">Latitude inicial</label>
+            <input type="number" id="final-lat" />
+          </div>
+          <div class="input-wrapper">
+            <label for="">Latitude final</label>
+            <input type="number" id="final-long" />
+          </div>
+          <!-- <button class="form-btn" id="send-btn" onclick="postGraph()">Enviar</button> -->
+          
+          <button class="form-btn" onclick="handleForm()">Próximo</button>
+         
+        </div>
+        <div class="form-container" id="path-form">
+            <div class="input-wrapper">
+              <label for="">Latitude X</label>
+              <input type="number" id="path-lat-x" />
+            </div>
+            <div class="input-wrapper">
+              <label for="">Longitude X</label>
+              <input type="number" id="path-long-x" />
+            </div>
+            <div class="input-wrapper">
+              <label for="">Latitude Y</label>
+              <input type="number" id="path-lat-y" />
+            </div>
+            <div class="input-wrapper">
+              <label for="">Longitude Y</label>
+              <input type="number" id="path-long-y" />
+            </div>
+          <button class="form-btn" id="send-btn" onclick="postGraph()">Enviar</button>
+        </div>
+        <!--Forms container-->
+
+
+        <!--subtitle-->
+        <span>Legenda</span>
+        <ul class="subtitles">
+          <li class="subtitle">
+            <div class="symbol circle origin initial_node"></div>
+            <p class="name">Nó inicial</p>
+          </li>
+          <li class="subtitle">
+            <div class="symbol circle path regular_node"></div>
+            <p class="name">Percurso</p>
+          </li>
+          <li class="subtitle">
+            <div class="symbol circle target final_node"></div>
+            <p class="name">Nó final</p>
+          </li>
+         
+        </ul>
+        <!--subtitle-->
+        
+      </aside>
+    </div>
+
+    <!--scripts-->
+    <script src="../js/script.js"></script>
+</body>
+</html>
