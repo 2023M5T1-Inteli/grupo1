@@ -20,14 +20,20 @@ const postGraph = async () => {
 
     // const longZero = parseFloat(document.querySelector('#min-long').value);
     // const latZero = parseFloat(document.querySelector('#min-lat').value);
+    // const finalLat = parseFloat(document.querySelector('#final-lat').value);
+    // const finalLong = parseFloat(document.querySelector('#final-long').value);
+    // const pathLatX = parseFloat(document.querySelector('#path-lat-x').value)
+    // const pathLongX = parseFloat(document.querySelector('#path-long-x').value)
+    // const pathLatY = parseFloat(document.querySelector('#path-lat-y').value)
+    // const pathLongY = parseFloat(document.querySelector('#path-long-y').value)
     const longZero = -22.5889042043;
     const latZero = -43.4855748;
-    const finalLat = parseFloat(document.querySelector('#final-lat').value);
-    const finalLong = parseFloat(document.querySelector('#final-long').value);
-    const pathLatX = parseFloat(document.querySelector('#path-lat-x').value)
-    const pathLongX = parseFloat(document.querySelector('#path-long-x').value)
-    const pathLatY = parseFloat(document.querySelector('#path-lat-y').value)
-    const pathLongY = parseFloat(document.querySelector('#path-long-y').value)
+    const finalLat = -22.359194448201;
+    const finalLong = -42.5794347619519;
+    const pathLatX = -22.5889042043;
+    const pathLongX = -43.4855748;
+    const pathLongY = -43.5573428666663;
+    const pathLatY = -23.0696792891117;
 
     console.log(`
     longZero: ${longZero},

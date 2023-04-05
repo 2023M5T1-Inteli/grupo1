@@ -75,6 +75,7 @@ public class Grid {
     for (int i = 0; i < row; i++) { // loop that gets the data row by row
       lon = minLong;
       for (int j = 0; j < col; j++) { // loop that creates all vertices in a row
+        System.out.println(lat + ", " + lon);
         double alt = (double) dbDTED.QueryLatLonElevation(lon, lat).get();
 
         Vertex newVert = new Vertex(count, lon, lat, alt);
@@ -88,10 +89,11 @@ public class Grid {
 
       lat -= 0.001111;
     }
-
+    
     GraphConstructor.addEdges(vertices, row, col); // add edges between vertices based on their positions and distances
-
+    
     this.vertices = vertices;
+    System.out.println(vertices.length);
   }
 
   public Vertex findVertex(double longitude, double latitude) {
