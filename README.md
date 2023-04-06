@@ -21,13 +21,14 @@ A seguir estão os passos sugeridos para a preparação do seu grupo no início 
 * **Passo 3**: Cada grupo deverá editar este arquivo, removendo estas instruções iniciais e preenchendo o restante da página com os dados do projeto do seu grupo.
 
 
-# Projeto: *Nome_do_seu_Projeto*
+# Projeto: *Power Routes Generator*
 
-# Grupo: *Nome_do_seu_Grupo*
+# Grupo: *AeroGuys*
 
 # Descrição
 
-*Descrição_resumida_do_projeto*
+  Uma aplicação web geradora de rotas visando a baixa altitude, e pra esse fim, contém um algoritmo planejador. Para a criação do algoritmo planejador, utilizasse o A-star com o objetivo de encontrar o menor caminho dentre um grafo, este algoritmo de menor caminho usufrui de uma heurísitca que correlaciona nossas principais variáveis (distância e altitude).
+
 
 # Documentação
 
@@ -37,6 +38,30 @@ Os arquivos da documentação deste projeto estão na pasta [/docs](/docs), e o 
 # Artigo
 
 Os arquivos do artigo estão na pasta [/artigo](/artigo). Um arquivo gerado no formato PDF deverá ser anexado a cada *release* do projeto.
+
+# Guia de Instalação
+
+Nesta seção irá conter o passo a passo para rodar nossa aplicação:
+
+**Primeiro passo:**
+
+Para a utilização da aplicação é necessário baixar o docker, vá na página oficial do Docker neste [link](https://www.docker.com/products/docker-desktop/) e clique para dar download no seu sistema operacional específico, como mostra a imagem abaixo com o sistema operacional Windows:
+
+![imagem do download do Docker](../grupo1/docs/img/docker_download.PNG)
+
+**Segundo passo:**
+
+Vá até o terminal em qualquer pasta e rode o comando, que irá acionar a imagem no Docker:
+
+```
+docker run --publish=7474:7474 --publish=7687:7687 -e NEO4J_AUTH=neo4j/12341234 neo4j:latest
+```
+
+**Terceiro passo:**
+
+Com o projeto aberto no vscode, vá até o arquivo MainApplication.java e no próprio arquivo clique em "Run":
+
+![imagem de arquivo](../grupo1/docs/img/roda_aplicacao.PNG)
 
 # Releases
 
