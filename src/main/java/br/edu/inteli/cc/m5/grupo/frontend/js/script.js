@@ -1,9 +1,8 @@
+// map variable
 var idMap = document.getElementById("my_dataviz");
-//var sendBtn = document.getElementById("send-btn");
 
 
-
-
+// request endpoint
 const url = "http://127.0.0.1:8080/graph/";
 
 
@@ -19,10 +18,27 @@ const handleForm = () => {
 
 const postGraph = async () => {
 
-    const longZero = parseFloat(document.querySelector('#min-long').value);
-    const latZero = parseFloat(document.querySelector('#min-lat').value);
-    const rows = parseInt(document.querySelector('#rows').value);
-    const cols = parseInt(document.querySelector('#cols').value);
+    // const longZero = parseFloat(document.querySelector('#min-long').value);
+    // const latZero = parseFloat(document.querySelector('#min-lat').value);
+    const longZero = -22.5889042043;
+    const latZero = -43.4855748;
+    const finalLat = parseFloat(document.querySelector('#final-lat').value);
+    const finalLong = parseFloat(document.querySelector('#final-long').value);
+    const pathLatX = parseFloat(document.querySelector('#path-lat-x').value)
+    const pathLongX = parseFloat(document.querySelector('#path-long-x').value)
+    const pathLatY = parseFloat(document.querySelector('#path-lat-y').value)
+    const pathLongY = parseFloat(document.querySelector('#path-long-y').value)
+
+    console.log(`
+    longZero: ${longZero},
+    latZero: ${latZero},
+    finalLat: ${finalLat},
+    finalLong: ${finalLong},
+    pathLatX: ${pathLatX},
+    pathLongX: ${pathLongX},
+    pathLatY: ${pathLatY}
+    pathLongY: ${pathLongY}
+    `)
 
     myMap.setView([latZero, longZero], 15);
 
@@ -34,8 +50,8 @@ const postGraph = async () => {
         body: JSON.stringify({
             longZero: longZero,
             latZero: latZero,    
-            rows: rows,
-            cols: cols
+            finalLat: finalLat,
+            finalLong: finalLong
         })
     }
 
@@ -57,7 +73,7 @@ const postGraph = async () => {
 
 
 
-var myMap = L.map(idMap).setView([-22.5889042043, -43.4855748], 13);
+var myMap = L.map(idMap).setView([-22.5889042043, -43.4855748], 8);
     L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
     maxZoom: 18,
     }).addTo(myMap);
@@ -77,25 +93,41 @@ var myMap = L.map(idMap).setView([-22.5889042043, -43.4855748], 13);
 
 const createSvg = (data) => {
 
-    console.log(data);
-    for (i in data){
-        var circle = L.circle([data[i].latitude, data[i].longitude], {
-            radius: 100,
-            color: 'blue',
-            fillColor: '#f03',
-            fillOpacity: 0.5
-        }).addTo(myMap);
+    console.log(data)
+
+    for (i = 0; i != data.length; i++){
+        // create the initial points and the others
+        if (i != data.length - 1) {
+            var circle = L.circle([data[i].latitude, data[i].longitude], {
+                radius: 50,
+                color: i == 0 ? "#41aa61" : "rgba(0,0,0,0)",
+                fillColor: i == 0 ? "#41aa61" : "rgba(0,0,0,0)",
+                fillOpacity: 0.5
+            }).addTo(myMap);
+        }
+        console.log(data.length - 1)
+        console.log(i)
+        console.log(`latitude ${data[i].latitude}`)
+        console.log(`longitude ${data[i].longitude}`)
+
+        // create the final point
+        if (i == data.length - 1) {
+            
+            var circle = L.circle([data[i].latitude, data[i].longitude], {
+                radius: 50,
+                color:  "#d12ef3",
+                fillColor: "#d12ef3",
+                fillOpacity: 0.5
+            }).addTo(myMap);
+        }
+
+        // create the edges
+        if (i < data.length - 1) {
+
+            var pointA = new L.LatLng(data[i].latitude, data[i].longitude);
+            var pointB = new L.LatLng(data[i + 1].latitude, data[i + 1].longitude);
+            var linePoints = [pointA, pointB];
+            var polyline = L.polyline(linePoints, {color: '#FFD600'}).addTo(myMap);
+        }
     }
-
-    // for (i in data){
-    //     if (i < data.lenght - 2) {
-
-    //         var edge = L.polyline([[data[i].latitude, data[i].longitude], [data[i+1].latitude, data[i+1].longitude]], {
-    //             color: 'yellow',
-    //             weight: 3,
-    //             opacity: 0.5
-    //         }).addTo(myMap);
-    //     }
-    // }
-
 }

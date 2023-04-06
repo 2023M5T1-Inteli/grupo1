@@ -4,6 +4,7 @@ Class responsible for controlling requests related to graphs.
 package br.edu.inteli.cc.m5.grupo.backend.controllers;
 
 import br.edu.inteli.cc.m5.dted.DtedDatabaseHandler;
+import br.edu.inteli.cc.m5.grupo.backend.entities.Grid;
 import br.edu.inteli.cc.m5.grupo.backend.entities.Vertex;
 import br.edu.inteli.cc.m5.grupo.backend.repositories.VertexRepository;
 import br.edu.inteli.cc.m5.grupo.backend.services.GraphConstructor;
@@ -37,10 +38,14 @@ public class GraphController {
      * Inner class that defines the data needed to construct a graph.
      */
     public static class GraphRequestData {
-        public int rows; // Number of rows in the coordinate grid.
-        public int cols; // Number of columns in the coordinate grid.
         public double latZero; // Latitude of the position (0, 0) in the coordinate grid.
         public double longZero; // Longitude of the position (0, 0) in the coordinate grid.
+        public double finalLat; // Number of rows in the coordinate grid.
+        public double finalLong; // Number of columns in the coordinate grid.
+        public double pathLatX;
+        public double pathLongX;
+        public double pathLatY;
+        public double pathLongY;
     }
 
     /**
@@ -54,18 +59,27 @@ public class GraphController {
     public ResponseEntity<List<Vertex>> storeGraph(@RequestBody GraphRequestData graphRequestData) {
         GraphConstructor graphConstructor = new GraphConstructor(vertexRepository, neo4jTemplate);
 
-        int rows = graphRequestData.rows;
-        int cols = graphRequestData.cols;
+        double finalLat = graphRequestData.finalLat;
+        double finalLong = graphRequestData.finalLong;
         double latZero = graphRequestData.latZero;
         double longZero = graphRequestData.longZero;
+        double pathLatX = graphRequestData.pathLatX;
+        double pathLatY = graphRequestData.pathLatY;
+        double pathLongX = graphRequestData.pathLongX;
+        double pathLongY = graphRequestData.pathLongY;
 
         DtedDatabaseHandler dbRio = GraphConstructor.openDtedDB("dted/Rio");
-        List<Vertex> vertexes = Arrays.asList(graphConstructor.getCoordData(dbRio, rows, cols, latZero, longZero));
 
-        List<Vertex> path = Star.findPath(vertexes.get(0), vertexes.get(vertexes.size() - 1));
-        System.out.println(vertexes.get(0));
-        System.out.println(vertexes.get(vertexes.size() - 1));
-        path.add(vertexes.get(0));
+        Grid grid = new Grid(dbRio, longZero, latZero, finalLong, finalLat);
+
+        grid.findVertex(pathLongX, pathLongY);
+
+        Vertex vertexX = grid.findVertex(pathLongX, pathLatX);
+        Vertex vertexY = grid.findVertex(pathLongY, pathLatY);
+
+        // List<Vertex> vertexes = Arrays.asList(graphConstructor.getCoordData(dbRio, rows, cols, latZero, longZero));
+
+        List<Vertex> path = Star.findPath(vertexX, vertexY);
         Collections.reverse(path);
 
         return ResponseEntity.ok(path);

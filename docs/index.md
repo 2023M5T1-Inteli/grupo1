@@ -37,6 +37,7 @@ Planejador de trajetórias para voos em baixa altitude
       - [Qual a solução proposta:](#qual-a-solução-proposta)
       - [Como a solução proposta deverá ser utilizada:](#como-a-solução-proposta-deverá-ser-utilizada)
       - [Quais os benefícios trazidos pela solução proposta:](#quais-os-benefícios-trazidos-pela-solução-proposta)
+      - [Critério de sucesso:](#critério-de-sucesso)
   - [Variáveis de decisão consideradas](#variáveis-de-decisão-consideradas)
   - [Limitações do problema](#limitações-do-problema)
   - [Representação do Grafo](#representação-do-grafo)
@@ -49,6 +50,7 @@ Planejador de trajetórias para voos em baixa altitude
       - [Poder de negociação dos clientes:](#poder-de-negociação-dos-clientes)
       - [Poder de negociação dos fornecedores:](#poder-de-negociação-dos-fornecedores)
       - [Rivalidade entre os concorrentes:](#rivalidade-entre-os-concorrentes)
+      - [Tendências](#tendências)
       - [Referências:](#referências-1)
   - [Proposta de Valor: Value Proposition Canvas](#proposta-de-valor-value-proposition-canvas)
   - [Matriz de Risco](#matriz-de-risco)
@@ -175,6 +177,15 @@ Na fase de planejamento da operação, com o time de inteligência e outros poss
 
 Um auxílio no planejamento da missão por meio da obtenção de uma rota calculada com base nas variáveis que permita ao piloto viajar com segurança em baixa altitude, evitando zonas de risco e reduzindo sua carga de trabalho, dado que se atentará a menos pontos paralelos à operação enquanto realiza a mesma.
 
+#### Critério de sucesso:
+
+O critério de sucesso da solução, caso fosse implementada, seria medido, basicamente, pela eficácia do sistema em garantir a segurança de voos em baixa altitude. Algumas medidas mais específicas para avaliar esse critério poderiam ser:
+    * Redução de acidentes;
+    * Aumento da eficácia da missão, ou seja, redução do tempo e dos recursos necessários;
+    * Redução da carga de trabalho do piloto, permitindo que ele se concentre em tarefas mais importantes;
+    * Redução dos riscos associados a zonas que deveriam ser evitadas.
+
+
 ## Variáveis de decisão consideradas
 
 * Mapeamento de pontos do espaço que possuem altitude que se adequam aos valores do intervalo estabelecido pela AEL.
@@ -209,6 +220,10 @@ https://www.gov.br/defesa/pt-br/assuntos/seprod/ciencia-e-tecnologia
 * Sobram vagas no setor de tecnologia no Brasil por falta de profissionais qualificados:
 https://g1.globo.com/jornal-nacional/noticia/2022/09/29/sobram-vagas-no-setor-de-tecnologia-no-brasil-por-falta-de-profissionais-qualificados.ghtml
 
+* "Effective project management in the aerospace industry": https://www.emerald.com/insight/content/doi/10.1108/eb037641/full/html
+
+* Burocracia no setor aeroespacial brasileiro: https://www2.camara.leg.br/a-camara/estruturaadm/altosestudos/arquivos/politica-espacial/a-politica-espacial-brasileira
+
 ## Análise da indústria: 5 forças de Porter
 
 As Cinco Forças de Porter é um modelo estratégico desenvolvido por Michael Porter que ajuda a analisar a competição dentro de um setor da indústria. O modelo identifica cinco forças que podem afetar a lucratividade e a competitividade de uma empresa. Ao avaliar essas cinco forças, as empresas podem entender melhor o ambiente competitivo em que operam e tomar decisões estratégicas mais eficientes.
@@ -235,7 +250,11 @@ No que tange ao poder de barganha dos fornecedores, a AEL encontra-se em uma pos
 
 #### Rivalidade entre os concorrentes:
 
-As indústrias de Defesa, Segurança Pública e Aeroespacial são, em suma, mercados do tipo “business-to-business” (empresa e empresa) e “business-to-government” (empresa e governo). Tendo isso em mente, as organizações desses setores não destinam muitos recursos para o marketing de seus produtos e serviços, mas sim para a manutenção das relações já estabelecidas. Nesse contexto, a AEL já possui uma longa história de projetos bem-sucedidos, o que firma sua posição no mercado. Além disso, a companhia ainda possui estreitas relações com possíveis competidores tanto nacionalmente, a exemplo da Embraer, a qual possui parte das ações da AEL, quanto mundialmente, como o renomado grupo Elbit Systems. Portanto, a organização está muito bem situada na indústria.
+As indústrias de Defesa, Segurança Pública e Aeroespacial são, em suma, mercados do tipo “business-to-business” (empresa e empresa) e “business-to-government” (empresa e governo). Tendo isso em mente, as organizações desses setores não destinam muitos recursos para o marketing de seus produtos e serviços, mas sim para a manutenção das relações já estabelecidas. Nesse contexto, a AEL já possui uma longa história de projetos bem-sucedidos, o que firma sua posição no mercado. Além disso, a companhia ainda possui estreitas relações com possíveis competidores tanto nacionalmente, a exemplo da Embraer, a qual possui parte das ações da AEL, quanto mundialmente, como o renomado grupo Elbit Systems. Portanto, a organização está muito bem situada na indústria. Para citar alguns nomes relevantes desse mercado, considerando também um escopo global, podemos citar: Lockheed Martin, maior empresa de defesa do mundo; Boeing, uma das principais empresas aeroespaciais do mundo e que oferece uma ampla gama de produtos; BAE Systems, empresa britânica de defesa e segurança, com operações em diversos países. Num contexto nacional, que é o mais relevante para considerar-se tratando da AEL podemos citar as empresas: IACIT Soluções Tecnológicas, Atech Negócios em Tecnologias S/A, Avibras Indústria Aeroespacial. 
+
+#### Tendências
+
+O setor de defesa militar e aeroespacial é um dos mais importantes e estratégicos em todo o mundo, por isso, existe um enorme atenção direcionada a ele. Com isso, inovações surgem a todo instante. Nos últimos anos, o setor tem apresentado diversas tendências, tais como o aumento da utilização de tecnologias avançadas, como drones e inteligência artificial, para aprimorar as operações militares e aeroespaciais. Além disso, tem ocorrido uma crescente demanda por sistemas de defesa cibernética e de proteção de dados, devido à grande quantidade de informações sensíveis que são manipuladas nesse setor. Outra tendência importante é a busca por soluções de energia renovável e eficiência energética para reduzir a dependência dos combustíveis fósseis e minimizar os impactos ambientais das operações militares e aeroespaciais.
 
 #### Referências:
 
@@ -245,6 +264,8 @@ As indústrias de Defesa, Segurança Pública e Aeroespacial são, em suma, merc
 
 * Políticas de incentivo à indústria de defesa:
 https://www.gov.br/defesa/pt-br/assuntos/industria-de-defesa/base-industrial-de-defesa
+
+* 'Global Defense Outlook 2022-2026': https://aviationanddefensemarketreports.com/download-the-global-defense-outlook-2021-2026/
 
 ## Proposta de Valor: Value Proposition Canvas
 
