@@ -8,19 +8,6 @@
 </tr>
 </table>
 
-# Instruções para o projeto do Módulo 5 de Ciência da Computação
-
-Este repositório define um modelo (*template*) que deve ser seguido por cada grupo para o projeto do módulo 5.
-
-A seguir estão os passos sugeridos para a preparação do seu grupo no início do módulo:
-
-* **Passo 1**: Cada membro do grupo deverá [preparar o seu computador](install.md), instalando e configurando as ferramentas necessárias para redigir a documentação, desenvolver a aplicação e elaborar o artigo.
-
-* **Passo 2**: Cada membro do grupo deverá clonar o repositório do grupo no seu computador e [validar a preparação do seu computador para o projeto](validate.md).
-
-* **Passo 3**: Cada grupo deverá editar este arquivo, removendo estas instruções iniciais e preenchendo o restante da página com os dados do projeto do seu grupo.
-
-
 # Projeto: *Power Routes Generator*
 
 # Grupo: *AeroGuys*
