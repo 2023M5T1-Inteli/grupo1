@@ -70,17 +70,25 @@ public class GraphController {
 
         DtedDatabaseHandler dbRio = GraphConstructor.openDtedDB("dted/Rio");
 
+        //-22.2862,-43.2550 -22.3647,-43.2433
+        //-22.3647,-43.2433
+
+
+        System.out.println("Vai criar a grid");
         Grid grid = new Grid(dbRio, longZero, latZero, finalLong, finalLat);
+        System.out.println("CRIOU A GRID");
 
-        grid.findVertex(pathLongX, pathLongY);
+        //grid.findVertex(pathLongX, pathLongY);
 
-        Vertex vertexX = grid.findVertex(pathLongX, pathLatX);
-        Vertex vertexY = grid.findVertex(pathLongY, pathLatY);
+        System.out.println("MANDANDO");
+        Vertex vertexX = grid.findVertex(-43.2550, -22.2862);
+        System.out.println("vertex x : " + vertexX);
+        Vertex vertexY = grid.findVertex(-43.2433, -22.3647);
+        System.out.println("vertex y : " + vertexY);
 
         // List<Vertex> vertexes = Arrays.asList(graphConstructor.getCoordData(dbRio, rows, cols, latZero, longZero));
 
         List<Vertex> path = Star.findPath(vertexX, vertexY);
-        Collections.reverse(path);
 
         return ResponseEntity.ok(path);
 

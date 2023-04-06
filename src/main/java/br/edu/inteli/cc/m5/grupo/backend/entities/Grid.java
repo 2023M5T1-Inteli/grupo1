@@ -75,7 +75,7 @@ public class Grid {
     for (int i = 0; i < row; i++) { // loop that gets the data row by row
       lon = minLong;
       for (int j = 0; j < col; j++) { // loop that creates all vertices in a row
-        System.out.println(lat + ", " + lon);
+        //System.out.println(lat + ", " + lon);
         double alt = (double) dbDTED.QueryLatLonElevation(lon, lat).get();
 
         Vertex newVert = new Vertex(count, lon, lat, alt);
@@ -100,6 +100,12 @@ public class Grid {
     if (latitude > this.maxLat || latitude < this.minLat || longitude > this.maxLong || longitude < this.minLong) {
       // throw
     }
+
+    System.out.println("latitude: " + latitude);
+    System.out.println("max lat: " + maxLat);
+
+    System.out.println("longitude: " + longitude);
+    System.out.println("min long: " + maxLong);
 
     int row = (int) Math.floor(Math.abs(Math.abs(maxLat) - Math.abs(latitude)) / 0.001111);
     System.out.println("vertex row: " + row);
