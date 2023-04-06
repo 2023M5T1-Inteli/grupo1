@@ -187,6 +187,7 @@ MOROZE, M., L.; SNOW, M., P. Causes and Remedies of Controlled Flight into Terra
 RUNQI, C. et al. A review of optimization techniques in spacecraft flight trajectory design, Progress in Aerospace Sciences, Volume 109, 2019. Disponível em: https://www.sciencedirect.com/science/article/abs/pii/S037604211830191X. Acesso em: 23 marc. 2023.
 
 
-YANG, Y. Optimization of Aircraft Flight Trajectory Combined with Thinking Navigation Algorithm, 2022. Disponível: https://www.hindawi.com/journals/am/2022/6169331/. Acesso em: 22 marc. 2023.
-
 RUSSELL, S. J.; NORVIG, P. Artificial Intelligence: A Modern Approach. 3rd ed. Upper Saddle River, NJ: Pearson, 2014. Acesso em 05 abr. 2023.
+
+
+YANG, Y. Optimization of Aircraft Flight Trajectory Combined with Thinking Navigation Algorithm, 2022. Disponível: https://www.hindawi.com/journals/am/2022/6169331/. Acesso em: 22 marc. 2023.
