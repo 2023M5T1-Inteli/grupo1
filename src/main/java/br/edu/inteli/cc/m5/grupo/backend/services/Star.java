@@ -5,7 +5,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
 
+import br.edu.inteli.cc.m5.dted.DtedDatabaseHandler;
 import br.edu.inteli.cc.m5.grupo.backend.entities.Edge;
+import br.edu.inteli.cc.m5.grupo.backend.entities.Grid;
 import br.edu.inteli.cc.m5.grupo.backend.entities.Vertex;
 import br.edu.inteli.cc.m5.grupo.backend.resources.Node;
 
@@ -52,19 +54,19 @@ public class Star {
 
                 if (node.getParent() == null || edge.getEnd().getId() != node.getParent().getVertex().getId()) {
 
-                    boolean test = true;
+                    boolean unexplored = true;
 
                     Node nextNode = new Node(edge.getEnd(), node, edge, finalVertex); // creating new nodes to be
                                                                                       // explored
 
-                    for (Node node2 : closedList) {
-                        if (node2.getVertex().getId() == nextNode.getVertex().getId() && node2.getParent() != null
-                                && node2.getParent().getVertex().getId() == node.getVertex().getId()) {
-                            test = false;
+                    for (Node explored : closedList) {
+                        if (explored.getVertex().getId() == nextNode.getVertex().getId() && explored.getParent() != null
+                                && explored.getParent().getVertex().getId() == node.getVertex().getId()) {
+                            unexplored = false;
                         }
                     }
 
-                    if (test) { // the node will only be explored if its not in the already
+                    if (unexplored) { // the node will only be explored if its not in the already
                         // explored nodes list
                         openList.add(nextNode);
                     }
@@ -104,6 +106,66 @@ public class Star {
         }
 
         return pathVertices;
+
+    }
+
+    public static void main(String[] args) {
+
+        DtedDatabaseHandler dbRio = GraphConstructor.openDtedDB("dted/Rio");
+
+        // int l = 5;
+
+        double latZero = -22.110;
+        double longZero = -43.893;
+
+        for (int i = 1; i <= 1; i++) {
+
+            double finalLat = -22.4274;
+            double finalLong = -42.9076;
+
+            Grid grid = new Grid(dbRio, longZero, latZero, finalLong, finalLat);
+
+            //
+
+            Vertex start = grid.findVertex(longZero, latZero);
+
+            System.out.println("start vertex: " + start);
+
+            System.out.println("last vertex: " + grid.getVertices()[grid.getVertices().length - 1]);
+
+            Vertex end = grid.findVertex(grid.getVertices()[grid.getVertices().length - 1].getLongitude(),
+                    grid.getVertices()[grid.getVertices().length - 1].getLatitude());
+
+            System.out.println("end vertex: " + end);
+
+            List<Vertex> path = findPath(grid.getVertices()[0],
+                    grid.getVertices()[grid.getVertices().length - 1]);
+
+            System.out.println("path found:");
+
+            // for (Vertex v : path) {
+            // System.out.println(v);
+            // }
+
+            // List<Integer> index = new ArrayList<Integer>();
+
+            // for (Vertex v : path) {
+            // index.add((int) v.getId());
+            // }
+
+            // for (int j = 0; i < grid.getRows(); i++) {
+            // for (int k = 0; k < grid.getCols(); k++) {
+            // if (index.contains(j * grid.getCols() + k)) {
+            // System.out.print(" x ");
+            // } else {
+            // System.out.print(" - ");
+            // }
+
+            // }
+            // System.out.println(" ");
+            // }
+
+        }
 
     }
 

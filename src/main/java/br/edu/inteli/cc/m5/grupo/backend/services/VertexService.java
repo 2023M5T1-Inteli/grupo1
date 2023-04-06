@@ -3,6 +3,7 @@
 This class is responsible for providing services related to vertices in the application.
 */
 package br.edu.inteli.cc.m5.grupo.backend.services;
+
 import org.springframework.stereotype.Service;
 
 import br.edu.inteli.cc.m5.grupo.backend.repositories.VertexRepository;
@@ -15,6 +16,7 @@ public class VertexService {
 
     /**
      * Constructs a new VertexService instance, initializing the vertex repository.
+     * 
      * @param vertexRepository the repository used to manage vertices.
      */
     public VertexService(VertexRepository vertexRepository) {
@@ -23,6 +25,7 @@ public class VertexService {
 
     /**
      * Adds an edge between two vertices.
+     * 
      * @param v1 the first vertex.
      * @param v2 the second vertex.
      */
@@ -32,6 +35,7 @@ public class VertexService {
 
     /**
      * Adds a new vertex to the repository.
+     * 
      * @param vertex the vertex to be added.
      * @return the added vertex.
      */
@@ -41,6 +45,7 @@ public class VertexService {
 
     /**
      * Retrieves all vertices from the repository.
+     * 
      * @return an iterable containing all vertices.
      */
     public Iterable<Vertex> getAllVertices() {
@@ -49,6 +54,7 @@ public class VertexService {
 
     /**
      * Retrieves a vertex by its id from the repository.
+     * 
      * @param id the id of the vertex.
      * @return the vertex with the given id, or null if it is not found.
      */

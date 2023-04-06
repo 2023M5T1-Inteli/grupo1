@@ -18,10 +18,27 @@ const handleForm = () => {
 
 const postGraph = async () => {
 
-    const longZero = parseFloat(document.querySelector('#min-long').value);
-    const latZero = parseFloat(document.querySelector('#min-lat').value);
-    const rows = parseInt(document.querySelector('#rows').value);
-    const cols = parseInt(document.querySelector('#cols').value);
+    // const longZero = parseFloat(document.querySelector('#min-long').value);
+    // const latZero = parseFloat(document.querySelector('#min-lat').value);
+    const longZero = -22.5889042043;
+    const latZero = -43.4855748;
+    const finalLat = parseFloat(document.querySelector('#final-lat').value);
+    const finalLong = parseFloat(document.querySelector('#final-long').value);
+    const pathLatX = parseFloat(document.querySelector('#path-lat-x').value)
+    const pathLongX = parseFloat(document.querySelector('#path-long-x').value)
+    const pathLatY = parseFloat(document.querySelector('#path-lat-y').value)
+    const pathLongY = parseFloat(document.querySelector('#path-long-y').value)
+
+    console.log(`
+    longZero: ${longZero},
+    latZero: ${latZero},
+    finalLat: ${finalLat},
+    finalLong: ${finalLong},
+    pathLatX: ${pathLatX},
+    pathLongX: ${pathLongX},
+    pathLatY: ${pathLatY}
+    pathLongY: ${pathLongY}
+    `)
 
     myMap.setView([latZero, longZero], 15);
 
@@ -33,8 +50,8 @@ const postGraph = async () => {
         body: JSON.stringify({
             longZero: longZero,
             latZero: latZero,    
-            rows: rows,
-            cols: cols
+            finalLat: finalLat,
+            finalLong: finalLong
         })
     }
 
@@ -75,6 +92,8 @@ var myMap = L.map(idMap).setView([-22.5889042043, -43.4855748], 8);
 
 
 const createSvg = (data) => {
+
+    console.log(data)
 
     for (i = 0; i != data.length; i++){
         // create the initial points and the others
