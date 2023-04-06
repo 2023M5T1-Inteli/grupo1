@@ -47,7 +47,7 @@ Nesta seção irá conter o passo a passo para rodar nossa aplicação:
 
 Para a utilização da aplicação é necessário baixar o docker, vá na página oficial do Docker neste [link](https://www.docker.com/products/docker-desktop/) e clique para dar download no seu sistema operacional específico, como mostra a imagem abaixo com o sistema operacional Windows:
 
-![imagem do download do Docker](../grupo1/docs/img/docker_download.PNG)
+![imagem do download do Docker](../grupo1/docs/img/docker_download.png)
 
 **Segundo passo:**
 
@@ -61,7 +61,7 @@ docker run --publish=7474:7474 --publish=7687:7687 -e NEO4J_AUTH=neo4j/12341234 
 
 Com o projeto aberto no vscode, vá até o arquivo MainApplication.java e no próprio arquivo clique em "Run":
 
-![imagem de arquivo](../grupo1/docs/img/roda_aplicacao.PNG)
+![imagem de arquivo](../grupo1/docs/img/roda_aplicacao.png)
 
 # Releases
 
