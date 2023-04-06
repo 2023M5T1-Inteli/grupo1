@@ -6,7 +6,7 @@ Este manual foi criado com o intuito de orientar o usuário no decorrer de sua j
 
 Clique no botão de seta na primeira página:
 
-![Primeira página](../docs/img/primeira-pagina.PNG)
+![Primeira página](../docs/img/primeira-pagina.png)
 
 **Segundo Passo:**
 

@@ -142,7 +142,7 @@ Portanto, apesar das observações e explicações simplificadas das análises o
 
 ![Resultados dos testes](../docs/img/Grid.PNG)
 
-O conteúdo apresentado anteriormente está de acordo com a linha de raciocínio adotada, pois à medida que a área aumenta, a performance da criação da malha de pontos (grafo) e da trajetória gerada diminui. No entanto, mesmo em grandes quantidades, como 14.400 quilômetros quadrados, o tempo de geração ainda se mantém na casa dos milissegundos, o que se repete na criação do caminho.
+O conteúdo apresentado anteriormente está de acordo com a linha de raciocínio adotada, pois à medida que a área aumenta, a performance da criação da malha de pontos (grafo) e da trajetória gerada diminui. No entanto, mesmo em grandes quantidades, como 14.400 quilômetros quadrados, e levando em consideração o contexto da tabela esse seria o nosso pior caso, o tempo de geração ainda se mantém na casa dos milissegundos, o que se repete na criação do caminho, que reforçando segue o processo de geração através da heurística do A*, com uma rota sempre priorizando o menor custo.
 
 Diante dos resultados obtidos nos testes realizados, pode-se concluir que o algoritmo A* é eficiente e eficaz na geração de caminhos otimizados para uso na tecnologia de terrain following.
 
