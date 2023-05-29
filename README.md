@@ -52,21 +52,21 @@ Com o projeto aberto no vscode, vá até o arquivo MainApplication.java e no pr�
 # Releases
 
 * 10/02/2023<br>
-  * Entendimento da Experiência do Usuário<br>
+  * Entendimento da Experiência do Usuário;<br>
   * Entendimento de Negócio;<br>
   * Entendimento do contexto do problema: modelagem e representação;<br>
 * 25/02/2023<br>
   * Artigo - versão inicial;<br>
-  * Entendimento do contexto do problema<br>
+  * Entendimento do contexto do problema;<br>
   * Gerenciamento do Grafo;<br>
   * Repositório do Código<br>
 * 12/03/2023<br>
-  * Artigo - Motivação, metodologia e revisão bibliográfica<br>
+  * Artigo - Motivação, metodologia e revisão bibliográfica;<br>
   * Back-end da aplicação;<br>
   * Front-end da aplicação;<br>
   * Repositório de código da aplicação;<br>
 * 27/03/2023<br>
-  * Artigo - Resultados e conclusões<br>
+  * Artigo - Resultados e conclusões;<br>
   * Aplicação integrada;<br>
   * Complexidade e corretude do algoritmo;<br>
   * Repositório de código da aplicação;<br>
