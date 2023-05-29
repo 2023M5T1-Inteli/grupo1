@@ -76,4 +76,6 @@ Com o projeto aberto no vscode, vá até o arquivo MainApplication.java e no pr�
   * Refinamento da aplicação;<br>
   * Refinamento e validação dos artefatos de negócio<br>
 
+# Licença
 
+Este projeto utiliza a [licença Apache 2.0](LICENSE).
