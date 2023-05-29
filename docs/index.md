@@ -339,54 +339,9 @@ missão. | 9 | A fazer |
  |
 
 
-# Arquitetura do Sistema
-
-## Módulos do Sistema e Visão Geral (Big Picture)
-
-## Descrição dos Subsistemas
-
-### Requisitos de software
-
-
-## Tecnologias Utilizadas
-
-
-# UX e UI Design
-
-## Wireframe + Storyboard
-
-## Design de Interface - Guia de Estilos
-
-
-# Projeto de Banco de Dados
-
-## Modelo Conceitual
-
-## Modelo Lógico
-
-
-# Teste de Software
-
-## Testes Unitários
-
-## Teste de Usabilidade
 
 ## Teste de API
 
 [Execução do teste](https://documenter.getpostman.com/view/26173488/2s93JtRPmH)
 
 
-# Análise de Dados
-
-
-# Manuais
-
-## Manual de Implantação
-
-## Manual do Usuário
-
-## Manual do Administrador
-
-
-
-# Referências
