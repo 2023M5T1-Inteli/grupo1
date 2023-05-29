@@ -54,7 +54,7 @@ Com o projeto aberto no vscode, vá até o arquivo MainApplication.java e no pr�
 * 10/02/2023<br>
   * Entendimento da Experiência do Usuário;<br>
   * Entendimento de Negócio;<br>
-  * Entendimento do contexto do problema: modelagem e representação;<br>
+  * Entendimento do contexto do problema: modelagem e representação<br>
 * 25/02/2023<br>
   * Artigo - versão inicial;<br>
   * Entendimento do contexto do problema;<br>
@@ -69,7 +69,7 @@ Com o projeto aberto no vscode, vá até o arquivo MainApplication.java e no pr�
   * Artigo - Resultados e conclusões;<br>
   * Aplicação integrada;<br>
   * Complexidade e corretude do algoritmo;<br>
-  * Repositório de código da aplicação;<br>
+  * Repositório de código da aplicação<br>
 * 06/04/2023<br>
   * Artigo completo;<br>
   * Sistema completo construído (versão final);<br>
