@@ -64,7 +64,7 @@ Com o projeto aberto no vscode, vá até o arquivo MainApplication.java e no pr�
   * Artigo - Motivação, metodologia e revisão bibliográfica;<br>
   * Back-end da aplicação;<br>
   * Front-end da aplicação;<br>
-  * Repositório de código da aplicação;<br>
+  * Repositório de código da aplicação<br>
 * 27/03/2023<br>
   * Artigo - Resultados e conclusões;<br>
   * Aplicação integrada;<br>
