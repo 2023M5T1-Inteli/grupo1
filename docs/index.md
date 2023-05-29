@@ -280,9 +280,6 @@ A Matriz de Risco é uma ferramenta utilizada para avaliar e gerenciar os riscos
 ![Matriz de Riscos](img/matriz_de_riscos.png)
 ![Matriz de Oportunidades](img/matriz_de_oportunidades.png)
 
-# Requisitos do Sistema
-
-*Descrição_dos_requisitos*
 
 ## Personas
 
